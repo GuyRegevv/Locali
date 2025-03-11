@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
+import LanderContent from "../components/LanderContent";
 
 function App() {
   return (
-    <main>
+    <div className="min-h-screen bg-gray-100">
       <Header />
-      <div></div>
-      <div className="text-lg text-gray-600">More Fun</div>
-    </main>
+      <LanderContent />
+    </div>
   );
 }
 
