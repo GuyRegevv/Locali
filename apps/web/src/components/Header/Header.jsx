@@ -1,11 +1,11 @@
 import React from "react";
-import { fakeUserData } from "../../../../Data/fake-data.js";
-import HomeButton from "../components/buttons/HomeButton.jsx";
-import SavedPlacesButton from "../components/buttons/SavedPlacesButton.jsx";
-import AddListButton from "../components/buttons/AddListButton.jsx";
-import UserLocation from "../components/UserLocation.jsx";
-import UserDetails from "../components/UserDetails.jsx";
-import Logo from "../components/Logo.jsx";
+import { fakeUserData } from "../../../../../Data/fake-data.js";
+import HomeButton from "../buttons/HomeButton.jsx";
+import SavedPlacesButton from "../buttons/SavedPlacesButton.jsx";
+import AddListButton from "../buttons/AddListButton.jsx";
+import UserLocation from "./UserLocation.jsx";
+import UserDetails from "./UserDetails.jsx";
+import Logo from "../Logo.jsx";
 
 export default function Header() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header";
-import LanderContent from "../components/LanderContent";
+import Header from "../components/Header/Header";
+import LanderContent from "../components/Lander/LanderContent";
 
 function App() {
   return (
