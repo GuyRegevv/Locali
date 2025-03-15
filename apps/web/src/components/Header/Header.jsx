@@ -7,7 +7,7 @@ import UserLocation from "./UserLocation.jsx";
 import UserDetails from "./UserDetails.jsx";
 import Logo from "../Logo.jsx";
 
-export default function Header() {
+export default function Header({ onLogout }) {
   return (
     <div className="w-full">
       <header className="flex items-center px-4 py-3 bg-white relative">
@@ -23,11 +23,25 @@ export default function Header() {
           <Logo />
         </div>
 
-        {/* Right section - User info */}
+        {/* Right section - User info and logout */}
         <div className="flex items-center justify-end w-2/3">
           <div className="flex items-center">
             <UserLocation location={fakeUserData[0].location} />
             <UserDetails user={fakeUserData[0]} />
+
+            {/* Logout button with Bootstrap icon */}
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="ml-4 p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
+                title="Logout"
+              >
+                <i
+                  className="bi bi-box-arrow-right"
+                  style={{ fontSize: "20px" }}
+                ></i>
+              </button>
+            )}
           </div>
         </div>
       </header>
