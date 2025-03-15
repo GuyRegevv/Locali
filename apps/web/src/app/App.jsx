@@ -1,26 +1,46 @@
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "../components/Header/Header";
-import MainContent from "../components/Lander/LanderMainContent";
+import LanderContent from "../components/Lander/LanderContent";
 import AuthPage from "../pages/authPage";
 
 function App() {
-  // For step 1, we'll use a simple state to toggle between auth and main page
-  // Later this will be replaced with proper authentication
+  // Simple state to track login status (will be replaced with Firebase later...)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {isLoggedIn ? (
-        // Main app when logged in
-        <>
-          <Header onLogout={() => setIsLoggedIn(false)} />
-          <MainContent />
-        </>
-      ) : (
-        // Auth page when not logged in
-        <AuthPage onLoginSuccess={() => setIsLoggedIn(true)} />
-      )}
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-100">
+        <Routes>
+          <Route
+            path="/login"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/" />
+              ) : (
+                <AuthPage onLoginSuccess={() => setIsLoggedIn(true)} />
+              )
+            }
+          />
+
+          <Route
+            path="/"
+            element={
+              isLoggedIn ? (
+                <>
+                  <Header onLogout={() => setIsLoggedIn(false)} />
+                  <LanderContent />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
