@@ -8,7 +8,7 @@ export const Header = () => {
         console.log('Home clicked');
     }
     return (
-        <div className="flex justify-between items center w-full h-20 px-4 border-4 border-red-400 bg-[#ddf9ce]">
+        <div className="relative flex justify-between items-center w-full h-20 px-4 bg-[#ddf9ce]">
             <div className="flex justify-center items-center border-2 border-blue-300">
                 <button className="w-12 h-12 mx-3 border-2 flex items-center justify-center bg-white rounded hover:bg-gray-200" onClick={handleHomeClick}>
                     <HomeIcon className='h-6 w-6'/>
@@ -20,7 +20,7 @@ export const Header = () => {
                     <PlusCircleIcon className='h-6 w-6'/>
                 </button>
             </div>
-            <div className='border-4 border-pink-400'>
+            <div className='border-4 border-pink-400 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"">'>
                 <GlobeAltIcon className='h-16 w-16'/>
             </div>
             <div className='flex justify-between items-center border-4 border-brown-400'>

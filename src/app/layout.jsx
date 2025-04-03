@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import { Header } from "@/components/layouts/Header"
+import { Footer } from "@/components/layouts/Footer"
 
 export const metadata = {
   title: 'Next.js',
@@ -8,7 +10,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <div className="flex flex-col min-h-screen">
+        <Header className="w-full" />
+        
+        <main className="flex flex-grow">
+          {children}
+        </main>
+        
+        <Footer className="w-full" />
+      </div>
+      </body>
     </html>
   )
 }
