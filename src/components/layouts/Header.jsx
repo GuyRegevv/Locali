@@ -20,7 +20,7 @@ export const Header = () => {
                     <PlusCircleIcon className='h-6 w-6'/>
                 </button>
             </div>
-            <div className='border-4 border-pink-400 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"">'>
+            <div className='border-4 border-pink-400 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">'>
                 <GlobeAltIcon className='h-16 w-16'/>
             </div>
             <div className='flex justify-between items-center border-4 border-brown-400'>
