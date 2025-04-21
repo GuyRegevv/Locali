@@ -1,0 +1,832 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "name": "Best Vegan Spots in Portland",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "description": "the best list in the world",
+      "creator": {
+        "id": 101,
+        "name": "Alex Johnson",
+        "username": "veganfoodie"
+      },
+      "location": {
+        "country": "United States",
+        "city": "Portland",
+        "coordinates": {
+          "latitude": 45.5152,
+          "longitude": -122.6784
+        }
+      },
+      "likes": 342,
+      "placeCount": 8,
+      "createdAt": "2025-01-15T08:30:00Z",
+      "updatedAt": "2025-03-21T14:45:00Z",
+      "places": [
+        {
+          "id": 1001,
+          "name": "Blossoming Lotus",
+          "address": "1713 NE 15th Ave, Portland, OR 97212",
+          "description": "Upscale vegan fusion cuisine with organic ingredients",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/blossoming_lotus_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5352,
+            "longitude": -122.6504
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Vtopia Cheese Shop & Deli",
+          "address": "1628 SW Jefferson St, Portland, OR 97201",
+          "description": "Artisanal vegan cheese shop with sandwiches and small plates",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/vtopia_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5191,
+            "longitude": -122.6906
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Farm Spirit",
+          "address": "1403 SE Belmont St, Portland, OR 97214",
+          "description": "Farm-to-table vegan tasting menu experience",
+          "rating": 4.9,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/farm_spirit_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5168,
+            "longitude": -122.6515
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Homegrown Smoker",
+          "address": "8638 N Lombard St, Portland, OR 97203",
+          "description": "Vegan BBQ and comfort food classics",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/homegrown_smoker_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5892,
+            "longitude": -122.7536
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Ichiza Kitchen",
+          "address": "1628 SW Jefferson St, Portland, OR 97201",
+          "description": "Pan-Asian vegan cuisine featuring dim sum and noodles",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/ichiza_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5191,
+            "longitude": -122.6906
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Canteen",
+          "address": "2816 SE Stark St, Portland, OR 97214",
+          "description": "Healthy vegan bowls, smoothies and juices",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/canteen_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5192,
+            "longitude": -122.6360
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Aviv",
+          "address": "1125 SE Division St, Portland, OR 97202",
+          "description": "Middle Eastern vegan cuisine with fresh ingredients",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/aviv_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5046,
+            "longitude": -122.6541
+          }
+        },
+        {
+          "id": 1008,
+          "name": "Virtuous Pie",
+          "address": "1126 SE Division St #200, Portland, OR 97202",
+          "description": "Artisanal plant-based pizza and ice cream",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/virtuous_pie_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5047,
+            "longitude": -122.6540
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tokyo's Modern Art Escapes",
+      "genre": "Arts & Culture",
+      "subgenre": "Modern Museums",
+      "creator": {
+        "id": 102,
+        "name": "Miko Tanaka",
+        "username": "tokyoartlover"
+      },
+      "location": {
+        "country": "Japan",
+        "city": "Tokyo",
+        "coordinates": {
+          "latitude": 35.6762,
+          "longitude": 139.6503
+        }
+      },
+      "likes": 517,
+      "placeCount": 6,
+      "createdAt": "2024-11-03T10:15:00Z",
+      "updatedAt": "2025-04-02T09:30:00Z",
+      "places": [
+        {
+          "id": 2001,
+          "name": "Mori Art Museum",
+          "address": "Roppongi Hills Mori Tower, 6-10-1 Roppongi, Minato-ku, Tokyo",
+          "description": "Contemporary art with spectacular city views from the 53rd floor",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/mori_art_museum_1.jpg"],
+          "coordinates": {
+            "latitude": 35.6605,
+            "longitude": 139.7292
+          }
+        },
+        {
+          "id": 2002,
+          "name": "teamLab Borderless",
+          "address": "Palette Town, 1-3-8 Aomi, Koto-ku, Tokyo",
+          "description": "Immersive digital art museum with interactive installations",
+          "rating": 4.9,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/teamlab_borderless_1.jpg"],
+          "coordinates": {
+            "latitude": 35.6246,
+            "longitude": 139.7763
+          }
+        },
+        {
+          "id": 2003,
+          "name": "21_21 DESIGN SIGHT",
+          "address": "Tokyo Midtown, 9-7-6 Akasaka, Minato-ku, Tokyo",
+          "description": "Design museum directed by fashion designer Issey Miyake",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": ["https://example.com/images/21_21_design_sight_1.jpg"],
+          "coordinates": {
+            "latitude": 35.6657,
+            "longitude": 139.7313
+          }
+        },
+        {
+          "id": 2004,
+          "name": "Nezu Museum",
+          "address": "6-5-1 Minami-Aoyama, Minato-ku, Tokyo",
+          "description": "Traditional Asian art in a stunning modern building with gardens",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/nezu_museum_1.jpg"],
+          "coordinates": {
+            "latitude": 35.6628,
+            "longitude": 139.7183
+          }
+        },
+        {
+          "id": 2005,
+          "name": "National Art Center",
+          "address": "7-22-2 Roppongi, Minato-ku, Tokyo",
+          "description": "One of Japan's largest exhibition spaces with rotating exhibits",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": ["https://example.com/images/national_art_center_1.jpg"],
+          "coordinates": {
+            "latitude": 35.6657,
+            "longitude": 139.7262
+          }
+        },
+        {
+          "id": 2006,
+          "name": "Yayoi Kusama Museum",
+          "address": "107 Bentencho, Shinjuku-ku, Tokyo",
+          "description": "Dedicated to the works of the iconic polka dot artist",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/kusama_museum_1.jpg"],
+          "coordinates": {
+            "latitude": 35.7040,
+            "longitude": 139.7106
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Vintage Gems of Paris",
+      "genre": "Shopping",
+      "subgenre": "Vintage Shops",
+      "creator": {
+        "id": 103,
+        "name": "Sophie Dubois",
+        "username": "parisfashionista"
+      },
+      "location": {
+        "country": "France",
+        "city": "Paris",
+        "coordinates": {
+          "latitude": 48.8566,
+          "longitude": 2.3522
+        }
+      },
+      "likes": 689,
+      "placeCount": 7,
+      "createdAt": "2025-02-07T15:45:00Z",
+      "updatedAt": "2025-04-10T11:20:00Z",
+      "places": [
+        {
+          "id": 3001,
+          "name": "Kiliwatch",
+          "address": "64 Rue Tiquetonne, 75002 Paris",
+          "description": "Curated vintage and contemporary fashion in a former post office",
+          "rating": 4.5,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/kiliwatch_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8649,
+            "longitude": 2.3478
+          }
+        },
+        {
+          "id": 3002,
+          "name": "FREE'P'STAR",
+          "address": "61 Rue de la Verrerie, 75004 Paris",
+          "description": "Affordable vintage clothing with items by weight",
+          "rating": 4.3,
+          "priceRange": "$",
+          "images": ["https://example.com/images/freepstar_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8578,
+            "longitude": 2.3531
+          }
+        },
+        {
+          "id": 3003,
+          "name": "Thanx God I'm a V.I.P",
+          "address": "12 Rue de Lancry, 75010 Paris",
+          "description": "High-end designer vintage in a luxurious setting",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/thanx_god_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8696,
+            "longitude": 2.3642
+          }
+        },
+        {
+          "id": 3004,
+          "name": "Vintage Désir",
+          "address": "32 Rue des Rosiers, 75004 Paris",
+          "description": "Classic vintage pieces from the 1950s-1990s",
+          "rating": 4.4,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/vintage_desir_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8568,
+            "longitude": 2.3584
+          }
+        },
+        {
+          "id": 3005,
+          "name": "Episode",
+          "address": "12-14 Rue Tiquetonne, 75002 Paris",
+          "description": "International vintage chain with hand-selected pieces",
+          "rating": 4.2,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/episode_paris_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8647,
+            "longitude": 2.3462
+          }
+        },
+        {
+          "id": 3006,
+          "name": "Mamie Blue",
+          "address": "69 Rue de Rochechouart, 75009 Paris",
+          "description": "Eclectic mix of clothing and accessories from the 1920s-1980s",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/mamie_blue_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8788,
+            "longitude": 2.3447
+          }
+        },
+        {
+          "id": 3007,
+          "name": "Chinemachine",
+          "address": "100 Rue des Martyrs, 75018 Paris",
+          "description": "Carefully curated vintage pieces with Parisian flair",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/chinemachine_1.jpg"],
+          "coordinates": {
+            "latitude": 48.8830,
+            "longitude": 2.3403
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Melbourne Coffee Culture",
+      "genre": "Food & Drink",
+      "subgenre": "Coffee Shops",
+      "creator": {
+        "id": 104,
+        "name": "James Cooper",
+        "username": "melbournecoffeehunter"
+      },
+      "location": {
+        "country": "Australia",
+        "city": "Melbourne",
+        "coordinates": {
+          "latitude": -37.8136,
+          "longitude": 144.9631
+        }
+      },
+      "likes": 476,
+      "placeCount": 6,
+      "createdAt": "2024-12-12T06:20:00Z",
+      "updatedAt": "2025-03-28T22:15:00Z",
+      "places": [
+        {
+          "id": 4001,
+          "name": "Patricia Coffee Brewers",
+          "address": "Corner Little Bourke & Little William St, Melbourne VIC 3000",
+          "description": "Tiny standing-room-only cafe with exceptional coffee",
+          "rating": 4.9,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/patricia_1.jpg"],
+          "coordinates": {
+            "latitude": -37.8142,
+            "longitude": 144.9581
+          }
+        },
+        {
+          "id": 4002,
+          "name": "Market Lane Coffee",
+          "address": "Queen Victoria Market, 109-111 Therry St, Melbourne VIC 3000",
+          "description": "Specialty coffee roaster with single-origin focus",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/market_lane_1.jpg"],
+          "coordinates": {
+            "latitude": -37.8071,
+            "longitude": 144.9568
+          }
+        },
+        {
+          "id": 4003,
+          "name": "Brother Baba Budan",
+          "address": "359 Little Bourke St, Melbourne VIC 3000",
+          "description": "Quirky cafe with chairs hanging from the ceiling",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/brother_baba_budan_1.jpg"],
+          "coordinates": {
+            "latitude": -37.8134,
+            "longitude": 144.9624
+          }
+        },
+        {
+          "id": 4004,
+          "name": "St. Ali",
+          "address": "12-18 Yarra Pl, South Melbourne VIC 3205",
+          "description": "Pioneer of Melbourne's specialty coffee scene",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/st_ali_1.jpg"],
+          "coordinates": {
+            "latitude": -37.8306,
+            "longitude": 144.9599
+          }
+        },
+        {
+          "id": 4005,
+          "name": "Industry Beans",
+          "address": "3/62 Rose St, Fitzroy VIC 3065",
+          "description": "Award-winning roastery and brew bar in a warehouse space",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/industry_beans_1.jpg"],
+          "coordinates": {
+            "latitude": -37.7985,
+            "longitude": 144.9783
+          }
+        },
+        {
+          "id": 4006,
+          "name": "Seven Seeds",
+          "address": "114 Berkeley St, Carlton VIC 3053",
+          "description": "Micro-roastery in a converted warehouse with laboratory feel",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/seven_seeds_1.jpg"],
+          "coordinates": {
+            "latitude": -37.8029,
+            "longitude": 144.9584
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Hidden Bookstores of New York",
+      "genre": "Shopping",
+      "subgenre": "Bookstores",
+      "creator": {
+        "id": 105,
+        "name": "Emily Chen",
+        "username": "bookwormnyc"
+      },
+      "location": {
+        "country": "United States",
+        "city": "New York",
+        "coordinates": {
+          "latitude": 40.7128,
+          "longitude": -74.0060
+        }
+      },
+      "likes": 823,
+      "placeCount": 7,
+      "createdAt": "2025-01-30T14:10:00Z",
+      "updatedAt": "2025-04-15T16:35:00Z",
+      "places": [
+        {
+          "id": 5001,
+          "name": "The Mysterious Bookshop",
+          "address": "58 Warren St, New York, NY 10007",
+          "description": "World's oldest and largest mystery specialty store",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/mysterious_bookshop_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7137,
+            "longitude": -74.0086
+          }
+        },
+        {
+          "id": 5002,
+          "name": "Three Lives & Company",
+          "address": "238 W 10th St, New York, NY 10014",
+          "description": "Charming neighborhood bookstore with carefully curated selection",
+          "rating": 4.9,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/three_lives_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7342,
+            "longitude": -74.0036
+          }
+        },
+        {
+          "id": 5003,
+          "name": "Housing Works Bookstore Cafe",
+          "address": "126 Crosby St, New York, NY 10012",
+          "description": "Non-profit bookstore with proceeds supporting homeless and HIV/AIDS",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": ["https://example.com/images/housing_works_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7254,
+            "longitude": -73.9972
+          }
+        },
+        {
+          "id": 5004,
+          "name": "Alabaster Bookshop",
+          "address": "122 4th Ave, New York, NY 10003",
+          "description": "Used bookstore with rare finds and friendly cat",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": ["https://example.com/images/alabaster_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7317,
+            "longitude": -73.9900
+          }
+        },
+        {
+          "id": 5005,
+          "name": "Argosy Book Store",
+          "address": "116 E 59th St, New York, NY 10022",
+          "description": "Six-floor antiquarian bookstore established in 1925",
+          "rating": 4.8,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/argosy_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7622,
+            "longitude": -73.9696
+          }
+        },
+        {
+          "id": 5006,
+          "name": "Book Club",
+          "address": "197 E 3rd St, New York, NY 10009",
+          "description": "Bar and bookstore with literary events and readings",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/book_club_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7232,
+            "longitude": -73.9841
+          }
+        },
+        {
+          "id": 5007,
+          "name": "Strand Book Store",
+          "address": "828 Broadway, New York, NY 10003",
+          "description": "Iconic bookstore with '18 miles of books'",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/strand_1.jpg"],
+          "coordinates": {
+            "latitude": 40.7337,
+            "longitude": -73.9903
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Best Vegan Spots in Portland",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "description": "the best list in the world",
+      "creator": {
+        "id": 101,
+        "name": "Alex Johnson",
+        "username": "veganfoodie"
+      },
+      "location": {
+        "country": "United States",
+        "city": "Portland",
+        "coordinates": {
+          "latitude": 45.5152,
+          "longitude": -122.6784
+        }
+      },
+      "likes": 342,
+      "placeCount": 8,
+      "createdAt": "2025-01-15T08:30:00Z",
+      "updatedAt": "2025-03-21T14:45:00Z",
+      "places": [
+        {
+          "id": 1001,
+          "name": "Blossoming Lotus",
+          "address": "1713 NE 15th Ave, Portland, OR 97212",
+          "description": "Upscale vegan fusion cuisine with organic ingredients",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/blossoming_lotus_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5352,
+            "longitude": -122.6504
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Vtopia Cheese Shop & Deli",
+          "address": "1628 SW Jefferson St, Portland, OR 97201",
+          "description": "Artisanal vegan cheese shop with sandwiches and small plates",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/vtopia_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5191,
+            "longitude": -122.6906
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Farm Spirit",
+          "address": "1403 SE Belmont St, Portland, OR 97214",
+          "description": "Farm-to-table vegan tasting menu experience",
+          "rating": 4.9,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/farm_spirit_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5168,
+            "longitude": -122.6515
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Homegrown Smoker",
+          "address": "8638 N Lombard St, Portland, OR 97203",
+          "description": "Vegan BBQ and comfort food classics",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/homegrown_smoker_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5892,
+            "longitude": -122.7536
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Ichiza Kitchen",
+          "address": "1628 SW Jefferson St, Portland, OR 97201",
+          "description": "Pan-Asian vegan cuisine featuring dim sum and noodles",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/ichiza_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5191,
+            "longitude": -122.6906
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Canteen",
+          "address": "2816 SE Stark St, Portland, OR 97214",
+          "description": "Healthy vegan bowls, smoothies and juices",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/canteen_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5192,
+            "longitude": -122.6360
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Aviv",
+          "address": "1125 SE Division St, Portland, OR 97202",
+          "description": "Middle Eastern vegan cuisine with fresh ingredients",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/aviv_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5046,
+            "longitude": -122.6541
+          }
+        },
+        {
+          "id": 1008,
+          "name": "Virtuous Pie",
+          "address": "1126 SE Division St #200, Portland, OR 97202",
+          "description": "Artisanal plant-based pizza and ice cream",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/virtuous_pie_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5047,
+            "longitude": -122.6540
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Best Vegan Spots in Portland",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "description": "the best list in the world",
+      "creator": {
+        "id": 101,
+        "name": "Alex Johnson",
+        "username": "veganfoodie"
+      },
+      "location": {
+        "country": "United States",
+        "city": "Portland",
+        "coordinates": {
+          "latitude": 45.5152,
+          "longitude": -122.6784
+        }
+      },
+      "likes": 342,
+      "placeCount": 8,
+      "createdAt": "2025-01-15T08:30:00Z",
+      "updatedAt": "2025-03-21T14:45:00Z",
+      "places": [
+        {
+          "id": 1001,
+          "name": "Blossoming Lotus",
+          "address": "1713 NE 15th Ave, Portland, OR 97212",
+          "description": "Upscale vegan fusion cuisine with organic ingredients",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/blossoming_lotus_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5352,
+            "longitude": -122.6504
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Vtopia Cheese Shop & Deli",
+          "address": "1628 SW Jefferson St, Portland, OR 97201",
+          "description": "Artisanal vegan cheese shop with sandwiches and small plates",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/vtopia_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5191,
+            "longitude": -122.6906
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Farm Spirit",
+          "address": "1403 SE Belmont St, Portland, OR 97214",
+          "description": "Farm-to-table vegan tasting menu experience",
+          "rating": 4.9,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/farm_spirit_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5168,
+            "longitude": -122.6515
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Homegrown Smoker",
+          "address": "8638 N Lombard St, Portland, OR 97203",
+          "description": "Vegan BBQ and comfort food classics",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/homegrown_smoker_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5892,
+            "longitude": -122.7536
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Ichiza Kitchen",
+          "address": "1628 SW Jefferson St, Portland, OR 97201",
+          "description": "Pan-Asian vegan cuisine featuring dim sum and noodles",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/ichiza_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5191,
+            "longitude": -122.6906
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Canteen",
+          "address": "2816 SE Stark St, Portland, OR 97214",
+          "description": "Healthy vegan bowls, smoothies and juices",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/canteen_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5192,
+            "longitude": -122.6360
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Aviv",
+          "address": "1125 SE Division St, Portland, OR 97202",
+          "description": "Middle Eastern vegan cuisine with fresh ingredients",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/aviv_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5046,
+            "longitude": -122.6541
+          }
+        },
+        {
+          "id": 1008,
+          "name": "Virtuous Pie",
+          "address": "1126 SE Division St #200, Portland, OR 97202",
+          "description": "Artisanal plant-based pizza and ice cream",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/virtuous_pie_1.jpg"],
+          "coordinates": {
+            "latitude": 45.5047,
+            "longitude": -122.6540
+          }
+        }
+      ]
+    }
+  ]
+}

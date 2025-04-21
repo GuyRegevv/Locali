@@ -9,7 +9,7 @@ export default function HomePage () {
                 <p className="m-5 text-3xl font-bold">Food, Clothing, Museums, attractions, parks, bars and more</p>
             </div>
             {/* animation */}
-            <div className="flex-1 border-4 border-blue-400">animation</div>
+          <div className="flex-1 border-4 border-blue-400 ">animation</div>
           </div>
 
 
