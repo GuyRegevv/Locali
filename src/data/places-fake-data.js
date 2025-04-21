@@ -10,10 +10,10 @@ export const places = [
     description:
       '"Size?" is my favorite shoe store because it combines style, exclusivity, and variety like no other. They offer a carefully curated selection of sneakers and footwear that cater to both streetwear enthusiasts and classic style lovers.',
     images: [
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "https://picsum.photos/seed/size1/400/300",
+      "https://picsum.photos/seed/size2/400/300",
+      "https://picsum.photos/seed/size3/400/300",
+      "https://picsum.photos/seed/size4/400/300",
     ],
     lists: 32,
     location: "London",
@@ -29,10 +29,10 @@ export const places = [
     description:
       "END is a premium retailer for luxury streetwear and high-end sportswear. Their collection features exclusive collaborations and limited edition releases from top brands.",
     images: [
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "https://picsum.photos/seed/size1/400/300",
+      "https://picsum.photos/seed/size2/400/300",
+      "https://picsum.photos/seed/size3/400/300",
+      "https://picsum.photos/seed/size4/400/300",
     ],
     lists: 28,
     location: "London",
@@ -48,10 +48,10 @@ export const places = [
     description:
       "Proxyeed offers a wide range of exclusive sneakers and streetwear. Known for their excellent customer service and authentic products.",
     images: [
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "https://picsum.photos/seed/size1/400/300",
+      "https://picsum.photos/seed/size2/400/300",
+      "https://picsum.photos/seed/size3/400/300",
+      "https://picsum.photos/seed/size4/400/300",
     ],
     lists: 24,
     location: "London",
@@ -67,10 +67,10 @@ export const places = [
     description:
       "Palace Skateboards is a British skateboarding and clothing brand established in 2009. Their London flagship store offers exclusive apparel and skateboarding accessories.",
     images: [
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "https://picsum.photos/seed/size1/400/300",
+      "https://picsum.photos/seed/size2/400/300",
+      "https://picsum.photos/seed/size3/400/300",
+      "https://picsum.photos/seed/size4/400/300",
     ],
     lists: 45,
     location: "London",
@@ -86,10 +86,10 @@ export const places = [
     description:
       "Supreme is an American skateboarding lifestyle brand established in New York City in 1994. The London location offers limited drops and exclusive collaborations.",
     images: [
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "https://picsum.photos/seed/size1/400/300",
+      "https://picsum.photos/seed/size2/400/300",
+      "https://picsum.photos/seed/size3/400/300",
+      "https://picsum.photos/seed/size4/400/300",
     ],
     lists: 67,
     location: "London",
@@ -105,10 +105,10 @@ export const places = [
     description:
       "Stussy is an American clothing brand and private company founded in the early 1980s. The London store offers their iconic streetwear and accessories.",
     images: [
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "https://picsum.photos/seed/size1/400/300",
+      "https://picsum.photos/seed/size2/400/300",
+      "https://picsum.photos/seed/size3/400/300",
+      "https://picsum.photos/seed/size4/400/300",
     ],
     lists: 39,
     location: "London",

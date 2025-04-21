@@ -1,7 +1,7 @@
 export default function UIListHeader({ title, location, description }) {
   return (
     <div className="flex flex-col w-full">
-      <div className="flex mt-4 mb-4 ml-2 items-center justify-between">
+      <div className="flex mt-4 mb-4 ml-4 items-center justify-between">
         <div className="flex flex-col items-center">
           <p className="text-2xl">{title}</p>
           <p className="text-lg">{location}</p>

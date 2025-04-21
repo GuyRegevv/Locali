@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import UIListHeader from "../../../components/ui/UIListHeader";
 import UIPlaceButton from "../../../components/ui/UIPlaceButton";
-import PlaceDetails from "../../../components/ui/PlaceDetails";
+import PlaceDetails from "../../../components/ui/Place/PlaceDetails";
 import { places } from "../../../data/places-fake-data";
 
 export default function ListPage() {
