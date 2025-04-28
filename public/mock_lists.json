@@ -1,0 +1,1164 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "name": "Top Vegan Places in Portland",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 101,
+        "name": "User 1",
+        "username": "user1"
+      },
+      "location": {
+        "country": "United States",
+        "city": "Portland",
+        "coordinates": {
+          "latitude": 45.5152,
+          "longitude": -122.6784
+        }
+      },
+      "likes": 835,
+      "placeCount": 8,
+      "createdAt": "2024-02-19T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Portland",
+          "address": "100 Example St, Portland",
+          "description": "Great spot number 1 in Portland.",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/portland_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.52976872956093,
+            "longitude": -122.66360722273608
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Portland",
+          "address": "101 Example St, Portland",
+          "description": "Great spot number 2 in Portland.",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/portland_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.503261789640554,
+            "longitude": -122.67405040624475
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Portland",
+          "address": "102 Example St, Portland",
+          "description": "Great spot number 3 in Portland.",
+          "rating": 4.6,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/portland_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.5239125701098,
+            "longitude": -122.6672372628848
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Portland",
+          "address": "103 Example St, Portland",
+          "description": "Great spot number 4 in Portland.",
+          "rating": 4.4,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/portland_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.529802895312955,
+            "longitude": -122.68674802709695
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Portland",
+          "address": "104 Example St, Portland",
+          "description": "Great spot number 5 in Portland.",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/portland_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.50478450936666,
+            "longitude": -122.66066215241578
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Portland",
+          "address": "105 Example St, Portland",
+          "description": "Great spot number 6 in Portland.",
+          "rating": 4.3,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/portland_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.50553749957396,
+            "longitude": -122.68785174675716
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Portland",
+          "address": "106 Example St, Portland",
+          "description": "Great spot number 7 in Portland.",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/portland_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.51392800723952,
+            "longitude": -122.68798620935978
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Portland",
+          "address": "107 Example St, Portland",
+          "description": "Great spot number 8 in Portland.",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/portland_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 45.49840219078113,
+            "longitude": -122.66002611675657
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Top Vegan Places in Berlin",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 102,
+        "name": "User 2",
+        "username": "user2"
+      },
+      "location": {
+        "country": "Germany",
+        "city": "Berlin",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
+      "likes": 784,
+      "placeCount": 8,
+      "createdAt": "2024-03-27T00:00:00Z",
+      "updatedAt": "2024-07-15T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Berlin",
+          "address": "100 Example St, Berlin",
+          "description": "Great spot number 1 in Berlin.",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/berlin_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.52912325153143,
+            "longitude": 13.394018073260533
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Berlin",
+          "address": "101 Example St, Berlin",
+          "description": "Great spot number 2 in Berlin.",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/berlin_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.52632948743492,
+            "longitude": 13.393833269286302
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Berlin",
+          "address": "102 Example St, Berlin",
+          "description": "Great spot number 3 in Berlin.",
+          "rating": 4.8,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/berlin_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.52058497201455,
+            "longitude": 13.391807052850432
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Berlin",
+          "address": "103 Example St, Berlin",
+          "description": "Great spot number 4 in Berlin.",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/berlin_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.50379905142935,
+            "longitude": 13.409100009962975
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Berlin",
+          "address": "104 Example St, Berlin",
+          "description": "Great spot number 5 in Berlin.",
+          "rating": 4.9,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/berlin_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.51518164398931,
+            "longitude": 13.387392978559028
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Berlin",
+          "address": "105 Example St, Berlin",
+          "description": "Great spot number 6 in Berlin.",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/berlin_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.525860610627895,
+            "longitude": 13.397835230124794
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Berlin",
+          "address": "106 Example St, Berlin",
+          "description": "Great spot number 7 in Berlin.",
+          "rating": 4.3,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/berlin_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.516882488530605,
+            "longitude": 13.398741821979906
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Berlin",
+          "address": "107 Example St, Berlin",
+          "description": "Great spot number 8 in Berlin.",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/berlin_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 52.52859082913912,
+            "longitude": 13.414805993109015
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Top Vegan Places in Tokyo",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 103,
+        "name": "User 3",
+        "username": "user3"
+      },
+      "location": {
+        "country": "Japan",
+        "city": "Tokyo",
+        "coordinates": {
+          "latitude": 35.6895,
+          "longitude": 139.6917
+        }
+      },
+      "likes": 151,
+      "placeCount": 8,
+      "createdAt": "2024-01-31T00:00:00Z",
+      "updatedAt": "2024-10-23T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Tokyo",
+          "address": "100 Example St, Tokyo",
+          "description": "Great spot number 1 in Tokyo.",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tokyo_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.68011426189942,
+            "longitude": 139.67263449345413
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Tokyo",
+          "address": "101 Example St, Tokyo",
+          "description": "Great spot number 2 in Tokyo.",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tokyo_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.685987319296196,
+            "longitude": 139.71104449452517
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Tokyo",
+          "address": "102 Example St, Tokyo",
+          "description": "Great spot number 3 in Tokyo.",
+          "rating": 4.9,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tokyo_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.670181846432634,
+            "longitude": 139.6792914205405
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Tokyo",
+          "address": "103 Example St, Tokyo",
+          "description": "Great spot number 4 in Tokyo.",
+          "rating": 4.5,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tokyo_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.70251233065811,
+            "longitude": 139.6844375889345
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Tokyo",
+          "address": "104 Example St, Tokyo",
+          "description": "Great spot number 5 in Tokyo.",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/tokyo_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.67999997994944,
+            "longitude": 139.69901392418484
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Tokyo",
+          "address": "105 Example St, Tokyo",
+          "description": "Great spot number 6 in Tokyo.",
+          "rating": 4.8,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tokyo_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.671271806716845,
+            "longitude": 139.69434795148223
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Tokyo",
+          "address": "106 Example St, Tokyo",
+          "description": "Great spot number 7 in Tokyo.",
+          "rating": 4.3,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tokyo_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.698668942524215,
+            "longitude": 139.70723229196759
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Tokyo",
+          "address": "107 Example St, Tokyo",
+          "description": "Great spot number 8 in Tokyo.",
+          "rating": 4.9,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tokyo_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 35.69935944147994,
+            "longitude": 139.68753293916933
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Top Vegan Places in Tel Aviv",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 104,
+        "name": "User 4",
+        "username": "user4"
+      },
+      "location": {
+        "country": "Israel",
+        "city": "Tel Aviv",
+        "coordinates": {
+          "latitude": 32.0853,
+          "longitude": 34.7818
+        }
+      },
+      "likes": 334,
+      "placeCount": 8,
+      "createdAt": "2024-05-14T00:00:00Z",
+      "updatedAt": "2025-02-26T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Tel Aviv",
+          "address": "100 Example St, Tel Aviv",
+          "description": "Great spot number 1 in Tel Aviv.",
+          "rating": 4.3,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tel_aviv_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.07354217743816,
+            "longitude": 34.79399875422593
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Tel Aviv",
+          "address": "101 Example St, Tel Aviv",
+          "description": "Great spot number 2 in Tel Aviv.",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tel_aviv_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.06611727571715,
+            "longitude": 34.76593058923817
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Tel Aviv",
+          "address": "102 Example St, Tel Aviv",
+          "description": "Great spot number 3 in Tel Aviv.",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/tel_aviv_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.101059973377296,
+            "longitude": 34.78583216010392
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Tel Aviv",
+          "address": "103 Example St, Tel Aviv",
+          "description": "Great spot number 4 in Tel Aviv.",
+          "rating": 4.4,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tel_aviv_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.07075422821404,
+            "longitude": 34.77124533718737
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Tel Aviv",
+          "address": "104 Example St, Tel Aviv",
+          "description": "Great spot number 5 in Tel Aviv.",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tel_aviv_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.10173844149141,
+            "longitude": 34.76672036904967
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Tel Aviv",
+          "address": "105 Example St, Tel Aviv",
+          "description": "Great spot number 6 in Tel Aviv.",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tel_aviv_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.07775355332649,
+            "longitude": 34.80046337300498
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Tel Aviv",
+          "address": "106 Example St, Tel Aviv",
+          "description": "Great spot number 7 in Tel Aviv.",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/tel_aviv_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.07173799750223,
+            "longitude": 34.78837124591604
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Tel Aviv",
+          "address": "107 Example St, Tel Aviv",
+          "description": "Great spot number 8 in Tel Aviv.",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/tel_aviv_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 32.09108992748412,
+            "longitude": 34.769615872151064
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Top Vegan Places in Barcelona",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 105,
+        "name": "User 5",
+        "username": "user5"
+      },
+      "location": {
+        "country": "Spain",
+        "city": "Barcelona",
+        "coordinates": {
+          "latitude": 41.3851,
+          "longitude": 2.1734
+        }
+      },
+      "likes": 559,
+      "placeCount": 8,
+      "createdAt": "2024-05-29T00:00:00Z",
+      "updatedAt": "2025-01-08T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Barcelona",
+          "address": "100 Example St, Barcelona",
+          "description": "Great spot number 1 in Barcelona.",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/barcelona_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.399772064175906,
+            "longitude": 2.1564751349783045
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Barcelona",
+          "address": "101 Example St, Barcelona",
+          "description": "Great spot number 2 in Barcelona.",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/barcelona_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.38468366553192,
+            "longitude": 2.1671963209295724
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Barcelona",
+          "address": "102 Example St, Barcelona",
+          "description": "Great spot number 3 in Barcelona.",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/barcelona_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.3847444903342,
+            "longitude": 2.1606901929028997
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Barcelona",
+          "address": "103 Example St, Barcelona",
+          "description": "Great spot number 4 in Barcelona.",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/barcelona_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.37958357438603,
+            "longitude": 2.1840831081197574
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Barcelona",
+          "address": "104 Example St, Barcelona",
+          "description": "Great spot number 5 in Barcelona.",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/barcelona_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.39303932810696,
+            "longitude": 2.1854272059758015
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Barcelona",
+          "address": "105 Example St, Barcelona",
+          "description": "Great spot number 6 in Barcelona.",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/barcelona_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.3651646851998,
+            "longitude": 2.1882421055431878
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Barcelona",
+          "address": "106 Example St, Barcelona",
+          "description": "Great spot number 7 in Barcelona.",
+          "rating": 4.8,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/barcelona_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.36570596165083,
+            "longitude": 2.165657874658857
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Barcelona",
+          "address": "107 Example St, Barcelona",
+          "description": "Great spot number 8 in Barcelona.",
+          "rating": 4.9,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/barcelona_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 41.38043087932759,
+            "longitude": 2.1650769917339896
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Top Vegan Places in Toronto",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 106,
+        "name": "User 6",
+        "username": "user6"
+      },
+      "location": {
+        "country": "Canada",
+        "city": "Toronto",
+        "coordinates": {
+          "latitude": 43.65107,
+          "longitude": -79.347015
+        }
+      },
+      "likes": 636,
+      "placeCount": 8,
+      "createdAt": "2024-04-16T00:00:00Z",
+      "updatedAt": "2024-12-03T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Toronto",
+          "address": "100 Example St, Toronto",
+          "description": "Great spot number 1 in Toronto.",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/toronto_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.63126305302631,
+            "longitude": -79.36561616063966
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Toronto",
+          "address": "101 Example St, Toronto",
+          "description": "Great spot number 2 in Toronto.",
+          "rating": 4.4,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/toronto_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.63579103937036,
+            "longitude": -79.36620144761393
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Toronto",
+          "address": "102 Example St, Toronto",
+          "description": "Great spot number 3 in Toronto.",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/toronto_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.63833200121533,
+            "longitude": -79.35740590177637
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Toronto",
+          "address": "103 Example St, Toronto",
+          "description": "Great spot number 4 in Toronto.",
+          "rating": 4.5,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/toronto_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.65557829507516,
+            "longitude": -79.35921274367135
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Toronto",
+          "address": "104 Example St, Toronto",
+          "description": "Great spot number 5 in Toronto.",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/toronto_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.65190315989483,
+            "longitude": -79.35424540866154
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Toronto",
+          "address": "105 Example St, Toronto",
+          "description": "Great spot number 6 in Toronto.",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/toronto_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.65499482640829,
+            "longitude": -79.36511889768155
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Toronto",
+          "address": "106 Example St, Toronto",
+          "description": "Great spot number 7 in Toronto.",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/toronto_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.64603339653107,
+            "longitude": -79.3386825667844
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Toronto",
+          "address": "107 Example St, Toronto",
+          "description": "Great spot number 8 in Toronto.",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/toronto_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 43.64613548327046,
+            "longitude": -79.35850293876628
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Top Vegan Places in Melbourne",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 107,
+        "name": "User 7",
+        "username": "user7"
+      },
+      "location": {
+        "country": "Australia",
+        "city": "Melbourne",
+        "coordinates": {
+          "latitude": -37.8136,
+          "longitude": 144.9631
+        }
+      },
+      "likes": 997,
+      "placeCount": 8,
+      "createdAt": "2024-01-13T00:00:00Z",
+      "updatedAt": "2024-10-06T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in Melbourne",
+          "address": "100 Example St, Melbourne",
+          "description": "Great spot number 1 in Melbourne.",
+          "rating": 4.3,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/melbourne_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.81319948516674,
+            "longitude": 144.96204723652812
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in Melbourne",
+          "address": "101 Example St, Melbourne",
+          "description": "Great spot number 2 in Melbourne.",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/melbourne_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.82407894214567,
+            "longitude": 144.9679551352849
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in Melbourne",
+          "address": "102 Example St, Melbourne",
+          "description": "Great spot number 3 in Melbourne.",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/melbourne_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.81941882473389,
+            "longitude": 144.96039064958475
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in Melbourne",
+          "address": "103 Example St, Melbourne",
+          "description": "Great spot number 4 in Melbourne.",
+          "rating": 4.5,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/melbourne_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.799441145973944,
+            "longitude": 144.94723841922112
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in Melbourne",
+          "address": "104 Example St, Melbourne",
+          "description": "Great spot number 5 in Melbourne.",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/melbourne_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.832933843286554,
+            "longitude": 144.9528569323819
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in Melbourne",
+          "address": "105 Example St, Melbourne",
+          "description": "Great spot number 6 in Melbourne.",
+          "rating": 4.3,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/melbourne_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.81243170640379,
+            "longitude": 144.94632091312153
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in Melbourne",
+          "address": "106 Example St, Melbourne",
+          "description": "Great spot number 7 in Melbourne.",
+          "rating": 4.9,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/melbourne_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.82864068609336,
+            "longitude": 144.9773875949686
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in Melbourne",
+          "address": "107 Example St, Melbourne",
+          "description": "Great spot number 8 in Melbourne.",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/melbourne_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": -37.804255915092604,
+            "longitude": 144.9465899505442
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Top Vegan Places in New York",
+      "genre": "Food & Drink",
+      "subgenre": "Vegan",
+      "creator": {
+        "id": 108,
+        "name": "User 8",
+        "username": "user8"
+      },
+      "location": {
+        "country": "United States",
+        "city": "New York",
+        "coordinates": {
+          "latitude": 40.7128,
+          "longitude": -74.006
+        }
+      },
+      "likes": 759,
+      "placeCount": 8,
+      "createdAt": "2024-04-22T00:00:00Z",
+      "updatedAt": "2024-06-09T00:00:00Z",
+      "places": [
+        {
+          "id": 1000,
+          "name": "Place 1 in New York",
+          "address": "100 Example St, New York",
+          "description": "Great spot number 1 in New York.",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/new_york_1.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.72412879052288,
+            "longitude": -74.00702218922551
+          }
+        },
+        {
+          "id": 1001,
+          "name": "Place 2 in New York",
+          "address": "101 Example St, New York",
+          "description": "Great spot number 2 in New York.",
+          "rating": 4.4,
+          "priceRange": "$$$",
+          "images": [
+            "https://example.com/images/new_york_2.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.6939028428002,
+            "longitude": -74.0012452100152
+          }
+        },
+        {
+          "id": 1002,
+          "name": "Place 3 in New York",
+          "address": "102 Example St, New York",
+          "description": "Great spot number 3 in New York.",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/new_york_3.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.70778763409077,
+            "longitude": -74.01194371508177
+          }
+        },
+        {
+          "id": 1003,
+          "name": "Place 4 in New York",
+          "address": "103 Example St, New York",
+          "description": "Great spot number 4 in New York.",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/new_york_4.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.69984144561626,
+            "longitude": -74.01699564568626
+          }
+        },
+        {
+          "id": 1004,
+          "name": "Place 5 in New York",
+          "address": "104 Example St, New York",
+          "description": "Great spot number 5 in New York.",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": [
+            "https://example.com/images/new_york_5.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.72287394130563,
+            "longitude": -73.99983866764751
+          }
+        },
+        {
+          "id": 1005,
+          "name": "Place 6 in New York",
+          "address": "105 Example St, New York",
+          "description": "Great spot number 6 in New York.",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/new_york_6.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.71628692100669,
+            "longitude": -74.01856127309
+          }
+        },
+        {
+          "id": 1006,
+          "name": "Place 7 in New York",
+          "address": "106 Example St, New York",
+          "description": "Great spot number 7 in New York.",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/new_york_7.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.70464924582116,
+            "longitude": -74.02275559722165
+          }
+        },
+        {
+          "id": 1007,
+          "name": "Place 8 in New York",
+          "address": "107 Example St, New York",
+          "description": "Great spot number 8 in New York.",
+          "rating": 4.3,
+          "priceRange": "$$",
+          "images": [
+            "https://example.com/images/new_york_8.jpg"
+          ],
+          "coordinates": {
+            "latitude": 40.69314780458277,
+            "longitude": -74.02451872180058
+          }
+        }
+      ]
+    }
+  ]
+}
