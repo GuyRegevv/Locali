@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import mockData from '/public/mockData.json';
+import mockData from '@backend/data/mockData.json';
 import { ListCard } from './ListCard';
 
 export const NumOfLists = mockData.lists.length

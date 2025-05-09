@@ -1,4 +1,5 @@
 import { UIButton } from "@/components/ui/UIButton";
+import { SearchForm } from "./SearchForm";
 
 // export default function HomePage () {
 //     return (
@@ -18,7 +19,7 @@ export default function HomePage() {
   return (
     <>
       <div className="flex flex-col w-1/2 border-4 border-pink-400 ">
-        <div className="border-4 border-brown-400 bg-cover">
+        <div className="border-4 border-brown-400 bg-cover drop-shadow-lg">
           <p className="m-5 text-7xl font-bold">
             Find travel recommendation from real locals
           </p>
@@ -32,11 +33,24 @@ export default function HomePage() {
         {/* animation */}
         <div className="flex-1 border-4 border-blue-400">animation</div>
       </div>
-
-      <div className="w-1/2 border-4 border-yellow-400"></div>
+        
+      <div className="flex items-center justify-center w-1/2 border-4 border-yellow-400">
+        <SearchForm />
+      </div>
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // export default function HomePage () {
 

@@ -1,20 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import mockData from '/public/mockData.json'
+import mockData from '@backend/data/mockData.json'
 import { HeartIcon, QueueListIcon } from "@heroicons/react/24/outline";
 
 export const ListCard = ({ list }) => {
-
-    console.log(list)
 
     return (
         <div className="h-70 bg-gray-100 rounded flex flex-col">   
             <div className="h-[35%] relative">
                 <Image src="/eastvillage.webp" 
                        alt="bgImg"
-                       layout="fill" 
-                       objectFit="cover" 
-                       className="rounded-t" />
+                       fill={true}
+                       className="rounded-t object-cover" />
             </div>
             <div className="flex flex-col flex-1 p-2">
                 <p className="text-lg font-bold">{list.name}</p>
@@ -35,8 +32,8 @@ export const ListCard = ({ list }) => {
                         <Image 
                             src="/yellow-square.jpg" 
                             alt="bgImg" 
-                            layout="fill" 
-                            objectFit="cover" 
+                            fill={true}
+                            className="rounded-t object-cover"
                         />
                     </div>
                 </div>

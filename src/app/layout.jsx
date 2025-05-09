@@ -23,12 +23,12 @@ export default function RootLayout({ children }) {
         <Footer className="w-full" />
       </div>
 
-//         <div className="flex flex-col min-h-screen">
+{/* //         <div className="flex flex-col min-h-screen">
 //           <Header className="w-full" />
 //           <main className="flex flex-grow">{children}</main>
 
-//           <Footer className="w-full" />
-//         </div>
+         <Footer className="w-full" />
+        </div> */}
       </body>
     </html>
   );

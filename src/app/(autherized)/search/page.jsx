@@ -1,48 +1,132 @@
 'use client';
 import { UIButton } from "@/components/ui/UIButton";
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react'
 import { FilterBox } from "./FilterBox";
-import { ListCard } from "./ListCard";
-import { NumOfLists } from "./ListsLayout";
 import { ListsLayout } from "./ListsLayout";
-import mockData from '/public/mockData.json'
+import mockData from '@backend/data/mockData.json'
+import { applyFilters } from './utils';
 
 export default function Search () {
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [filteredLists, setFilteredLists] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [filterValues, setFilterValues] = useState({
+    country: '',
+    city: '',
+    category: '',
+    subcategory: '',
+    creator: ''
+  });
+  
+  useEffect(() => {
+    const urlCountry = searchParams.get('country') || '';
+    const urlCity = searchParams.get('city') || '';
+    const urlCategory = searchParams.get('category') || '';
+    const urlSubcategory = searchParams.get('subcategory') || '';
+    const urlCreator = searchParams.get('creator') || '';
+    
+    setFilterValues({
+      country: urlCountry,
+      city: urlCity,
+      category: urlCategory,
+      subcategory: urlSubcategory,
+      creator: urlCreator
+    });
+
+    const filtered = applyFilters({
+      country: urlCountry,
+      city: urlCity,
+      category: urlCategory,
+      subcategory: urlSubcategory,
+      creator: urlCreator
+    }, [...mockData.lists]);
+    
+    setFilteredLists(filtered);
+    setIsLoading(false);
+    
+  },[searchParams]);
+
+  // Function to handle filter value changes
+  const handleFilterChange = (filterName, value) => {
+    setFilterValues(prev => ({
+      ...prev,
+      [filterName]: value
+    }));
+  };
+
+  const handleResetFilters = () => {
+    setFilterValues({
+      country: '',
+      city: '',
+      category: '',
+      subcategory: '',
+      creator: ''
+    });
+    setSearchInput('');
+    router.push('/search');
+  };
+
+  const handleApplyFilters = () => {
+    const params = new URLSearchParams();
+    
+    if (filterValues.country) params.set('country', filterValues.country);
+    if (filterValues.city) params.set('city', filterValues.city);
+    if (filterValues.category) params.set('category', filterValues.category);
+    if (filterValues.subcategory) params.set('subcategory', filterValues.subcategory);
+    if (filterValues.creator) params.set('creator', filterValues.creator);
+    
+    router.push(`/search?${params.toString()}`);
+  };
+
     return (
     <div className="flex w-full h-full ">
-
       <div className="w-1/6 border-4 border-pink-500 p-4">
         <p className="py-2 text-xl text-gray-400 font-bold">Filters:</p>
-        <FilterBox title="Destination" value="Israel, Tel Aviv"></FilterBox>
-        <FilterBox title="Category" value="Food"></FilterBox>
-        <FilterBox title="Sub-Category" value="Vegan"></FilterBox>
-        <FilterBox title="By a" value="Local"></FilterBox>
+        <FilterBox 
+          title="Destination" 
+          value={filterValues.country}
+          onChange={(value) => {handleFilterChange('country',value)}}
+        />
+
+        <FilterBox 
+          title="Category" 
+          value={filterValues.category}
+          onChange={(value) => {handleFilterChange('category',value)}}
+        />
+
+        <FilterBox 
+          title="SubCategory" 
+          value={filterValues.subcategory}
+          onChange={(value) => {handleFilterChange('subcategory',value)}}
+        />
+
+        <FilterBox 
+          title="By a" 
+          value={filterValues.creator}
+          onChange={(value) => {handleFilterChange('creator',value)}}
+        />    
+        
         <div className="flex flex-1 flex-col justify-center items-center my-4 h-30">
-            <UIButton className="w-32 h-10 my-2" label="Apply"/>
-            <UIButton className="w-32 h-10 my-2" label="Reset"/>
+            <UIButton className="w-32 h-10 my-2" label="Apply" onClick={handleApplyFilters}/>
+            <UIButton className="w-32 h-10 my-2" label="Reset" onClick={handleResetFilters}/>
         </div>
       </div >
 
       <div className="w-3/6 border-4 border-pink-500 p-4 flex flex-col overflow-hidden">
-        <div className="flex h-10">
-            <input 
-            type="text" 
-            className="w-full p-2 border border-gray-300 bg-gray-100 rounded" 
-            placeholder="Where are you?" 
-            />
-            <UIButton className="w-10 h-10 mx-4" label=""/>
-        </div>
         <div className="w-full py-2">
-            <p>{NumOfLists} results in (Roma, Italy)</p>
+            <p>{filteredLists.length} results in {filterValues.country},{filterValues.city}</p>
         </div>
         <div className="flex-1 overflow-y-auto">
-            <ListsLayout lists={mockData.lists}/>
+          { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists}/>) }
         </div>
       </div>
 
       <div className="w-2/6 border-4 border-pink-500 p-4">
-        Google Maps
-      </div >
+        <div>Google Maps</div>
+      </div>
     </div>
-    )
+  )
 }
