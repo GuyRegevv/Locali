@@ -1,11 +1,10 @@
 'use client';
-import { UIButton } from "@/components/ui/UIButton";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react'
-import { FilterBox } from "./FilterBox";
 import { ListsLayout } from "./ListsLayout";
 import mockData from '@backend/data/mockData.json'
 import { applyFilters } from './utils';
+import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
 
 export default function Search () {
 
@@ -49,7 +48,6 @@ export default function Search () {
     
   },[searchParams]);
 
-  // Function to handle filter value changes
   const handleFilterChange = (filterName, value) => {
     setFilterValues(prev => ({
       ...prev,
@@ -65,7 +63,6 @@ export default function Search () {
       subcategory: '',
       creator: ''
     });
-    setSearchInput('');
     router.push('/search');
   };
 
@@ -83,50 +80,30 @@ export default function Search () {
 
     return (
     <div className="flex w-full h-full ">
-      <div className="w-1/6 border-4 border-pink-500 p-4">
-        <p className="py-2 text-xl text-gray-400 font-bold">Filters:</p>
-        <FilterBox 
-          title="Destination" 
-          value={filterValues.country}
-          onChange={(value) => {handleFilterChange('country',value)}}
-        />
-
-        <FilterBox 
-          title="Category" 
-          value={filterValues.category}
-          onChange={(value) => {handleFilterChange('category',value)}}
-        />
-
-        <FilterBox 
-          title="SubCategory" 
-          value={filterValues.subcategory}
-          onChange={(value) => {handleFilterChange('subcategory',value)}}
-        />
-
-        <FilterBox 
-          title="By a" 
-          value={filterValues.creator}
-          onChange={(value) => {handleFilterChange('creator',value)}}
-        />    
-        
-        <div className="flex flex-1 flex-col justify-center items-center my-4 h-30">
-            <UIButton className="w-32 h-10 my-2" label="Apply" onClick={handleApplyFilters}/>
-            <UIButton className="w-32 h-10 my-2" label="Reset" onClick={handleResetFilters}/>
-        </div>
+      
+      <div className="flex flex-col w-4/6">
+      <div className="flex border-4 border-blue-500 p-4">
+         <Filters filterValues={filterValues} handleFilterChange={handleFilterChange}/>
+         <div className="ml-3 justify-center items-center">
+          <button className="w-full h-1/2 text-white bg-green-500 rounded" onClick={handleApplyFilters}>Apply</button>
+          <button className="w-full h-1/2 text-white bg-gray-500 rounded" onClick={handleResetFilters}>Reset</button>
+        </div> 
       </div >
 
-      <div className="w-3/6 border-4 border-pink-500 p-4 flex flex-col overflow-hidden">
+      <div className="border-4 border-green-500 p-4 flex-1 flex flex-col overflow-hidden">
         <div className="w-full py-2">
-            <p>{filteredLists.length} results in {filterValues.country},{filterValues.city}</p>
+          <p>{filteredLists.length} results in {filterValues.country},{filterValues.city}</p>
         </div>
         <div className="flex-1 overflow-y-auto">
-          { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists}/>) }
+        { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists}/>) }
         </div>
       </div>
-
-      <div className="w-2/6 border-4 border-pink-500 p-4">
-        <div>Google Maps</div>
       </div>
-    </div>
-  )
+    
+      <div className="w-2/6 border-4 border-pink-500 p-4">
+        <p>Google Maps</p>
+      </div>
+    </div>  
+
+    )
 }
