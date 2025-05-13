@@ -5,6 +5,7 @@ import { ListsLayout } from "./ListsLayout";
 import mockData from '@backend/data/mockData.json'
 import { applyFilters } from './utils';
 import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
+import { MapIndex } from '@/components/map/MapIndex';
 
 export default function Search () {
 
@@ -101,7 +102,7 @@ export default function Search () {
       </div>
     
       <div className="w-2/6 border-4 border-pink-500 p-4">
-        <p>Google Maps</p>
+        
       </div>
     </div>  
 
