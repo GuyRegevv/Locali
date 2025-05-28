@@ -5,6 +5,7 @@
       "@/*": ["./src/*"],
       "@backend/*": ["./backend/*"],
       "@components/*": ["./components/*"],
-    }
+    },
+    "lib": ["es2015"]
   }
 }
