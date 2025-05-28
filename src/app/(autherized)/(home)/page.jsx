@@ -1,5 +1,4 @@
 'use client'
-import { UIButton } from "@/components/ui/UIButton";
 import { SearchForm } from "./SearchForm";
 import TravelAnimation from "@/components/animations/TravelAnimation";
 
@@ -29,36 +28,3 @@ export default function HomePage() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// export default function HomePage () {
-
-//     const bgImagePath = '/paris-sunset.jpg';
-
-//     return (
-//       <div className="flex flex-col w-full">
-//         <div className="flex justify-center items-top h-2/6 border-4 bg-cover bg-no-repeat border-pink-400"
-//             style={{
-//             backgroundImage: `url(${bgImagePath})`,
-//             backgroundPosition: 'left 85%' // Adjust the percentage to move it down
-//             }}>
-//             <p className="text-3xl my-6 font-bold tracking-wide">Welcome to Locali</p>
-//           </div>
-//           <div className="flex h-4/6 border-4 border-yellow-400">
-//             <div className="w-1/4 border-4 border-blue-400">
-//                 <p>Where are traveling?</p>
-//             </div>
-//           </div>
-//       </div>
-//     )
-// }
