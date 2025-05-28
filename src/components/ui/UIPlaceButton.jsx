@@ -2,6 +2,7 @@ export default function UIPlaceButton({
   title,
   category,
   address,
+  distance,
   onClick,
   isSelected = false,
 }) {
