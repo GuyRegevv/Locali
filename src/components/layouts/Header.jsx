@@ -12,10 +12,10 @@ export const Header = () => {
                 <Link href="/" className="w-12 h-12 mx-3 border-2 flex items-center justify-center bg-white rounded hover:bg-gray-200">
                     <HomeIcon className='h-6 w-6'/>
                 </Link>
-                <Link href="/" className="w-12 h-12 mx-3 border-2 flex items-center justify-center bg-white rounded hover:bg-gray-200">
+                <Link href="/list" className="w-12 h-12 mx-3 border-2 flex items-center justify-center bg-white rounded hover:bg-gray-200">
                     <BookmarkIcon className='h-6 w-6'/>
                 </Link>
-                <Link href="/" className="w-12 h-12 mx-3 border-2 flex items-center justify-center bg-white rounded hover:bg-gray-200">
+                <Link href="/post" className="w-12 h-12 mx-3 border-2 flex items-center justify-center bg-white rounded hover:bg-gray-200">
                     <PlusCircleIcon className='h-6 w-6'/>
                 </Link>
             </div>
