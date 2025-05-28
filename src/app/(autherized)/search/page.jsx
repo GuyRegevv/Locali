@@ -3,8 +3,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react'
 import { ListsLayout } from "./ListsLayout";
 import mockData from '@backend/data/mockData.json'
-import { applyFilters } from './utils';
+import { applyFilters, extractPois } from './utils';
 import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
+import MapIndex from '@/components/map/MapIndex';
 
 export default function Search () {
 
@@ -19,6 +20,10 @@ export default function Search () {
     subcategory: '',
     creator: ''
   });
+  const [pois, setPois] = useState({
+    key: '',
+    location: ''
+  })
   
   useEffect(() => {
     const urlCountry = searchParams.get('country') || '';
@@ -45,7 +50,8 @@ export default function Search () {
     
     setFilteredLists(filtered);
     setIsLoading(false);
-    
+    //setPois(extractPois(filteredLists));  
+    //("pois ", pois);
   },[searchParams]);
 
   const handleFilterChange = (filterName, value) => {
@@ -92,7 +98,6 @@ export default function Search () {
 
       <div className="border-4 border-green-500 p-4 flex-1 flex flex-col overflow-hidden">
         <div className="w-full py-2">
-          <p>{filteredLists.length} results in {filterValues.country},{filterValues.city}</p>
         </div>
         <div className="flex-1 overflow-y-auto">
         { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists}/>) }
@@ -101,7 +106,9 @@ export default function Search () {
       </div>
     
       <div className="w-2/6 border-4 border-pink-500 p-4">
-        <p>Google Maps</p>
+        {/* <MapIndex pois={pois}/>
+        To Fix - currently im not extatict thr right info from mock data, 
+        I need to extract the list of places, when a certain list is pressed */}
       </div>
     </div>  
 

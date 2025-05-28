@@ -34,3 +34,10 @@ export function applyFilters(filters, lists) {
   console.log(filtered);
   return filtered;
 }
+
+export function extractPois(filteredLists) { 
+  return filteredLists.map(list => ({
+    name: list.name,
+    location: list.location
+  }));
+}
