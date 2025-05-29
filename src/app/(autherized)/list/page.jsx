@@ -33,9 +33,9 @@ export default function ListPage() {
         description="Description A little bit longer description to test the layout"
       />
       <div className="flex flex-row w-full h-full">
-        <div className="flex flex-row w-2/3 border-2 border-amber-600 h-full">
+        <div className="flex flex-row w-2/3 h-full">
           <div
-            className="flex flex-col w-1/2 border-2 border-b-cyan-600 h-full overflow-y-auto"
+            className="flex flex-col w-1/2 h-full overflow-y-auto"
             style={{ maxHeight: "860px" }}
           >
             <div className="mt-4">
@@ -56,7 +56,7 @@ export default function ListPage() {
             <PlaceDetails place={selectedPlace} />
           </div> 
         </div>
-        <div className="w-1/3 border-2 border-yellow-400 h-full" >
+        <div className="w-1/3 h-full" >
           <DynamicMapIndex 
             pois={locations}
             selectedPlace={selectedPlace}

@@ -1,10 +1,10 @@
 export default function TravelAnimation() {
   return (
-    <div className="flex-1 border-4 border-blue-400 bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden flex items-center justify-center">
+    <div className="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden flex items-center justify-center">
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-4 h-4 bg-blue-400 rounded-full animate-ping"></div>
+        <div className="absolute top-10 left-10 w-4 h-4  animate-ping"></div>
         <div className="absolute top-20 right-20 w-3 h-3 bg-indigo-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-20 left-20 w-2 h-2 bg-blue-500 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-10 right-10 w-3 h-3 bg-indigo-500 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
