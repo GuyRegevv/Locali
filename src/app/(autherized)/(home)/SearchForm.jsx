@@ -7,13 +7,6 @@ import Link from 'next/link';
 
 
 export const SearchForm = (props) => {
-    
-    // const router = useRouter();
-    // const SearchParams = useSearchParams();
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    // }
 
     const [filters, setFilters] = useState({
         country: '',

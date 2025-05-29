@@ -1,24 +1,43 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import searchFilters from '@backend/data/SearchFilters.js'
 
-export default function PostForm() {
+export default function PostForm({ selectedLocation, onSubmit }) {
   const [textInput, setTextInput] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedSubcategory, setSelectedSubcategory] = useState('')
   const [description, setDescription] = useState('')
 
+  // Update location when selectedLocation changes
+  useEffect(() => {
+    if (selectedLocation) {
+      // Extract country from address if possible, otherwise keep current selection
+      const address = selectedLocation.address || '';
+      // You could implement more sophisticated country detection here
+      // For now, we'll just keep the manual country selection
+    }
+  }, [selectedLocation])
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted with:', {
+    
+    const formData = {
       listName: textInput,
       country: selectedCountry,
       category: selectedCategory,
       subcategory: selectedSubcategory,
-      description: description
-    })
-    // Here you can add logic to handle the form submission
+      description: description,
+      selectedLocation: selectedLocation // Include the map location
+    }
+
+    // Call the parent's onSubmit function if provided
+    if (onSubmit) {
+      onSubmit(formData)
+    } else {
+      // Fallback console log if no onSubmit provided
+      console.log('Form submitted with:', formData)
+    }
   }
 
   const handleTextChange = (e) => {
