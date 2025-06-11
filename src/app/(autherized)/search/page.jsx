@@ -88,7 +88,7 @@ export default function Search () {
     <div className="flex w-full h-full ">
       
       <div className="flex flex-col w-4/6">
-      <div className="flex border-4 border-blue-500 p-4">
+      <div className="flex p-4">
          <Filters filterValues={filterValues} handleFilterChange={handleFilterChange}/>
          <div className="ml-3 justify-center items-center">
           <button className="w-full h-1/2 text-white bg-green-500 rounded" onClick={handleApplyFilters}>Apply</button>
@@ -96,7 +96,7 @@ export default function Search () {
         </div> 
       </div >
 
-      <div className="border-4 border-green-500 p-4 flex-1 flex flex-col overflow-hidden">
+      <div className="p-4 flex-1 flex flex-col overflow-hidden">
         <div className="w-full py-2">
         </div>
         <div className="flex-1 overflow-y-auto">
@@ -105,7 +105,7 @@ export default function Search () {
       </div>
       </div>
     
-      <div className="w-2/6 border-4 border-pink-500 p-4">
+      <div className="w-2/6 p-4">
         {/* <MapIndex pois={pois}/>
         To Fix - currently im not extatict thr right info from mock data, 
         I need to extract the list of places, when a certain list is pressed */}
