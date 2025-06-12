@@ -235,7 +235,7 @@
     },
     {
       "id": 3,
-      "name": "Vintage Gems of Paris",
+      "name": "Clothing In London",
       "genre": "Shopping",
       "subgenre": "Vintage Shops",
       "creator": {
@@ -244,11 +244,11 @@
         "username": "parisfashionista"
       },
       "location": {
-        "country": "France",
-        "city": "Paris",
+        "country": "United Kingdom",
+        "city": "London",
         "coordinates": {
-          "latitude": 48.8566,
-          "longitude": 2.3522
+          "latitude": 51.5074,
+          "longitude": -0.1278
         }
       },
       "likes": 689,
@@ -824,6 +824,973 @@
           "coordinates": {
             "latitude": 45.5047,
             "longitude": -122.6540
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Barcelona Tapas Trail",
+      "genre": "Food & Drink",
+      "subgenre": "Tapas",
+      "creator": {
+        "id": 106,
+        "name": "Carlos Rodriguez",
+        "username": "barcelonafoodie"
+      },
+      "location": {
+        "country": "Spain",
+        "city": "Barcelona",
+        "coordinates": {
+          "latitude": 41.3851,
+          "longitude": 2.1734
+        }
+      },
+      "likes": 654,
+      "placeCount": 8,
+      "createdAt": "2024-10-15T18:20:00Z",
+      "updatedAt": "2025-04-05T12:30:00Z",
+      "places": [
+        {
+          "id": 8001,
+          "name": "Cal Pep",
+          "address": "Plaça de les Olles, 8, 08003 Barcelona",
+          "description": "Legendary standing-only tapas bar with fresh seafood",
+          "rating": 4.8,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/cal_pep_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3846,
+            "longitude": 2.1840
+          }
+        },
+        {
+          "id": 8002,
+          "name": "Bar del Pla",
+          "address": "Carrer de Montcada, 2, 08003 Barcelona",
+          "description": "Creative tapas with international influences",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/bar_del_pla_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3836,
+            "longitude": 2.1823
+          }
+        },
+        {
+          "id": 8003,
+          "name": "Quimet & Quimet",
+          "address": "Carrer del Poeta Cabanyes, 25, 08004 Barcelona",
+          "description": "Tiny family-run bar famous for montaditos",
+          "rating": 4.9,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/quimet_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3756,
+            "longitude": 2.1633
+          }
+        },
+        {
+          "id": 8004,
+          "name": "Bodega Biarritz 1881",
+          "address": "Carrer de Calàbria, 78, 08015 Barcelona",
+          "description": "Historic bodega with traditional Catalan tapas",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/biarritz_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3782,
+            "longitude": 2.1565
+          }
+        },
+        {
+          "id": 8005,
+          "name": "La Cova Fumada",
+          "address": "Carrer del Baluard, 56, 08003 Barcelona",
+          "description": "Authentic neighborhood bar, birthplace of bomba",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": ["https://example.com/images/cova_fumada_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3807,
+            "longitude": 2.1889
+          }
+        },
+        {
+          "id": 8006,
+          "name": "Bar Mut",
+          "address": "Carrer de Pau Claris, 192, 08037 Barcelona",
+          "description": "Modern tapas bar with excellent wine selection",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/bar_mut_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3934,
+            "longitude": 2.1650
+          }
+        },
+        {
+          "id": 8007,
+          "name": "Cerveseria Catalana",
+          "address": "Carrer de Mallorca, 236, 08008 Barcelona",
+          "description": "Popular tapas bar with extensive menu",
+          "rating": 4.4,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/catalana_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3918,
+            "longitude": 2.1606
+          }
+        },
+        {
+          "id": 8008,
+          "name": "Tickets",
+          "address": "Avinguda del Paral·lel, 164, 08015 Barcelona",
+          "description": "Creative tapas by renowned chef Albert Adrià",
+          "rating": 4.8,
+          "priceRange": "$$$$",
+          "images": ["https://example.com/images/tickets_1.jpg"],
+          "coordinates": {
+            "latitude": 41.3747,
+            "longitude": 2.1574
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Berlin Street Art Districts",
+      "genre": "Arts & Culture",
+      "subgenre": "Street Art",
+      "creator": {
+        "id": 107,
+        "name": "Anna Mueller",
+        "username": "berlinstreetart"
+      },
+      "location": {
+        "country": "Germany",
+        "city": "Berlin",
+        "coordinates": {
+          "latitude": 52.5200,
+          "longitude": 13.4050
+        }
+      },
+      "likes": 789,
+      "placeCount": 6,
+      "createdAt": "2024-09-20T11:45:00Z",
+      "updatedAt": "2025-03-15T09:20:00Z",
+      "places": [
+        {
+          "id": 9001,
+          "name": "East Side Gallery",
+          "address": "Mühlenstraße, 10243 Berlin",
+          "description": "Longest remaining section of Berlin Wall with murals",
+          "rating": 4.6,
+          "priceRange": "Free",
+          "images": ["https://example.com/images/east_side_gallery_1.jpg"],
+          "coordinates": {
+            "latitude": 52.5058,
+            "longitude": 13.4394
+          }
+        },
+        {
+          "id": 9002,
+          "name": "Hackescher Markt Area",
+          "address": "Hackescher Markt, 10178 Berlin",
+          "description": "Vibrant street art scene in historic district",
+          "rating": 4.5,
+          "priceRange": "Free",
+          "images": ["https://example.com/images/hackescher_1.jpg"],
+          "coordinates": {
+            "latitude": 52.5225,
+            "longitude": 13.4016
+          }
+        },
+        {
+          "id": 9003,
+          "name": "Friedrichshain Graffiti",
+          "address": "Rigaer Str., 10247 Berlin",
+          "description": "Underground graffiti culture hotspot",
+          "rating": 4.7,
+          "priceRange": "Free",
+          "images": ["https://example.com/images/friedrichshain_1.jpg"],
+          "coordinates": {
+            "latitude": 52.5147,
+            "longitude": 13.4606
+          }
+        },
+        {
+          "id": 9004,
+          "name": "Kreuzberg SO36",
+          "address": "Oranienstraße, 10999 Berlin",
+          "description": "Alternative district with radical street art",
+          "rating": 4.6,
+          "priceRange": "Free",
+          "images": ["https://example.com/images/kreuzberg_1.jpg"],
+          "coordinates": {
+            "latitude": 52.4983,
+            "longitude": 13.4178
+          }
+        },
+        {
+          "id": 9005,
+          "name": "Teufelsberg",
+          "address": "Teufelsseechaussee, 14193 Berlin",
+          "description": "Abandoned spy station with legal graffiti area",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": ["https://example.com/images/teufelsberg_1.jpg"],
+          "coordinates": {
+            "latitude": 52.4970,
+            "longitude": 13.2413
+          }
+        },
+        {
+          "id": 9006,
+          "name": "RAW Gelände",
+          "address": "Revaler Str. 99, 10245 Berlin",
+          "description": "Former railway repair shop turned art space",
+          "rating": 4.5,
+          "priceRange": "Free",
+          "images": ["https://example.com/images/raw_1.jpg"],
+          "coordinates": {
+            "latitude": 52.5101,
+            "longitude": 13.4516
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Istanbul Vintage Markets",
+      "genre": "Shopping",
+      "subgenre": "Vintage Markets",
+      "creator": {
+        "id": 108,
+        "name": "Elif Ozkan",
+        "username": "istanbulvintage"
+      },
+      "location": {
+        "country": "Turkey",
+        "city": "Istanbul",
+        "coordinates": {
+          "latitude": 41.0082,
+          "longitude": 28.9784
+        }
+      },
+      "likes": 432,
+      "placeCount": 7,
+      "createdAt": "2024-11-08T13:15:00Z",
+      "updatedAt": "2025-04-12T17:40:00Z",
+      "places": [
+        {
+          "id": 10001,
+          "name": "Grand Bazaar",
+          "address": "Beyazıt, 34126 Fatih/İstanbul",
+          "description": "Historic covered market with antiques and crafts",
+          "rating": 4.4,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/grand_bazaar_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0106,
+            "longitude": 28.9681
+          }
+        },
+        {
+          "id": 10002,
+          "name": "Çukurcuma Antique District",
+          "address": "Çukurcuma, Beyoğlu/İstanbul",
+          "description": "Charming neighborhood filled with antique shops",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/cukurcuma_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0272,
+            "longitude": 28.9744
+          }
+        },
+        {
+          "id": 10003,
+          "name": "Horhor Antique Center",
+          "address": "Kurtulus Deresi Cd. No:2, 34394 Şişli/İstanbul",
+          "description": "Multi-level antique center with vintage treasures",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/horhor_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0578,
+            "longitude": 28.9858
+          }
+        },
+        {
+          "id": 10004,
+          "name": "Sahaflar Çarşısı",
+          "address": "Beyazıt, 34126 Fatih/İstanbul",
+          "description": "Old book bazaar near Grand Bazaar",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": ["https://example.com/images/sahaflar_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0097,
+            "longitude": 28.9658
+          }
+        },
+        {
+          "id": 10005,
+          "name": "Galatasaray Fish Market",
+          "address": "Galatasaray, Beyoğlu/İstanbul",
+          "description": "Historic market with vintage items and local crafts",
+          "rating": 4.3,
+          "priceRange": "$",
+          "images": ["https://example.com/images/galatasaray_market_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0293,
+            "longitude": 28.9744
+          }
+        },
+        {
+          "id": 10006,
+          "name": "Beyazıt Flea Market",
+          "address": "Beyazıt Meydanı, 34126 Fatih/İstanbul",
+          "description": "Weekend flea market with vintage finds",
+          "rating": 4.2,
+          "priceRange": "$",
+          "images": ["https://example.com/images/beyazit_flea_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0103,
+            "longitude": 28.9644
+          }
+        },
+        {
+          "id": 10007,
+          "name": "Ortaköy Sunday Market",
+          "address": "Ortaköy, Beşiktaş/İstanbul",
+          "description": "Scenic market with handmade crafts and vintage items",
+          "rating": 4.4,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/ortakoy_1.jpg"],
+          "coordinates": {
+            "latitude": 41.0553,
+            "longitude": 29.0264
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Bangkok Street Food Adventures",
+      "genre": "Food & Drink",
+      "subgenre": "Street Food",
+      "creator": {
+        "id": 109,
+        "name": "Siriporn Tanaka",
+        "username": "bangkokstreetfood"
+      },
+      "location": {
+        "country": "Thailand",
+        "city": "Bangkok",
+        "coordinates": {
+          "latitude": 13.7563,
+          "longitude": 100.5018
+        }
+      },
+      "likes": 921,
+      "placeCount": 9,
+      "createdAt": "2024-12-03T16:30:00Z",
+      "updatedAt": "2025-04-08T20:15:00Z",
+      "places": [
+        {
+          "id": 11001,
+          "name": "Chatuchak Weekend Market",
+          "address": "Chatuchak, Bangkok 10900",
+          "description": "Massive weekend market with incredible street food variety",
+          "rating": 4.7,
+          "priceRange": "$",
+          "images": ["https://example.com/images/chatuchak_food_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7990,
+            "longitude": 100.5500
+          }
+        },
+        {
+          "id": 11002,
+          "name": "Chinatown (Yaowarat)",
+          "address": "Yaowarat Rd, Samphanthawong, Bangkok",
+          "description": "Historic Chinatown with authentic Chinese-Thai street food",
+          "rating": 4.8,
+          "priceRange": "$",
+          "images": ["https://example.com/images/yaowarat_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7398,
+            "longitude": 100.5090
+          }
+        },
+        {
+          "id": 11003,
+          "name": "Khao San Road",
+          "address": "Khao San Rd, Talat Yot, Phra Nakhon, Bangkok",
+          "description": "Famous backpacker street with diverse food stalls",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": ["https://example.com/images/khao_san_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7587,
+            "longitude": 100.4967
+          }
+        },
+        {
+          "id": 11004,
+          "name": "Saphan Phut Night Market",
+          "address": "Chakphet Rd, Khlong San, Bangkok",
+          "description": "Night market known for affordable clothing and food",
+          "rating": 4.3,
+          "priceRange": "$",
+          "images": ["https://example.com/images/saphan_phut_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7324,
+            "longitude": 100.5019
+          }
+        },
+        {
+          "id": 11005,
+          "name": "Wang Thonglang Market",
+          "address": "Wang Thonglang, Bangkok",
+          "description": "Local market famous for authentic Thai breakfast",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": ["https://example.com/images/wang_thonglang_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7878,
+            "longitude": 100.6089
+          }
+        },
+        {
+          "id": 11006,
+          "name": "Huai Khwang Night Market",
+          "address": "Huai Khwang, Bangkok",
+          "description": "Hidden gem night market with excellent local food",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": ["https://example.com/images/huai_khwang_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7681,
+            "longitude": 100.5692
+          }
+        },
+        {
+          "id": 11007,
+          "name": "Lat Mayom Floating Market",
+          "address": "Taling Chan, Bangkok",
+          "description": "Traditional floating market with boat noodles",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": ["https://example.com/images/lat_mayom_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7725,
+            "longitude": 100.4414
+          }
+        },
+        {
+          "id": 11008,
+          "name": "Ratchada Night Market",
+          "address": "Ratchadaphisek Rd, Din Daeng, Bangkok",
+          "description": "Modern night market with Instagram-worthy food stalls",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": ["https://example.com/images/ratchada_1.jpg"],
+          "coordinates": {
+            "latitude": 13.7645,
+            "longitude": 100.5692
+          }
+        },
+        {
+          "id": 11009,
+          "name": "Or Tor Kor Market",
+          "address": "Chatuchak, Bangkok",
+          "description": "Upscale fresh market with premium street food",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/or_tor_kor_1.jpg"],
+          "coordinates": {
+            "latitude": 13.8022,
+            "longitude": 100.5531
+          }
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Rome Contemporary Galleries",
+      "genre": "Arts & Culture",
+      "subgenre": "Contemporary Art",
+      "creator": {
+        "id": 110,
+        "name": "Marco Rossi",
+        "username": "romeart"
+      },
+      "location": {
+        "country": "Italy",
+        "city": "Rome",
+        "coordinates": {
+          "latitude": 41.9028,
+          "longitude": 12.4964
+        }
+      },
+      "likes": 367,
+      "placeCount": 6,
+      "createdAt": "2024-10-22T09:45:00Z",
+      "updatedAt": "2025-03-30T14:20:00Z",
+      "places": [
+        {
+          "id": 12001,
+          "name": "MAXXI",
+          "address": "Via Guido Reni, 4A, 00196 Roma RM",
+          "description": "National Museum of Contemporary Arts by Zaha Hadid",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/maxxi_1.jpg"],
+          "coordinates": {
+            "latitude": 41.9338,
+            "longitude": 12.4731
+          }
+        },
+        {
+          "id": 12002,
+          "name": "Palazzo Altemps",
+          "address": "Piazza di Sant'Apollinare, 46, 00186 Roma RM",
+          "description": "Contemporary exhibitions in Renaissance palace",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/altemps_1.jpg"],
+          "coordinates": {
+            "latitude": 41.9008,
+            "longitude": 12.4731
+          }
+        },
+        {
+          "id": 12003,
+          "name": "Palazzo Massimo",
+          "address": "Largo di Villa Peretti, 2, 00185 Roma RM",
+          "description": "Modern art exhibitions in historic setting",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/massimo_1.jpg"],
+          "coordinates": {
+            "latitude": 41.9006,
+            "longitude": 12.4975
+          }
+        },
+        {
+          "id": 12004,
+          "name": "Mattatoio",
+          "address": "Piazza Orazio Giustiniani, 4, 00153 Roma RM",
+          "description": "Former slaughterhouse turned contemporary art space",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": ["https://example.com/images/mattatoio_1.jpg"],
+          "coordinates": {
+            "latitude": 41.8752,
+            "longitude": 12.4714
+          }
+        },
+        {
+          "id": 12005,
+          "name": "Centrale Montemartini",
+          "address": "Via Ostiense, 106, 00154 Roma RM",
+          "description": "Ancient sculptures in former power plant",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/montemartini_1.jpg"],
+          "coordinates": {
+            "latitude": 41.8742,
+            "longitude": 12.4836
+          }
+        },
+        {
+          "id": 12006,
+          "name": "Galleria Lorcan O'Neill",
+          "address": "Via Orti d'Alibert, 1E, 00187 Roma RM",
+          "description": "Leading contemporary art gallery in Rome",
+          "rating": 4.5,
+          "priceRange": "Free",
+          "images": ["https://example.com/images/lorcan_1.jpg"],
+          "coordinates": {
+            "latitude": 41.9078,
+            "longitude": 12.4756
+          }
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Amsterdam Vintage Cycling Culture",
+      "genre": "Shopping",
+      "subgenre": "Vintage Shops",
+      "creator": {
+        "id": 111,
+        "name": "Iris van der Berg",
+        "username": "amsterdamvintage"
+      },
+      "location": {
+        "country": "Netherlands",
+        "city": "Amsterdam",
+        "coordinates": {
+          "latitude": 52.3676,
+          "longitude": 4.9041
+        }
+      },
+      "likes": 543,
+      "placeCount": 8,
+      "createdAt": "2024-08-14T12:30:00Z",
+      "updatedAt": "2025-04-01T15:45:00Z",
+      "places": [
+        {
+          "id": 13001,
+          "name": "Zipper Vintage",
+          "address": "Huidenstraat 7, 1016 ER Amsterdam",
+          "description": "Curated vintage clothing from 1950s-1990s",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/zipper_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3644,
+            "longitude": 4.8839
+          }
+        },
+        {
+          "id": 13002,
+          "name": "Episode Amsterdam",
+          "address": "Berenstraat 1, 1016 GG Amsterdam",
+          "description": "International vintage chain with Amsterdam flair",
+          "rating": 4.4,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/episode_amsterdam_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3739,
+            "longitude": 4.8842
+          }
+        },
+        {
+          "id": 13003,
+          "name": "Laura Dols",
+          "address": "Wolvenstraat 7, 1016 EM Amsterdam",
+          "description": "Romantic vintage pieces and accessories",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/laura_dols_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3672,
+            "longitude": 4.8800
+          }
+        },
+        {
+          "id": 13004,
+          "name": "Noordermarkt Vintage",
+          "address": "Noorderkerk, 1015 NA Amsterdam",
+          "description": "Saturday vintage market in historic square",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": ["https://example.com/images/noordermarkt_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3781,
+            "longitude": 4.8847
+          }
+        },
+        {
+          "id": 13005,
+          "name": "Vintage Voom",
+          "address": "Eerste van Swindenstraat 404, 1093 GD Amsterdam",
+          "description": "Designer vintage with focus on 1980s fashion",
+          "rating": 4.3,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/vintage_voom_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3569,
+            "longitude": 4.9258
+          }
+        },
+        {
+          "id": 13006,
+          "name": "Waterlooplein Flea Market",
+          "address": "Waterlooplein, 1011 PG Amsterdam",
+          "description": "Historic flea market with vintage treasures",
+          "rating": 4.2,
+          "priceRange": "$",
+          "images": ["https://example.com/images/waterlooplein_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3686,
+            "longitude": 4.9022
+          }
+        },
+        {
+          "id": 13007,
+          "name": "Vintage Kilo Store",
+          "address": "Rozengracht 187, 1016 LZ Amsterdam",
+          "description": "Vintage clothing sold by weight",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": ["https://example.com/images/kilo_store_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3789,
+            "longitude": 4.8775
+          }
+        },
+        {
+          "id": 13008,
+          "name": "Jutka & Riska",
+          "address": "Eerste Tuindwarsstraat 18, 1015 RZ Amsterdam",
+          "description": "High-end vintage designer pieces",
+          "rating": 4.6,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/jutka_riska_1.jpg"],
+          "coordinates": {
+            "latitude": 52.3742,
+            "longitude": 4.8839
+          }
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Seoul Korean BBQ Masters",
+      "genre": "Food & Drink",
+      "subgenre": "Korean BBQ",
+      "creator": {
+        "id": 112,
+        "name": "Kim Min-jun",
+        "username": "seoulbbq"
+      },
+      "location": {
+        "country": "South Korea",
+        "city": "Seoul",
+        "coordinates": {
+          "latitude": 37.5665,
+          "longitude": 126.9780
+        }
+      },
+      "likes": 712,
+      "placeCount": 7,
+      "createdAt": "2024-09-05T19:20:00Z",
+      "updatedAt": "2025-04-14T11:30:00Z",
+      "places": [
+        {
+          "id": 14001,
+          "name": "Maple Tree House",
+          "address": "72 Nonhyeon-ro 38-gil, Gangnam-gu, Seoul",
+          "description": "Premium Korean BBQ with high-quality beef",
+          "rating": 4.8,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/maple_tree_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5172,
+            "longitude": 127.0286
+          }
+        },
+        {
+          "id": 14002,
+          "name": "Jangsu Jokbal",
+          "address": "61-1 Jangchung-dong 2-ga, Jung-gu, Seoul",
+          "description": "Famous for pork hocks and traditional atmosphere",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/jangsu_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5597,
+            "longitude": 127.0042
+          }
+        },
+        {
+          "id": 14003,
+          "name": "Gwangjang Market BBQ",
+          "address": "88 Changgyeonggung-ro, Jung-gu, Seoul",
+          "description": "Traditional market with authentic BBQ stalls",
+          "rating": 4.6,
+          "priceRange": "$",
+          "images": ["https://example.com/images/gwangjang_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5707,
+            "longitude": 126.9997
+          }
+        },
+        {
+          "id": 14004,
+          "name": "Hanilkwan",
+          "address": "41 Myeongdong 10-gil, Jung-gu, Seoul",
+          "description": "Historic restaurant serving royal court cuisine",
+          "rating": 4.5,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/hanilkwan_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5636,
+            "longitude": 126.9834
+          }
+        },
+        {
+          "id": 14005,
+          "name": "Samwon Garden",
+          "address": "835 Eonju-ro, Gangnam-gu, Seoul",
+          "description": "Upscale BBQ restaurant with beautiful garden setting",
+          "rating": 4.4,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/samwon_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5106,
+            "longitude": 127.0258
+          }
+        },
+        {
+          "id": 14006,
+          "name": "Mapo Galmaegi",
+          "address": "Hongik-ro 5-gil, Mapo-gu, Seoul",
+          "description": "Local favorite for grilled pork skirt meat",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/mapo_galmaegi_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5503,
+            "longitude": 126.9208
+          }
+        },
+        {
+          "id": 14007,
+          "name": "Born & Bred",
+          "address": "1F, 131 Bogwang-ro, Yongsan-gu, Seoul",
+          "description": "Premium hanwoo beef specialist restaurant",
+          "rating": 4.9,
+          "priceRange": "$$$$",
+          "images": ["https://example.com/images/born_bred_1.jpg"],
+          "coordinates": {
+            "latitude": 37.5311,
+            "longitude": 126.9742
+          }
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "San Francisco Independent Bookstores",
+      "genre": "Shopping",
+      "subgenre": "Bookstores",
+      "creator": {
+        "id": 113,
+        "name": "Sarah Martinez",
+        "username": "sfbookworm"
+      },
+      "location": {
+        "country": "United States",
+        "city": "San Francisco",
+        "coordinates": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
+      },
+      "likes": 658,
+      "placeCount": 8,
+      "createdAt": "2024-07-18T10:15:00Z",
+      "updatedAt": "2025-04-03T13:50:00Z",
+      "places": [
+        {
+          "id": 15001,
+          "name": "City Lights Bookstore",
+          "address": "261 Columbus Ave, San Francisco, CA 94133",
+          "description": "Historic independent bookstore and Beat Generation landmark",
+          "rating": 4.8,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/city_lights_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7976,
+            "longitude": -122.4058
+          }
+        },
+        {
+          "id": 15002,
+          "name": "Green Apple Books",
+          "address": "506 Clement St, San Francisco, CA 94118",
+          "description": "Legendary used bookstore with maze-like layout",
+          "rating": 4.7,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/green_apple_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7828,
+            "longitude": -122.4653
+          }
+        },
+        {
+          "id": 15003,
+          "name": "Adobe Books & Arts Cooperative",
+          "address": "3166 16th St, San Francisco, CA 94103",
+          "description": "Artist-run bookstore with experimental art installations",
+          "rating": 4.5,
+          "priceRange": "$",
+          "images": ["https://example.com/images/adobe_books_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7647,
+            "longitude": -122.4194
+          }
+        },
+        {
+          "id": 15004,
+          "name": "Omnivore Books on Food",
+          "address": "3885A Cesar Chavez St, San Francisco, CA 94131",
+          "description": "Specialized bookstore dedicated to food and cooking",
+          "rating": 4.6,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/omnivore_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7486,
+            "longitude": -122.4256
+          }
+        },
+        {
+          "id": 15005,
+          "name": "Dog Eared Books",
+          "address": "900 Valencia St, San Francisco, CA 94110",
+          "description": "Mission District bookstore with local literary focus",
+          "rating": 4.4,
+          "priceRange": "$",
+          "images": ["https://example.com/images/dog_eared_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7594,
+            "longitude": -122.4208
+          }
+        },
+        {
+          "id": 15006,
+          "name": "The Booksmith",
+          "address": "1644 Haight St, San Francisco, CA 94117",
+          "description": "Haight-Ashbury institution with eclectic selection",
+          "rating": 4.5,
+          "priceRange": "$$",
+          "images": ["https://example.com/images/booksmith_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7697,
+            "longitude": -122.4489
+          }
+        },
+        {
+          "id": 15007,
+          "name": "Alley Cat Books",
+          "address": "3036 24th St, San Francisco, CA 94110",
+          "description": "Used bookstore specializing in literature and arts",
+          "rating": 4.3,
+          "priceRange": "$",
+          "images": ["https://example.com/images/alley_cat_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7528,
+            "longitude": -122.4144
+          }
+        },
+        {
+          "id": 15008,
+          "name": "William Stout Architectural Books",
+          "address": "804 Montgomery St, San Francisco, CA 94133",
+          "description": "Specialized bookstore for architecture and design",
+          "rating": 4.7,
+          "priceRange": "$$$",
+          "images": ["https://example.com/images/stout_1.jpg"],
+          "coordinates": {
+            "latitude": 37.7997,
+            "longitude": -122.4044
           }
         }
       ]
