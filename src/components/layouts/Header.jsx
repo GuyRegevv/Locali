@@ -28,7 +28,7 @@ export const Header = () => {
                 </button>
                 <div className='h-8 mx-6 border-l-2 border-gray-700'></div>
                 <div className='rounded-full h-12 w-12 border-2 bg-gray-200'></div> {/*profile picture (backend)*/}
-                <p className='mx-2 text-md font-bold'>Mooshon Solami</p> {/*user name (backend)*/}
+                <p className='mx-2 text-md font-bold'>Shlomi Shabat</p> {/*user name (backend)*/}
                 <UserCircleIcon className='h-10 w-10'/>
             </div>
         </div>
