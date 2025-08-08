@@ -1,7 +1,10 @@
 'use client'
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '@/contexts/AuthContext';
+import { PublicRoute } from '@/components/auth';
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -14,7 +17,10 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [error, setError] = useState('');
+
+  const { register } = useAuth();
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,11 +29,8 @@ export default function SignupPage() {
       [name]: value
     }));
     // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
+    if (error) {
+      setError('');
     }
   };
 
@@ -62,23 +65,44 @@ export default function SignupPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       setIsLoading(true);
-      // TODO: Add registration logic here
-      console.log('Signup attempt:', formData);
-      setTimeout(() => setIsLoading(false), 1000);
+      setError('');
+      
+      try {
+        const fullName = `${formData.firstName} ${formData.lastName}`;
+        const result = await register(fullName, formData.email, formData.password);
+        
+        if (result.success) {
+          console.log('Registration successful, redirecting...');
+          router.push('/dashboard');
+        } else {
+          setError(result.error || 'Registration failed');
+        }
+      } catch (error) {
+        setError('Network error. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-[#ddf9ce] to-white">
+    <PublicRoute redirectTo="/dashboard">
+      <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-[#ddf9ce] to-white">
       <div className="w-2/3 max-w-md p-8 bg-white rounded-lg drop-shadow-lg border-2">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Join Locali</h1>
           <p className="text-gray-600">Create your account to get started</p>
         </div>
+
+        {error && (
+          <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Fields */}
@@ -272,5 +296,6 @@ export default function SignupPage() {
         </form>
       </div>
     </div>
+    </PublicRoute>
   );
 } 
