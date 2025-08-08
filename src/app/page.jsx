@@ -3,8 +3,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { GlobeAltIcon, MapPinIcon, StarIcon, UsersIcon } from '@heroicons/react/24/solid';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function LandingPage() {
+  const { login, register } = useAuth();
   const [showAuthDialog, setShowAuthDialog] = useState(false);
   const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
   const [formData, setFormData] = useState({
@@ -67,22 +69,37 @@ export default function LandingPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       setIsLoading(true);
-      // TODO: Add authentication logic here
-      console.log(`${authMode} attempt:`, formData);
-      setTimeout(() => {
-        setIsLoading(false);
-        // For demo purposes, redirect to home after successful auth
+      setErrors({});
+
+      try {
+        let result;
+        
         if (authMode === 'login') {
-          window.location.href = '/home';
+          // Login
+          result = await login(formData.email, formData.password);
         } else {
-          setAuthMode('login');
-          setFormData({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
+          // Register
+          const fullName = `${formData.firstName} ${formData.lastName}`;
+          result = await register(fullName, formData.email, formData.password);
         }
-      }, 1000);
+
+        if (result.success) {
+          console.log(`${authMode} successful, redirecting...`);
+          setShowAuthDialog(false);
+          window.location.href = '/dashboard';
+        } else {
+          setErrors({ general: result.error || `${authMode} failed` });
+        }
+      } catch (error) {
+        console.error(`${authMode} error:`, error);
+        setErrors({ general: 'Network error. Please try again.' });
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -230,6 +247,13 @@ export default function LandingPage() {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Error Display */}
+                {errors.general && (
+                  <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm">
+                    {errors.general}
+                  </div>
+                )}
+
                 {/* Name Fields for Signup */}
                 {authMode === 'signup' && (
                   <div className="flex gap-4">
