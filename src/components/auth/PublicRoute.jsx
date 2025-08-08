@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 
 /**
- * Component that protects routes requiring authentication
- * Redirects unauthenticated users to login page
+ * Component that redirects authenticated users away from auth pages
+ * Useful for login/signup pages
  */
-export const ProtectedRoute = ({ children, redirectTo = '/login' }) => {
+export const PublicRoute = ({ children, redirectTo = '/dashboard' }) => {
   const { user, token, loading } = useAuth();
   const router = useRouter();
   const [shouldRender, setShouldRender] = useState(false);
@@ -17,12 +17,12 @@ export const ProtectedRoute = ({ children, redirectTo = '/login' }) => {
     
     const isAuthenticated = !!user && !!token;
     
-    if (!isAuthenticated) {
-      console.log('User not authenticated, redirecting to:', redirectTo);
+    if (isAuthenticated) {
+      console.log('User authenticated, redirecting from public route to:', redirectTo);
       router.push(redirectTo);
       setShouldRender(false);
     } else {
-      console.log('User authenticated, rendering protected content');
+      console.log('User not authenticated, rendering public content');
       setShouldRender(true);
     }
   }, [loading, user, token, router, redirectTo]);
@@ -45,6 +45,6 @@ export const ProtectedRoute = ({ children, redirectTo = '/login' }) => {
     );
   }
 
-  // Render protected content
+  // Render public content
   return children;
 };

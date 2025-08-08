@@ -6,7 +6,8 @@ import UIListHeader from "../../../components/ui/UIListHeader";
 import UIPlaceButton from "../../../components/ui/UIPlaceButton";
 import PlaceDetails from "../../../components/ui/Place/PlaceDetails";
 import { places } from "../../../data/places-fake-data";
-import dynamic from "next/dynamic"
+import dynamic from "next/dynamic";
+import { ProtectedRoute } from '@/components/auth';
 
 const locations = places.map((place) => ({
   key: place.title.toLowerCase().replace(/\s+/g, ''),
@@ -26,7 +27,8 @@ export default function ListPage() {
   console.log('Selected place changed:', selectedPlace?.title || 'None');
   
   return (
-    <div className="flex flex-col w-full">
+    <ProtectedRoute>
+      <div className="flex flex-col w-full">
       <UIListHeader
         title="List"
         location="Location"
@@ -64,5 +66,6 @@ export default function ListPage() {
         </div>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }

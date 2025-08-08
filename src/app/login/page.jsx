@@ -151,9 +151,9 @@ export default function LoginPage() {
               </Link>
             </p>
                   </div>
-      </form>
-    </div>
-  </div>
+        </form>
+      </div>
+      </div>
     </PublicRoute>
   );
 } 

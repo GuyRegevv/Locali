@@ -1,6 +1,7 @@
 'use client'
 import dynamic from "next/dynamic"
 import mockData from "@backend/data/MockData.json"
+import { ProtectedRoute } from '@/components/auth';
 
 const DynamicMapIndex = dynamic(() => import("@/components/map/MapIndex"), {
   ssr: false,
@@ -28,6 +29,8 @@ export default function Maps () {
   ];
 
   return (
+    <ProtectedRoute>
       <DynamicMapIndex pois={locations}/>
+    </ProtectedRoute>
     )
 }

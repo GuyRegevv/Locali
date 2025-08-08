@@ -14,19 +14,9 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [isHydrated, setIsHydrated] = useState(false);
-
-  // Helper function to store token with expiry (7 days as per backend)
-  const storeToken = (tokenValue) => {
-    if (isHydrated) {
-      const expiryTime = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days
-      localStorage.setItem('token', tokenValue);
-      localStorage.setItem('tokenExpiry', expiryTime.toString());
-    }
-    setToken(tokenValue);
-  };
 
   // Initialize hydration state
   useEffect(() => {
@@ -42,91 +32,68 @@ export const AuthProvider = ({ children }) => {
         const storedToken = localStorage.getItem('token');
         const tokenExpiry = localStorage.getItem('tokenExpiry');
         
-        if (storedToken && tokenExpiry) {
-          const now = new Date().getTime();
-          const expiryTime = parseInt(tokenExpiry);
-          
-          // Check if token is expired
-          if (now >= expiryTime) {
-            console.log('Token expired, clearing storage');
+        if (!storedToken || !tokenExpiry) {
+          console.log('No token found');
+          setLoading(false);
+          return;
+        }
+
+        const now = new Date().getTime();
+        const expiryTime = parseInt(tokenExpiry);
+        
+        // Check if token is expired
+        if (now >= expiryTime) {
+          console.log('Token expired, clearing storage');
+          localStorage.removeItem('token');
+          localStorage.removeItem('tokenExpiry');
+          setLoading(false);
+          return;
+        }
+
+        console.log('Token found, verifying with backend...');
+        setToken(storedToken);
+        
+        // Verify token with backend
+        try {
+          const response = await fetch('http://localhost:3001/api/auth/me', {
+            headers: {
+              'Authorization': `Bearer ${storedToken}`,
+              'Content-Type': 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            setUser(data.user);
+            console.log('User authenticated:', data.user.email);
+          } else {
+            console.log('Token invalid, clearing storage');
             localStorage.removeItem('token');
             localStorage.removeItem('tokenExpiry');
             setToken(null);
-            setUser(null);
-          } else {
-            setToken(storedToken);
-            // Verify token with backend
-            await getCurrentUser(storedToken);
           }
+        } catch (error) {
+          console.error('Token verification failed:', error);
+          localStorage.removeItem('token');
+          localStorage.removeItem('tokenExpiry');
+          setToken(null);
         }
       } catch (error) {
         console.error('Auth initialization error:', error);
-        // Clear invalid token
-        localStorage.removeItem('token');
-        localStorage.removeItem('tokenExpiry');
-        setToken(null);
-        setUser(null);
       } finally {
         setLoading(false);
       }
     };
 
     initializeAuth();
-
-    // Listen for logout events from apiCall
-    const handleLogoutEvent = () => {
-      logout();
-    };
-
-    // Listen for storage events (logout in another tab)
-    const handleStorageEvent = (e) => {
-      if (e.key === 'token' && !e.newValue) {
-        // Token was removed in another tab
-        logout();
-      }
-    };
-
-    window.addEventListener('auth-logout', handleLogoutEvent);
-    window.addEventListener('storage', handleStorageEvent);
-
-    return () => {
-      window.removeEventListener('auth-logout', handleLogoutEvent);
-      window.removeEventListener('storage', handleStorageEvent);
-    };
   }, [isHydrated]);
-
-  // Get current user from backend
-  const getCurrentUser = async (authToken = token) => {
-    try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
-      const response = await fetch(`${API_URL}/auth/me`, {
-        headers: {
-          'Authorization': `Bearer ${authToken}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data.user);
-        return data.user;
-      } else {
-        // Token is invalid
-        throw new Error('Invalid token');
-      }
-    } catch (error) {
-      console.error('Get current user error:', error);
-      // Clear invalid token
-      logout();
-      throw error;
-    }
-  };
 
   // Login function
   const login = async (email, password) => {
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
-      const response = await fetch(`${API_URL}/auth/login`, {
+      console.log('Attempting login...');
+      
+      const response = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -138,7 +105,11 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         // Store token with expiry
-        storeToken(data.token);
+        const expiryTime = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('tokenExpiry', expiryTime.toString());
+        
+        setToken(data.token);
         setUser(data.user);
         
         console.log('Login successful:', data.user.email);
@@ -156,8 +127,7 @@ export const AuthProvider = ({ children }) => {
   // Register function
   const register = async (name, email, password) => {
     try {
-
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
+      const response = await fetch('http://localhost:3001/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -169,7 +139,11 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         // Store token with expiry
-        storeToken(data.token);
+        const expiryTime = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('tokenExpiry', expiryTime.toString());
+        
+        setToken(data.token);
         setUser(data.user);
         
         console.log('Registration successful:', data.user.email);
@@ -186,10 +160,8 @@ export const AuthProvider = ({ children }) => {
 
   // Logout function
   const logout = () => {
-    if (isHydrated) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('tokenExpiry');
-    }
+    localStorage.removeItem('token');
+    localStorage.removeItem('tokenExpiry');
     setToken(null);
     setUser(null);
     console.log('User logged out');
@@ -214,7 +186,6 @@ export const AuthProvider = ({ children }) => {
     logout,
     isAuthenticated,
     getAuthHeader,
-    getCurrentUser,
   };
 
   // Show loading during hydration to prevent mismatch

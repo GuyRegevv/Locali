@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import PostForm from "@/components/post/PostForm";
 import MapSearch from "@/components/map/MapSearch";
 import UIPlaceButton from "@/components/ui/UIPlaceButton";
+import { ProtectedRoute } from '@/components/auth';
 
 export default function PostPage() {
     const [selectedLocation, setSelectedLocation] = useState(null);
@@ -45,7 +46,8 @@ export default function PostPage() {
     };
 
     return (
-        <div className="flex w-full h-screen bg-gray-100">
+        <ProtectedRoute>
+            <div className="flex w-full h-screen bg-gray-100">
             {/* Left section - Post Form (1/3) */}
             <div className="w-1/3 flex items-center justify-center p-4 border-r border-gray-200">
                 <div className="w-full max-w-lg">
@@ -80,5 +82,6 @@ export default function PostPage() {
                 )}
             </div>
         </div>
+        </ProtectedRoute>
     );
 }

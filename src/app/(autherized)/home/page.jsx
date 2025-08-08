@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { MagnifyingGlassIcon, SparklesIcon, GlobeAltIcon, MapPinIcon, StarIcon } from '@heroicons/react/24/outline';
 import { SparklesIcon as SparklesSolid } from '@heroicons/react/24/solid';
 import searchFilters from '@backend/data/SearchFilters.js';
+import { ProtectedRoute } from '@/components/auth';
 
 export default function HomePage() {
   const router = useRouter();
@@ -44,7 +45,8 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#ddf9ce] via-white to-[#f0f9ed] relative overflow-hidden">
+    <ProtectedRoute>
+      <div className="min-h-screen bg-gradient-to-br from-[#ddf9ce] via-white to-[#f0f9ed] relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Sparkles */}
@@ -242,5 +244,6 @@ export default function HomePage() {
         }
       `}</style>
     </div>
+    </ProtectedRoute>
   );
 }

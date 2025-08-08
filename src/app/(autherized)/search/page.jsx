@@ -6,6 +6,7 @@ import mockData from '@backend/data/mockData.json'
 import { applyFilters, extractPois } from './utils';
 import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
 import MapIndex from '@/components/map/MapIndex';
+import { ProtectedRoute } from '@/components/auth';
 
 export default function Search () {
 
@@ -85,7 +86,8 @@ export default function Search () {
   };
 
     return (
-    <div className="flex w-full h-full ">
+    <ProtectedRoute>
+      <div className="flex w-full h-full ">
       
       <div className="flex flex-col w-4/6">
       <div className="flex p-4">
@@ -111,6 +113,6 @@ export default function Search () {
         I need to extract the list of places, when a certain list is pressed */}
       </div>
     </div>  
-
+    </ProtectedRoute>
     )
 }
