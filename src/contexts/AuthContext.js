@@ -17,6 +17,16 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
 
+  // Helper function to store token with expiry (7 days as per backend)
+  const storeToken = (tokenValue) => {
+    if (typeof window !== 'undefined') {
+      const expiryTime = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days
+      localStorage.setItem('token', tokenValue);
+      localStorage.setItem('tokenExpiry', expiryTime.toString());
+    }
+    setToken(tokenValue);
+  };
+
   // Initialize auth state from localStorage on mount
   useEffect(() => {
     const initializeAuth = async () => {
@@ -24,11 +34,24 @@ export const AuthProvider = ({ children }) => {
         // Check if we're in the browser (not SSR)
         if (typeof window !== 'undefined') {
           const storedToken = localStorage.getItem('token');
+          const tokenExpiry = localStorage.getItem('tokenExpiry');
           
-          if (storedToken) {
-            setToken(storedToken);
-            // Verify token with backend
-            await getCurrentUser(storedToken);
+          if (storedToken && tokenExpiry) {
+            const now = new Date().getTime();
+            const expiryTime = parseInt(tokenExpiry);
+            
+            // Check if token is expired
+            if (now >= expiryTime) {
+              console.log('Token expired, clearing storage');
+              localStorage.removeItem('token');
+              localStorage.removeItem('tokenExpiry');
+              setToken(null);
+              setUser(null);
+            } else {
+              setToken(storedToken);
+              // Verify token with backend
+              await getCurrentUser(storedToken);
+            }
           }
         }
       } catch (error) {
@@ -36,6 +59,7 @@ export const AuthProvider = ({ children }) => {
         // Clear invalid token
         if (typeof window !== 'undefined') {
           localStorage.removeItem('token');
+          localStorage.removeItem('tokenExpiry');
         }
         setToken(null);
         setUser(null);
@@ -51,10 +75,24 @@ export const AuthProvider = ({ children }) => {
       logout();
     };
 
-    window.addEventListener('auth-logout', handleLogoutEvent);
+    // Listen for storage events (logout in another tab)
+    const handleStorageEvent = (e) => {
+      if (e.key === 'token' && !e.newValue) {
+        // Token was removed in another tab
+        logout();
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('auth-logout', handleLogoutEvent);
+      window.addEventListener('storage', handleStorageEvent);
+    }
 
     return () => {
-      window.removeEventListener('auth-logout', handleLogoutEvent);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('auth-logout', handleLogoutEvent);
+        window.removeEventListener('storage', handleStorageEvent);
+      }
     };
   }, []);
 
@@ -100,11 +138,8 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
-        // Store token in localStorage (client-side only)
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('token', data.token);
-        }
-        setToken(data.token);
+        // Store token with expiry
+        storeToken(data.token);
         setUser(data.user);
         
         console.log('Login successful:', data.user.email);
@@ -134,11 +169,8 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
-        // Store token in localStorage (client-side only)
-        if (typeof window !== 'undefined') {
-          localStorage.setItem('token', data.token);
-        }
-        setToken(data.token);
+        // Store token with expiry
+        storeToken(data.token);
         setUser(data.user);
         
         console.log('Registration successful:', data.user.email);
@@ -157,6 +189,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     if (typeof window !== 'undefined') {
       localStorage.removeItem('token');
+      localStorage.removeItem('tokenExpiry');
     }
     setToken(null);
     setUser(null);

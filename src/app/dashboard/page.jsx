@@ -3,6 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { apiGet } from '@/utils/apiCall';
+import { ProtectedRoute } from '@/components/auth';
 
 export default function DashboardPage() {
   const { user, loading, logout, isAuthenticated } = useAuth();
@@ -10,12 +11,7 @@ export default function DashboardPage() {
   const [loadingUsers, setLoadingUsers] = useState(false);
   const router = useRouter();
 
-  // Redirect to login if not authenticated
-  useEffect(() => {
-    if (!loading && !isAuthenticated()) {
-      router.push('/login');
-    }
-  }, [loading, isAuthenticated, router]);
+  // Note: Authentication redirect is now handled by ProtectedRoute component
 
   // Fetch users list to test protected API call
   const fetchUsers = async () => {
@@ -35,22 +31,9 @@ export default function DashboardPage() {
     router.push('/login');
   };
 
-  // Show loading while checking authentication
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-lg">Loading...</div>
-      </div>
-    );
-  }
-
-  // Don't render if not authenticated (will redirect)
-  if (!isAuthenticated()) {
-    return null;
-  }
-
   return (
-    <div className="max-w-4xl mx-auto p-8">
+    <ProtectedRoute>
+      <div className="max-w-4xl mx-auto p-8">
       <div className="bg-white rounded-lg shadow-lg p-8">
         <div className="flex justify-between items-center mb-8">
           <div>
@@ -125,5 +108,6 @@ export default function DashboardPage() {
         </div>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }

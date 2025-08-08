@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '@/contexts/AuthContext';
+import { PublicRoute } from '@/components/auth';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -47,7 +48,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-[#ddf9ce] to-white">
+    <PublicRoute redirectTo="/dashboard">
+      <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-[#ddf9ce] to-white">
       <div className="w-2/3 max-w-md p-8 bg-white rounded-lg drop-shadow-lg border-2">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h1>
@@ -148,9 +150,10 @@ export default function LoginPage() {
                 Sign up here
               </Link>
             </p>
-          </div>
-        </form>
-      </div>
+                  </div>
+      </form>
     </div>
+  </div>
+    </PublicRoute>
   );
 } 
