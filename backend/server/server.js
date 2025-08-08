@@ -19,18 +19,6 @@ app.use(express.json());
 app.use('/api', healthRoutes);
 app.use('/api/auth', authRoutes);
 
-// Authentication middleware (will be implemented in next step)
-const authenticateToken = (req, res, next) => {
-  // TODO: Implement JWT authentication
-  next();
-};
-
-// Routes will be added in the next step
-// POST /api/auth/register
-// POST /api/auth/login  
-// GET /api/auth/me
-// GET /api/users
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Error:', err);
