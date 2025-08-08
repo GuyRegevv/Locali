@@ -16,10 +16,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   // Helper function to store token with expiry (7 days as per backend)
   const storeToken = (tokenValue) => {
-    if (typeof window !== 'undefined') {
+    if (isHydrated) {
       const expiryTime = new Date().getTime() + (7 * 24 * 60 * 60 * 1000); // 7 days
       localStorage.setItem('token', tokenValue);
       localStorage.setItem('tokenExpiry', expiryTime.toString());
@@ -27,40 +28,42 @@ export const AuthProvider = ({ children }) => {
     setToken(tokenValue);
   };
 
-  // Initialize auth state from localStorage on mount
+  // Initialize hydration state
   useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  // Initialize auth state from localStorage after hydration
+  useEffect(() => {
+    if (!isHydrated) return;
+
     const initializeAuth = async () => {
       try {
-        // Check if we're in the browser (not SSR)
-        if (typeof window !== 'undefined') {
-          const storedToken = localStorage.getItem('token');
-          const tokenExpiry = localStorage.getItem('tokenExpiry');
+        const storedToken = localStorage.getItem('token');
+        const tokenExpiry = localStorage.getItem('tokenExpiry');
+        
+        if (storedToken && tokenExpiry) {
+          const now = new Date().getTime();
+          const expiryTime = parseInt(tokenExpiry);
           
-          if (storedToken && tokenExpiry) {
-            const now = new Date().getTime();
-            const expiryTime = parseInt(tokenExpiry);
-            
-            // Check if token is expired
-            if (now >= expiryTime) {
-              console.log('Token expired, clearing storage');
-              localStorage.removeItem('token');
-              localStorage.removeItem('tokenExpiry');
-              setToken(null);
-              setUser(null);
-            } else {
-              setToken(storedToken);
-              // Verify token with backend
-              await getCurrentUser(storedToken);
-            }
+          // Check if token is expired
+          if (now >= expiryTime) {
+            console.log('Token expired, clearing storage');
+            localStorage.removeItem('token');
+            localStorage.removeItem('tokenExpiry');
+            setToken(null);
+            setUser(null);
+          } else {
+            setToken(storedToken);
+            // Verify token with backend
+            await getCurrentUser(storedToken);
           }
         }
       } catch (error) {
         console.error('Auth initialization error:', error);
         // Clear invalid token
-        if (typeof window !== 'undefined') {
-          localStorage.removeItem('token');
-          localStorage.removeItem('tokenExpiry');
-        }
+        localStorage.removeItem('token');
+        localStorage.removeItem('tokenExpiry');
         setToken(null);
         setUser(null);
       } finally {
@@ -83,18 +86,14 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('auth-logout', handleLogoutEvent);
-      window.addEventListener('storage', handleStorageEvent);
-    }
+    window.addEventListener('auth-logout', handleLogoutEvent);
+    window.addEventListener('storage', handleStorageEvent);
 
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('auth-logout', handleLogoutEvent);
-        window.removeEventListener('storage', handleStorageEvent);
-      }
+      window.removeEventListener('auth-logout', handleLogoutEvent);
+      window.removeEventListener('storage', handleStorageEvent);
     };
-  }, []);
+  }, [isHydrated]);
 
   // Get current user from backend
   const getCurrentUser = async (authToken = token) => {
@@ -187,7 +186,7 @@ export const AuthProvider = ({ children }) => {
 
   // Logout function
   const logout = () => {
-    if (typeof window !== 'undefined') {
+    if (isHydrated) {
       localStorage.removeItem('token');
       localStorage.removeItem('tokenExpiry');
     }
@@ -217,6 +216,15 @@ export const AuthProvider = ({ children }) => {
     getAuthHeader,
     getCurrentUser,
   };
+
+  // Show loading during hydration to prevent mismatch
+  if (!isHydrated) {
+    return (
+      <AuthContext.Provider value={{...value, loading: true}}>
+        {children}
+      </AuthContext.Provider>
+    );
+  }
 
   return (
     <AuthContext.Provider value={value}>

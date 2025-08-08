@@ -11,22 +11,27 @@ export const ProtectedRoute = ({ children, redirectTo = '/login' }) => {
   const { user, loading, isAuthenticated } = useAuth();
   const router = useRouter();
   const [shouldRender, setShouldRender] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (!loading) {
-      if (!isAuthenticated()) {
-        console.log('User not authenticated, redirecting to:', redirectTo);
-        router.push(redirectTo);
-        setShouldRender(false);
-      } else {
-        console.log('User authenticated, rendering protected content');
-        setShouldRender(true);
-      }
-    }
-  }, [loading, isAuthenticated, router, redirectTo]);
+    setIsMounted(true);
+  }, []);
 
-  // Show loading while checking authentication
-  if (loading) {
+  useEffect(() => {
+    if (!isMounted || loading) return;
+    
+    if (!isAuthenticated()) {
+      console.log('User not authenticated, redirecting to:', redirectTo);
+      router.push(redirectTo);
+      setShouldRender(false);
+    } else {
+      console.log('User authenticated, rendering protected content');
+      setShouldRender(true);
+    }
+  }, [isMounted, loading, isAuthenticated, router, redirectTo]);
+
+  // Show loading while checking authentication or during mount
+  if (!isMounted || loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-xl text-gray-600">Loading...</div>
@@ -55,22 +60,27 @@ export const PublicRoute = ({ children, redirectTo = '/dashboard' }) => {
   const { user, loading, isAuthenticated } = useAuth();
   const router = useRouter();
   const [shouldRender, setShouldRender] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (!loading) {
-      if (isAuthenticated()) {
-        console.log('User already authenticated, redirecting to:', redirectTo);
-        router.push(redirectTo);
-        setShouldRender(false);
-      } else {
-        console.log('User not authenticated, rendering public content');
-        setShouldRender(true);
-      }
-    }
-  }, [loading, isAuthenticated, router, redirectTo]);
+    setIsMounted(true);
+  }, []);
 
-  // Show loading while checking authentication
-  if (loading) {
+  useEffect(() => {
+    if (!isMounted || loading) return;
+    
+    if (isAuthenticated()) {
+      console.log('User already authenticated, redirecting to:', redirectTo);
+      router.push(redirectTo);
+      setShouldRender(false);
+    } else {
+      console.log('User not authenticated, rendering public content');
+      setShouldRender(true);
+    }
+  }, [isMounted, loading, isAuthenticated, router, redirectTo]);
+
+  // Show loading while checking authentication or during mount
+  if (!isMounted || loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="text-xl text-gray-600">Loading...</div>

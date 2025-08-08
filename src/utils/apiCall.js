@@ -3,12 +3,15 @@
  * Automatically handles JWT tokens and 401 responses
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
 export const apiCall = async (endpoint, options = {}) => {
   try {
     // Get token from localStorage (client-side only)
-    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+    let token = null;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token');
+    }
     
     // Prepare headers
     const headers = {
