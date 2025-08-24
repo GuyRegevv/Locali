@@ -1,12 +1,19 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { HomeIcon, BookmarkIcon, PlusCircleIcon, UserCircleIcon} from '@heroicons/react/24/solid'
-import { GlobeAltIcon } from '@heroicons/react/24/outline'
+import { GlobeAltIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
 import { useAuth } from '@/contexts/AuthContext';
 
 export const Header = () => {
-    const { user, loading } = useAuth();
+    const { user, loading, logout } = useAuth();
+    const router = useRouter();
+    
+    const handleLogout = () => {
+        logout();
+        router.push('/login');
+    };
     
     return (
 
@@ -30,9 +37,9 @@ export const Header = () => {
                     <p className='text-sm font-bold'>Tel Aviv, IL</p>
                 </button>
                 <div className='h-8 mx-6 border-l-2 border-gray-700'></div>
-                <Link href="/profile" className="flex items-center gap-2 hover:bg-white hover:bg-opacity-20 rounded-lg px-2 py-1 transition-colors">
+                <div className="flex items-center gap-3">
                     {/* Profile Picture */}
-                    <div className='rounded-full h-12 w-12 border-2 bg-gray-200 overflow-hidden flex items-center justify-center'>
+                    <Link href="/profile" className="rounded-full h-12 w-12 border-2 bg-gray-200 overflow-hidden flex items-center justify-center hover:border-green-400 transition-colors">
                         {user?.avatar ? (
                             <img 
                                 src={user.avatar} 
@@ -42,15 +49,22 @@ export const Header = () => {
                         ) : (
                             <UserCircleIcon className='h-8 w-8 text-gray-500'/>
                         )}
-                    </div>
+                    </Link>
                     
                     {/* User Name */}
-                    <p className='mx-2 text-md font-bold'>
+                    <p className='text-md font-bold'>
                         {loading ? 'Loading...' : (user?.name || 'Guest')}
                     </p>
                     
-                    <UserCircleIcon className='h-10 w-10'/>
-                </Link>
+                    {/* Logout Button */}
+                    <button
+                        onClick={handleLogout}
+                        className="flex items-center justify-center w-10 h-10 bg-white border-2 border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 hover:border-gray-400 hover:text-gray-700 transition-colors shadow-sm"
+                        title="Logout"
+                    >
+                        <ArrowRightOnRectangleIcon className='h-5 w-5'/>
+                    </button>
+                </div>
             </div>
         </div>
     )
