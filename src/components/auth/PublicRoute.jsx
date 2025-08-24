@@ -7,7 +7,7 @@ import { useAuth } from '@/contexts/AuthContext';
  * Component that redirects authenticated users away from auth pages
  * Useful for login/signup pages
  */
-export const PublicRoute = ({ children, redirectTo = '/dashboard' }) => {
+export const PublicRoute = ({ children, redirectTo = '/home' }) => {
   const { user, token, loading } = useAuth();
   const router = useRouter();
   const [shouldRender, setShouldRender] = useState(false);

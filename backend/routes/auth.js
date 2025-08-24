@@ -115,6 +115,27 @@ router.get('/me', authenticateToken, async (req, res) => {
   }
 });
 
+// GET /api/auth/profile - Get complete user profile with lists and likes
+router.get('/profile', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    console.log('Profile data requested for user:', req.user.email);
+    
+    // Get complete user profile with all relations
+    const userProfile = await userService.getUserProfile(userId);
+    
+    console.log('Profile data retrieved for user:', req.user.email, 
+      'with', userProfile.lists.length, 'lists and', userProfile.likes.length, 'likes');
+    
+    res.json({
+      user: userProfile
+    });
+  } catch (error) {
+    console.error('Get user profile error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 router.get('/users', authenticateToken, async (req, res) => {
   try {
     const users = await userService.findAll();
