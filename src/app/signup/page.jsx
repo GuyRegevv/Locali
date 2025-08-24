@@ -77,7 +77,7 @@ export default function SignupPage() {
         
         if (result.success) {
           console.log('Registration successful, redirecting...');
-          router.push('/dashboard');
+          router.push('/home');
         } else {
           setError(result.error || 'Registration failed');
         }
@@ -90,7 +90,7 @@ export default function SignupPage() {
   };
 
   return (
-    <PublicRoute redirectTo="/dashboard">
+    <PublicRoute redirectTo="/home">
       <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-[#ddf9ce] to-white">
       <div className="w-2/3 max-w-md p-8 bg-white rounded-lg drop-shadow-lg border-2">
         <div className="text-center mb-8">

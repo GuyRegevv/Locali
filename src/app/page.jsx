@@ -90,7 +90,7 @@ export default function LandingPage() {
         if (result.success) {
           console.log(`${authMode} successful, redirecting...`);
           setShowAuthDialog(false);
-          window.location.href = '/dashboard';
+          window.location.href = '/home';
         } else {
           setErrors({ general: result.error || `${authMode} failed` });
         }

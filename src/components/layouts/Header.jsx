@@ -33,9 +33,6 @@ export const Header = () => {
                 <GlobeAltIcon className='h-16 w-16'/>
             </div>
             <div className='flex justify-between items-center'>
-                <button className='w-28 h-10 bg-white rounded-xl border-2'>
-                    <p className='text-sm font-bold'>Tel Aviv, IL</p>
-                </button>
                 <div className='h-8 mx-6 border-l-2 border-gray-700'></div>
                 <div className="flex items-center gap-3">
                     {/* Profile Picture */}
