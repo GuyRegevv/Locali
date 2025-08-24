@@ -13,7 +13,7 @@ function PlacesAutocomplete({ onPlaceSelect, clearTrigger, placeholder = "Search
     if (!places || !inputRef.current) return
 
     const options = {
-      fields: ['geometry', 'name', 'formatted_address', 'place_id', 'types']
+      fields: ['geometry', 'name', 'formatted_address', 'place_id', 'types', 'address_components']
     }
 
     try {
@@ -39,7 +39,8 @@ function PlacesAutocomplete({ onPlaceSelect, clearTrigger, placeholder = "Search
           name: place.name,
           address: place.formatted_address,
           placeId: place.place_id,
-          types: place.types
+          types: place.types,
+          address_components: place.address_components || []
         })
       }
     })

@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 // Import routes
 const healthRoutes = require('../routes/health');
 const authRoutes = require('../routes/auth');
+const listRoutes = require('../routes/lists')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,6 +19,7 @@ app.use(express.json());
 // Routes
 app.use('/api', healthRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/lists', listRoutes)
 
 // Error handling middleware
 app.use((err, req, res, next) => {

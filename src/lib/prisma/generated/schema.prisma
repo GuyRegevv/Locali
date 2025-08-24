@@ -20,4 +20,132 @@ model User {
   password  String
   name      String
   createdAt DateTime @default(now())
+
+  // NEW back-relations:
+  lists List[] // a user’s own lists
+  likes ListLike[] // lists this user liked/saved
+}
+
+// --- Geography ---
+model Country {
+  id   String  @id @default(cuid())
+  name String
+  code String? @unique // ISO-3166 alpha-2 (e.g., "IT", "US")
+  slug String? @unique
+
+  cities City[]
+
+  @@unique([name])
+}
+
+model City {
+  id        String  @id @default(cuid())
+  countryId String
+  name      String
+  slug      String?
+  lat       Float?
+  lng       Float?
+
+  country Country @relation(fields: [countryId], references: [id], onDelete: Restrict)
+  places  Place[]
+  lists   List[]
+
+  // denorm for fast "browse cities" (keep updated in app code)
+  listCount Int @default(0)
+
+  @@unique([countryId, name])
+  @@index([countryId])
+}
+
+// --- Core content ---
+model Place {
+  id              String   @id @default(cuid())
+  name            String
+  address         String
+  lat             Float
+  lng             Float
+  googlePlaceId   String   @unique
+  description     String?
+  primaryImageUrl String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  cityId String
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Restrict)
+
+  listItems ListPlace[]
+
+  @@index([cityId])
+  @@index([lat, lng])
+}
+
+model List {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  // simple categorization for now
+  genre       String?
+  subgenre    String?
+
+  // location (normalized)
+  cityId String
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Restrict)
+
+  // optional center point for maps
+  lat Float?
+  lng Float?
+
+  // ownership
+  creatorId String
+  creator   User   @relation(fields: [creatorId], references: [id])
+
+  // list-level ratings (aggregated)
+  averageRating Float @default(0)
+  ratingCount   Int   @default(0)
+
+  // fast UI counters (maintain in app code)
+  likeCount  Int     @default(0)
+  placeCount Int     @default(0)
+  coverImage String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  places ListPlace[]
+  likes  ListLike[]
+
+  @@index([cityId])
+  @@index([creatorId])
+}
+
+// order + per-entry note (a place inside a list)
+model ListPlace {
+  id         String  @id @default(cuid())
+  listId     String
+  placeId    String
+  order      Int
+  note       String?
+  // foundation if you later want per-entry price hints
+  priceRange String?
+
+  createdAt DateTime @default(now())
+
+  list  List  @relation(fields: [listId], references: [id], onDelete: Cascade)
+  place Place @relation(fields: [placeId], references: [id], onDelete: Restrict)
+
+  @@unique([listId, placeId]) // one appearance per list
+  @@index([listId, order]) // fast ordered fetch
+}
+
+// like/save = one per user per list
+model ListLike {
+  userId    String
+  listId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  list List @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  @@id([userId, listId])
+  @@index([listId])
 }

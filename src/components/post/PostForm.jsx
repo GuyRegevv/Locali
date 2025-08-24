@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import searchFilters from '@backend/data/SearchFilters.js'
 
-export default function PostForm({ selectedLocation, onSubmit }) {
+export default function PostForm({ selectedLocation, onSubmit, isSubmitting = false }) {
   const [textInput, setTextInput] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -163,12 +163,17 @@ export default function PostForm({ selectedLocation, onSubmit }) {
           />
         </div>
         <div className="flex justify-center">
-          <button
-            type="submit"
-            className="px-8 py-3 bg-gray-800 text-white font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition duration-200 rounded-full"
-          >
-            Submit Post
-          </button>
+            <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`px-8 py-3 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-200 rounded-full ${
+                    isSubmitting 
+                        ? 'bg-gray-400 text-white cursor-not-allowed' 
+                        : 'bg-gray-800 text-white hover:bg-gray-700 focus:ring-gray-500'
+                }`}
+            >
+                {isSubmitting ? 'Creating List...' : 'Submit Post'}
+            </button>
         </div>
       </form>
     </div>

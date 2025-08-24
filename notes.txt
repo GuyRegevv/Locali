@@ -1,0 +1,2 @@
+ok I added it, I think our nearest goal to keep in mind, is to create a list via the UI so lets keep our focus towards that and build our way to it.
+we have a create list page, where a user can fill in his 

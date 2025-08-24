@@ -128,6 +128,72 @@ exports.Prisma.UserScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.CountryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  code: 'code',
+  slug: 'slug'
+};
+
+exports.Prisma.CityScalarFieldEnum = {
+  id: 'id',
+  countryId: 'countryId',
+  name: 'name',
+  slug: 'slug',
+  lat: 'lat',
+  lng: 'lng',
+  listCount: 'listCount'
+};
+
+exports.Prisma.PlaceScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  address: 'address',
+  lat: 'lat',
+  lng: 'lng',
+  googlePlaceId: 'googlePlaceId',
+  description: 'description',
+  primaryImageUrl: 'primaryImageUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  cityId: 'cityId'
+};
+
+exports.Prisma.ListScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  genre: 'genre',
+  subgenre: 'subgenre',
+  cityId: 'cityId',
+  lat: 'lat',
+  lng: 'lng',
+  creatorId: 'creatorId',
+  averageRating: 'averageRating',
+  ratingCount: 'ratingCount',
+  likeCount: 'likeCount',
+  placeCount: 'placeCount',
+  coverImage: 'coverImage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ListPlaceScalarFieldEnum = {
+  id: 'id',
+  listId: 'listId',
+  placeId: 'placeId',
+  order: 'order',
+  note: 'note',
+  priceRange: 'priceRange',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.ListLikeScalarFieldEnum = {
+  userId: 'userId',
+  listId: 'listId',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -138,9 +204,20 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Country: 'Country',
+  City: 'City',
+  Place: 'Place',
+  List: 'List',
+  ListPlace: 'ListPlace',
+  ListLike: 'ListLike'
 };
 
 /**
