@@ -1,6 +1,16 @@
 const prisma = require('../db/prismaClient');
 
 class UserService {
+  // Generate avatar URL using DiceBear API
+  generateAvatarUrl(seed, size = 200) {
+    // Clean the seed to make it URL-safe (remove spaces, special chars, make lowercase)
+    const cleanSeed = seed.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '') // Remove special chars but keep spaces
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single
+      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+    return `https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=${cleanSeed}&size=${size}`;
+  }
   // Find user by email
   async findByEmail(email) {
     try {
@@ -30,11 +40,15 @@ class UserService {
     try {
       const { email, password, name } = userData;
       
+      // Generate avatar URL using the user's name as seed
+      const avatar = this.generateAvatarUrl(name);
+      
       return await prisma.user.create({
         data: {
           email,
           password,
-          name
+          name,
+          avatar
         }
       });
     } catch (error) {
@@ -51,6 +65,7 @@ class UserService {
           id: true,
           email: true,
           name: true,
+          avatar: true,
           createdAt: true
         }
       });
@@ -77,6 +92,7 @@ class UserService {
       id: user.id,
       email: user.email,
       name: user.name,
+      avatar: user.avatar,
       createdAt: user.createdAt
     };
   }
