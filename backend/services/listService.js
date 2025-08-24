@@ -26,6 +26,9 @@ const prisma = require('../db/prismaClient');
  *   ]
  * }
  */
+
+
+
 async function createList({ creatorId, payload }) {
   const { name, description, genre, subgenre, location, items = [] } = payload || {};
   if (!name || !location?.country?.name || !location?.city?.name) {
@@ -126,6 +129,9 @@ async function createList({ creatorId, payload }) {
   return list;
 }
 
+
+
 module.exports = {
   createList,
 };
+
