@@ -86,6 +86,72 @@ class UserService {
     }
   }
 
+  // Get complete user profile with lists and likes (for profile page)
+  async getUserProfile(userId) {
+    try {
+      const user = await prisma.user.findUnique({
+        where: { id: userId },
+        include: {
+          // User's own lists with full relations
+          lists: {
+            include: {
+              city: {
+                include: {
+                  country: true
+                }
+              }
+            },
+            orderBy: {
+              createdAt: 'desc'
+            }
+          },
+          // User's liked lists with full relations
+          likes: {
+            include: {
+              list: {
+                include: {
+                  creator: {
+                    select: {
+                      id: true,
+                      name: true,
+                      email: true
+                    }
+                  },
+                  city: {
+                    include: {
+                      country: true
+                    }
+                  }
+                }
+              }
+            },
+            orderBy: {
+              createdAt: 'desc'
+            }
+          }
+        }
+      });
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Return user data without password
+      return {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        avatar: user.avatar,
+        createdAt: user.createdAt,
+        lists: user.lists,
+        likes: user.likes
+      };
+    } catch (error) {
+      console.error('Error getting user profile:', error);
+      throw error;
+    }
+  }
+
   // Get user data without password (for responses)
   getUserDataForResponse(user) {
     return {
