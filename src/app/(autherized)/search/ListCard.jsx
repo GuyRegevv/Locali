@@ -24,11 +24,11 @@ export const ListCard = ({ list }) => {
                 <div className="flex justify-between items-center h-10">
                     <div className="flex items-center">
                         <HeartIcon className='h-5 w-5 mr-0.5'/>
-                        <p className="flex">{list.likes}</p>
+                        <p className="flex">{list.likesCount}</p>
                     </div>
                     <div className="flex items-center">
                         <QueueListIcon className='h-5 w-5 mr-0.5'/>
-                        <p className="flex">{list.places.length}</p>
+                        <p className="flex">{list.placeCount}</p>
                     </div>
                     <div className="relative border-2 border-brown-400 w-8 h-8 rounded-full overflow-hidden">
                         <Image 

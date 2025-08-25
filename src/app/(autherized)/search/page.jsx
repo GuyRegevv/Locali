@@ -2,11 +2,11 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react'
 import { ListsLayout } from "./ListsLayout";
-import mockData from '@backend/data/mockData.json'
 import { applyFilters, extractPois } from './utils';
 import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
 import MapIndex from '@/components/map/MapIndex';
 import { ProtectedRoute } from '@/components/auth';
+import { apiGet } from '@/utils/apiCall';
 
 export default function Search () {
 
@@ -41,19 +41,29 @@ export default function Search () {
       creator: urlCreator
     });
 
-    const filtered = applyFilters({
-      country: urlCountry,
-      city: urlCity,
-      category: urlCategory,
-      subcategory: urlSubcategory,
-      creator: urlCreator
-    }, [...mockData.lists]);
-    
-    setFilteredLists(filtered);
-    setIsLoading(false);
-    //setPois(extractPois(filteredLists));  
-    //("pois ", pois);
-  },[searchParams]);
+    const fetchLists = async () => {
+      setIsLoading(true);
+      try {
+        const params = new URLSearchParams();
+        if (urlCountry) params.set('country', urlCountry);
+        if (urlCity) params.set('city', urlCity);
+        if (urlCategory) params.set('category', urlCategory);
+        if (urlSubcategory) params.set('subcategory', urlSubcategory);
+        if (urlCreator) params.set('creator', urlCreator);
+  
+        const data = await apiGet(`/lists?${params.toString()}`);
+        setFilteredLists(data);
+        
+      } catch (e) {
+        console.error('Failed to fetch lists:', e);
+        setFilteredLists([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    fetchLists();
+  }, [searchParams]);
 
   const handleFilterChange = (filterName, value) => {
     setFilterValues(prev => ({

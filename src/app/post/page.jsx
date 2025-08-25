@@ -161,12 +161,6 @@ export default function PostPage() {
 
     return (
         <ProtectedRoute>
-            <div className="container mx-auto p-6">
-                {/* Debug: show the derived list location while we build */}
-                <pre className="text-xs text-gray-500 mb-2">
-                    {JSON.stringify({ listLocation }, null, 2)}
-                </pre>
-            </div>
             <div className="flex w-full h-screen bg-gray-100">
             {/* Left section - Post Form (1/3) */}
             <div className="w-1/3 flex items-center justify-center p-4 border-r border-gray-200">

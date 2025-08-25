@@ -129,9 +129,54 @@ async function createList({ creatorId, payload }) {
   return list;
 }
 
+async function findLists(filters = {}) {
+      const { country, city, category, subcategory, creator } = filters;    
 
+      const where = {
+        ...(category ? { genre: { contains: category, mode: 'insensitive' } } : {}),
+        ...(subcategory ? { subgenre: { contains: subcategory, mode: 'insensitive' } } : {}),
+        ...(creator ? { creator: { name: { contains: creator, mode: 'insensitive' } } } : {}),
+        ...(country || city
+          ? {
+              city: {
+                ...(city ? { name: { contains: city, mode: 'insensitive' } } : {}),
+                ...(country ? { country: { name: { contains: country, mode: 'insensitive' } } } : {}),
+              },
+            }
+          : {}),
+      };
 
-module.exports = {
-  createList,
+      const rows = await prisma.list.findMany({
+        where,
+        include: {
+          city: { include: { country: true } },
+          creator: { select: { id: true, name: true } },
+        },
+        orderBy: { createdAt: 'desc' },
+      });
+
+        // Map to the UI shape expected by the search page
+        return rows.map(l => ({
+          id: l.id,
+          name: l.name,
+          description: l.description,
+          genre: l.genre,
+          subgenre: l.subgenre,
+          location: {
+            country: l.city?.country?.name || '',
+            city: l.city?.name || '',
+          },
+          creator: {
+            id: l.creator?.id,
+            name: l.creator?.name,
+          },
+          likeCount: l.likeCount,
+          placeCount: l.placeCount,
+        }));
+  }
+
+  module.exports = {
+    createList,
+    findLists,
 };
 
