@@ -111,19 +111,26 @@ export default function Search () {
       <div className="flex w-full h-screen ">
       
       <div className="flex flex-col w-4/6">
-      <div className="flex p-4">
-         <Filters filterValues={filterValues} handleFilterChange={handleFilterChange}/>
-         <div className="ml-3 justify-center items-center">
-          <button className="w-full h-1/2 text-white bg-green-500 rounded" onClick={handleApplyFilters}>Apply</button>
-          <button className="w-full h-1/2 text-white bg-gray-500 rounded" onClick={handleResetFilters}>Reset</button>
-        </div> 
+      <div className="flex p-2">
+         <Filters 
+            filterValues={filterValues} 
+            handleFilterChange={handleFilterChange}
+            onApply={handleApplyFilters}
+            onReset={handleResetFilters}
+         />
       </div >
 
-      <div className="p-4 flex-1 flex flex-col overflow-hidden">
+      <div className="p-2 flex-1 flex flex-col overflow-hidden">
         <div className="w-full py-2">
         </div>
         <div className="flex-1 overflow-y-auto">
-        { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists} onSelectList={handleSelectList} />) }
+        { isLoading ? (<p>Loading...</p>) : (
+          <ListsLayout 
+            lists={filteredLists} 
+            onSelectList={handleSelectList}
+            onReset={handleResetFilters}
+          />
+        ) }
         </div>
       </div>
       </div>
