@@ -1,46 +1,42 @@
 import React from "react";
 import Image from "next/image";
-import mockData from '@backend/data/mockData.json'
 import { HeartIcon, QueueListIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 
 export const ListCard = ({ list }) => {
 
     return (
-        <Link href={`/list/`}>
-        <div className="h-70 bg-gray-100 rounded flex flex-col">   
-            <div className="h-[35%] relative">
+        <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">   
+            <div className="relative aspect-[16/9]">
                 <Image src="/eastvillage.webp" 
-                       alt="bgImg"
+                       alt="List cover"
                        fill={true}
-                       className="rounded-t object-cover" />
+                       className="object-cover" />
             </div>
-            <div className="flex flex-col flex-1 p-2">
-                <p className="text-lg font-bold">{list.name}</p>
-                <div className="flex-1 mt-2">
-                    <p className="mr-1 font-bold text-md text-gray-500">{list.genre}</p>
-                    <p className="text-md text-gray-400">{list.subgenre}</p>
+            <div className="flex flex-col gap-2 p-3">
+                <p className="text-base font-semibold text-gray-900 line-clamp-1">{list.name}</p>
+                <div className="flex items-center gap-2 text-sm">
+                    <span className="text-gray-600 font-medium">{list.genre}</span>
+                    {list.subgenre && <span className="text-gray-400">• {list.subgenre}</span>}
                 </div>
-                <div className="flex justify-between items-center h-10">
-                    <div className="flex items-center">
-                        <HeartIcon className='h-5 w-5 mr-0.5'/>
-                        <p className="flex">{list.likes}</p>
+                <div className="mt-1 flex justify-between items-center">
+                    <div className="flex items-center gap-1 text-gray-700">
+                        <HeartIcon className='h-5 w-5'/>
+                        <span className="text-sm">{list.likeCount}</span>
                     </div>
-                    <div className="flex items-center">
-                        <QueueListIcon className='h-5 w-5 mr-0.5'/>
-                        <p className="flex">{list.places.length}</p>
+                    <div className="flex items-center gap-1 text-gray-700">
+                        <QueueListIcon className='h-5 w-5'/>
+                        <span className="text-sm">{list.placeCount}</span>
                     </div>
-                    <div className="relative border-2 border-brown-400 w-8 h-8 rounded-full overflow-hidden">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-gray-200">
                         <Image 
                             src="/yellow-square.jpg" 
-                            alt="bgImg" 
+                            alt="Creator avatar" 
                             fill={true}
-                            className="rounded-t object-cover"
+                            className="object-cover"
                         />
                     </div>
                 </div>
             </div>
         </div>
-            </Link>
     );
 };

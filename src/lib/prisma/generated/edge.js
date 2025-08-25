@@ -203,7 +203,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/talmagal/Desktop/Locali/src/lib/prisma/generated",
+      "value": "/Users/guyreg/MTA/Locali/locali/src/lib/prisma/generated",
       "fromEnvVar": null
     },
     "config": {
@@ -217,7 +217,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/talmagal/Desktop/Locali/prisma/schema.prisma",
+    "sourceFilePath": "/Users/guyreg/MTA/Locali/locali/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -231,6 +231,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {

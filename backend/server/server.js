@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const healthRoutes = require('../routes/health');
 const authRoutes = require('../routes/auth');
 const listRoutes = require('../routes/lists')
+const geoRoutes = require('../routes/geo')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use('/api', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/lists', listRoutes)
+app.use('/api/geo', geoRoutes)
 
 // Error handling middleware
 app.use((err, req, res, next) => {

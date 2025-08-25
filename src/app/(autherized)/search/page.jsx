@@ -2,11 +2,11 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react'
 import { ListsLayout } from "./ListsLayout";
-import mockData from '@backend/data/mockData.json'
 import { applyFilters, extractPois } from './utils';
 import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
-import MapIndex from '@/components/map/MapIndex';
+import SearchMap from '@/components/map/SearchMap';
 import { ProtectedRoute } from '@/components/auth';
+import { apiGet } from '@/utils/apiCall';
 
 export default function Search () {
 
@@ -14,6 +14,7 @@ export default function Search () {
   const searchParams = useSearchParams();
   const [filteredLists, setFilteredLists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedList, setSelectedList] = useState(null);
   const [filterValues, setFilterValues] = useState({
     country: '',
     city: '',
@@ -41,19 +42,29 @@ export default function Search () {
       creator: urlCreator
     });
 
-    const filtered = applyFilters({
-      country: urlCountry,
-      city: urlCity,
-      category: urlCategory,
-      subcategory: urlSubcategory,
-      creator: urlCreator
-    }, [...mockData.lists]);
-    
-    setFilteredLists(filtered);
-    setIsLoading(false);
-    //setPois(extractPois(filteredLists));  
-    //("pois ", pois);
-  },[searchParams]);
+    const fetchLists = async () => {
+      setIsLoading(true);
+      try {
+        const params = new URLSearchParams();
+        if (urlCountry) params.set('country', urlCountry);
+        if (urlCity) params.set('city', urlCity);
+        if (urlCategory) params.set('category', urlCategory);
+        if (urlSubcategory) params.set('subcategory', urlSubcategory);
+        if (urlCreator) params.set('creator', urlCreator);
+  
+        const data = await apiGet(`/lists?${params.toString()}`);
+        setFilteredLists(data);
+        
+      } catch (e) {
+        console.error('Failed to fetch lists:', e);
+        setFilteredLists([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    fetchLists();
+  }, [searchParams]);
 
   const handleFilterChange = (filterName, value) => {
     setFilterValues(prev => ({
@@ -85,32 +96,49 @@ export default function Search () {
     router.push(`/search?${params.toString()}`);
   };
 
+  const handleSelectList = async (listSummary) => {
+    try {
+      const full = await apiGet(`/lists/${listSummary.id}`);
+      setSelectedList(full);
+    } catch (e) {
+      console.error('Failed to load list details:', e);
+      setSelectedList(null);
+    }
+  };
+
     return (
     <ProtectedRoute>
-      <div className="flex w-full h-full ">
+      <div className="flex w-full h-screen ">
       
       <div className="flex flex-col w-4/6">
-      <div className="flex p-4">
-         <Filters filterValues={filterValues} handleFilterChange={handleFilterChange}/>
-         <div className="ml-3 justify-center items-center">
-          <button className="w-full h-1/2 text-white bg-green-500 rounded" onClick={handleApplyFilters}>Apply</button>
-          <button className="w-full h-1/2 text-white bg-gray-500 rounded" onClick={handleResetFilters}>Reset</button>
-        </div> 
+      <div className="flex p-2">
+         <Filters 
+            filterValues={filterValues} 
+            handleFilterChange={handleFilterChange}
+            onApply={handleApplyFilters}
+            onReset={handleResetFilters}
+         />
       </div >
 
-      <div className="p-4 flex-1 flex flex-col overflow-hidden">
+      <div className="p-2 flex-1 flex flex-col overflow-hidden">
         <div className="w-full py-2">
         </div>
         <div className="flex-1 overflow-y-auto">
-        { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists}/>) }
+        { isLoading ? (<p>Loading...</p>) : (
+          <ListsLayout 
+            lists={filteredLists} 
+            onSelectList={handleSelectList}
+            onReset={handleResetFilters}
+          />
+        ) }
         </div>
       </div>
       </div>
     
-      <div className="w-2/6 p-4">
-        {/* <MapIndex pois={pois}/>
-        To Fix - currently im not extatict thr right info from mock data, 
-        I need to extract the list of places, when a certain list is pressed */}
+      <div className="w-2/6 p-4 h-full">
+        <div className="w-full h-full rounded-lg overflow-hidden">
+          <SearchMap list={selectedList} />
+        </div>
       </div>
     </div>  
     </ProtectedRoute>
