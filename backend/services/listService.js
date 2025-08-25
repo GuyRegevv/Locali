@@ -175,8 +175,26 @@ async function findLists(filters = {}) {
         }));
   }
 
-  module.exports = {
-    createList,
-    findLists,
+async function getListById(listId) {
+  const list = await prisma.list.findUnique({
+    where: { id: listId },
+    include: {
+      city: { include: { country: true } },
+      creator: { select: { id: true, name: true } },
+      places: { orderBy: { order: 'asc' }, include: { place: true } },
+    },
+  });
+  if (!list) {
+    const err = new Error('List not found');
+    err.status = 404;
+    throw err;
+  }
+  return list;
+}
+
+module.exports = {
+  createList,
+  findLists,
+  getListById,
 };
 

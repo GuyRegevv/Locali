@@ -1,13 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import mockData from '@backend/data/mockData.json'
 import { HeartIcon, QueueListIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 
 export const ListCard = ({ list }) => {
 
     return (
-        <Link href={`/list/`}>
         <div className="h-70 bg-gray-100 rounded flex flex-col">   
             <div className="h-[35%] relative">
                 <Image src="/eastvillage.webp" 
@@ -24,7 +21,7 @@ export const ListCard = ({ list }) => {
                 <div className="flex justify-between items-center h-10">
                     <div className="flex items-center">
                         <HeartIcon className='h-5 w-5 mr-0.5'/>
-                        <p className="flex">{list.likesCount}</p>
+                        <p className="flex">{list.likeCount}</p>
                     </div>
                     <div className="flex items-center">
                         <QueueListIcon className='h-5 w-5 mr-0.5'/>
@@ -41,6 +38,5 @@ export const ListCard = ({ list }) => {
                 </div>
             </div>
         </div>
-            </Link>
     );
 };

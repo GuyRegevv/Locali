@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { authenticateToken } = require('../middleware/auth');
-const { createList, findLists } = require('../services/listService');
+const { createList, findLists, getListById } = require('../services/listService');
 
 // sanity ping
 router.get('/ping', (req, res) => res.json({ ok: true }));
@@ -28,6 +28,17 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.error('[GET /api/lists] error:', err);
     res.status(500).json({ error: 'Failed to fetch lists' });
+  }
+});
+
+// GET /api/lists/:id - full list with places
+router.get('/:id', async (req, res) => {
+  try {
+    const list = await getListById(req.params.id);
+    res.json(list);
+  } catch (err) {
+    const status = err.status || 500;
+    res.status(status).json({ error: err.message || 'Failed to fetch list' });
   }
 });
 

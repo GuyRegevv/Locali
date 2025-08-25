@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { ListsLayout } from "./ListsLayout";
 import { applyFilters, extractPois } from './utils';
 import { Filters } from "./Filters"; // Use named import if Filters is exported as a named export
-import MapIndex from '@/components/map/MapIndex';
+import SearchMap from '@/components/map/SearchMap';
 import { ProtectedRoute } from '@/components/auth';
 import { apiGet } from '@/utils/apiCall';
 
@@ -14,6 +14,7 @@ export default function Search () {
   const searchParams = useSearchParams();
   const [filteredLists, setFilteredLists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedList, setSelectedList] = useState(null);
   const [filterValues, setFilterValues] = useState({
     country: '',
     city: '',
@@ -95,9 +96,19 @@ export default function Search () {
     router.push(`/search?${params.toString()}`);
   };
 
+  const handleSelectList = async (listSummary) => {
+    try {
+      const full = await apiGet(`/lists/${listSummary.id}`);
+      setSelectedList(full);
+    } catch (e) {
+      console.error('Failed to load list details:', e);
+      setSelectedList(null);
+    }
+  };
+
     return (
     <ProtectedRoute>
-      <div className="flex w-full h-full ">
+      <div className="flex w-full h-screen ">
       
       <div className="flex flex-col w-4/6">
       <div className="flex p-4">
@@ -112,15 +123,15 @@ export default function Search () {
         <div className="w-full py-2">
         </div>
         <div className="flex-1 overflow-y-auto">
-        { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists}/>) }
+        { isLoading ? (<p>Loading...</p>) : (<ListsLayout lists={filteredLists} onSelectList={handleSelectList} />) }
         </div>
       </div>
       </div>
     
-      <div className="w-2/6 p-4">
-        {/* <MapIndex pois={pois}/>
-        To Fix - currently im not extatict thr right info from mock data, 
-        I need to extract the list of places, when a certain list is pressed */}
+      <div className="w-2/6 p-4 h-full">
+        <div className="w-full h-full rounded-lg overflow-hidden">
+          <SearchMap list={selectedList} />
+        </div>
       </div>
     </div>  
     </ProtectedRoute>
