@@ -12,21 +12,24 @@ export default function SignupPage() {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    address: '',
+    isLocal: false
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [errors, setErrors] = useState({});
 
   const { register } = useAuth();
   const router = useRouter();
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
     // Clear error when user starts typing
     if (error) {
@@ -73,7 +76,7 @@ export default function SignupPage() {
       
       try {
         const fullName = `${formData.firstName} ${formData.lastName}`;
-        const result = await register(fullName, formData.email, formData.password);
+        const result = await register(fullName, formData.email, formData.password, formData.address, formData.isLocal);
         
         if (result.success) {
           console.log('Registration successful, redirecting...');
@@ -170,6 +173,47 @@ export default function SignupPage() {
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email}</p>
             )}
+          </div>
+
+          {/* Address Field */}
+          <div>
+            <label htmlFor="address" className="block text-gray-700 mb-2 font-semibold">
+              Address (Optional)
+            </label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className={`w-full h-14 p-4 border-2 rounded-lg focus:outline-none transition-colors ${
+                errors.address ? 'border-red-400' : 'border-gray-300 focus:border-green-400'
+              }`}
+              placeholder="Enter your address"
+            />
+            {errors.address && (
+              <p className="text-red-500 text-sm mt-1">{errors.address}</p>
+            )}
+          </div>
+
+          {/* Local Status Checkbox */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              id="isLocal"
+              name="isLocal"
+              checked={formData.isLocal}
+              onChange={handleChange}
+              className="mt-1 h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 focus:ring-2"
+            />
+            <label htmlFor="isLocal" className="text-gray-700 font-semibold">
+              <span className="flex items-center gap-2">
+                🏠 I'm a local in this area
+              </span>
+              <p className="text-sm text-gray-600 font-normal mt-1">
+                Check this if you live in or are very familiar with the area you're signing up for
+              </p>
+            </label>
           </div>
 
           {/* Password Field */}

@@ -15,7 +15,7 @@ const generateToken = (userId) => {
 // POST /api/auth/register - User registration
 router.post('/register', async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, name, address, isLocal } = req.body;
 
     console.log('Registration attempt for email:', email);
 
@@ -37,7 +37,9 @@ router.post('/register', async (req, res) => {
     const user = await userService.create({
       email,
       password: hashedPassword,
-      name
+      name,
+      address,
+      isLocal
     });
 
     // Generate JWT token
