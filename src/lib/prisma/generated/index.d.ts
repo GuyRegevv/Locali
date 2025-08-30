@@ -1625,6 +1625,8 @@ export namespace Prisma {
     password: string | null
     name: string | null
     avatar: string | null
+    address: string | null
+    isLocal: boolean | null
     createdAt: Date | null
   }
 
@@ -1634,6 +1636,8 @@ export namespace Prisma {
     password: string | null
     name: string | null
     avatar: string | null
+    address: string | null
+    isLocal: boolean | null
     createdAt: Date | null
   }
 
@@ -1643,6 +1647,8 @@ export namespace Prisma {
     password: number
     name: number
     avatar: number
+    address: number
+    isLocal: number
     createdAt: number
     _all: number
   }
@@ -1654,6 +1660,8 @@ export namespace Prisma {
     password?: true
     name?: true
     avatar?: true
+    address?: true
+    isLocal?: true
     createdAt?: true
   }
 
@@ -1663,6 +1671,8 @@ export namespace Prisma {
     password?: true
     name?: true
     avatar?: true
+    address?: true
+    isLocal?: true
     createdAt?: true
   }
 
@@ -1672,6 +1682,8 @@ export namespace Prisma {
     password?: true
     name?: true
     avatar?: true
+    address?: true
+    isLocal?: true
     createdAt?: true
     _all?: true
   }
@@ -1754,6 +1766,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar: string | null
+    address: string | null
+    isLocal: boolean
     createdAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -1780,6 +1794,8 @@ export namespace Prisma {
     password?: boolean
     name?: boolean
     avatar?: boolean
+    address?: boolean
+    isLocal?: boolean
     createdAt?: boolean
     lists?: boolean | User$listsArgs<ExtArgs>
     likes?: boolean | User$likesArgs<ExtArgs>
@@ -1792,6 +1808,8 @@ export namespace Prisma {
     password?: boolean
     name?: boolean
     avatar?: boolean
+    address?: boolean
+    isLocal?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1801,6 +1819,8 @@ export namespace Prisma {
     password?: boolean
     name?: boolean
     avatar?: boolean
+    address?: boolean
+    isLocal?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1810,10 +1830,12 @@ export namespace Prisma {
     password?: boolean
     name?: boolean
     avatar?: boolean
+    address?: boolean
+    isLocal?: boolean
     createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "avatar" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "avatar" | "address" | "isLocal" | "createdAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     lists?: boolean | User$listsArgs<ExtArgs>
     likes?: boolean | User$likesArgs<ExtArgs>
@@ -1834,6 +1856,8 @@ export namespace Prisma {
       password: string
       name: string
       avatar: string | null
+      address: string | null
+      isLocal: boolean
       createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2265,6 +2289,8 @@ export namespace Prisma {
     readonly password: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly avatar: FieldRef<"User", 'String'>
+    readonly address: FieldRef<"User", 'String'>
+    readonly isLocal: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
@@ -9672,6 +9698,8 @@ export namespace Prisma {
     password: 'password',
     name: 'name',
     avatar: 'avatar',
+    address: 'address',
+    isLocal: 'isLocal',
     createdAt: 'createdAt'
   };
 
@@ -9806,6 +9834,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -9859,6 +9894,8 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
+    address?: StringNullableFilter<"User"> | string | null
+    isLocal?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     lists?: ListListRelationFilter
     likes?: ListLikeListRelationFilter
@@ -9870,6 +9907,8 @@ export namespace Prisma {
     password?: SortOrder
     name?: SortOrder
     avatar?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    isLocal?: SortOrder
     createdAt?: SortOrder
     lists?: ListOrderByRelationAggregateInput
     likes?: ListLikeOrderByRelationAggregateInput
@@ -9884,6 +9923,8 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
+    address?: StringNullableFilter<"User"> | string | null
+    isLocal?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     lists?: ListListRelationFilter
     likes?: ListLikeListRelationFilter
@@ -9895,6 +9936,8 @@ export namespace Prisma {
     password?: SortOrder
     name?: SortOrder
     avatar?: SortOrderInput | SortOrder
+    address?: SortOrderInput | SortOrder
+    isLocal?: SortOrder
     createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -9910,6 +9953,8 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
+    address?: StringNullableWithAggregatesFilter<"User"> | string | null
+    isLocal?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
@@ -10374,6 +10419,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
     lists?: ListCreateNestedManyWithoutCreatorInput
     likes?: ListLikeCreateNestedManyWithoutUserInput
@@ -10385,6 +10432,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
     lists?: ListUncheckedCreateNestedManyWithoutCreatorInput
     likes?: ListLikeUncheckedCreateNestedManyWithoutUserInput
@@ -10396,6 +10445,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lists?: ListUpdateManyWithoutCreatorNestedInput
     likes?: ListLikeUpdateManyWithoutUserNestedInput
@@ -10407,6 +10458,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lists?: ListUncheckedUpdateManyWithoutCreatorNestedInput
     likes?: ListLikeUncheckedUpdateManyWithoutUserNestedInput
@@ -10418,6 +10471,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
   }
 
@@ -10427,6 +10482,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -10436,6 +10493,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -10947,6 +11006,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -10989,6 +11053,8 @@ export namespace Prisma {
     password?: SortOrder
     name?: SortOrder
     avatar?: SortOrder
+    address?: SortOrder
+    isLocal?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -10998,6 +11064,8 @@ export namespace Prisma {
     password?: SortOrder
     name?: SortOrder
     avatar?: SortOrder
+    address?: SortOrder
+    isLocal?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -11007,6 +11075,8 @@ export namespace Prisma {
     password?: SortOrder
     name?: SortOrder
     avatar?: SortOrder
+    address?: SortOrder
+    isLocal?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -11044,6 +11114,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -11491,6 +11569,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -11969,6 +12051,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -12034,6 +12121,14 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -12645,6 +12740,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
     likes?: ListLikeCreateNestedManyWithoutUserInput
   }
@@ -12655,6 +12752,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
     likes?: ListLikeUncheckedCreateNestedManyWithoutUserInput
   }
@@ -12762,6 +12861,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: ListLikeUpdateManyWithoutUserNestedInput
   }
@@ -12772,6 +12873,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: ListLikeUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -12982,6 +13085,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
     lists?: ListCreateNestedManyWithoutCreatorInput
   }
@@ -12992,6 +13097,8 @@ export namespace Prisma {
     password: string
     name: string
     avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
     createdAt?: Date | string
     lists?: ListUncheckedCreateNestedManyWithoutCreatorInput
   }
@@ -13063,6 +13170,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lists?: ListUpdateManyWithoutCreatorNestedInput
   }
@@ -13073,6 +13182,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lists?: ListUncheckedUpdateManyWithoutCreatorNestedInput
   }

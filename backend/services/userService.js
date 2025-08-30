@@ -38,7 +38,7 @@ class UserService {
   // Create new user
   async create(userData) {
     try {
-      const { email, password, name } = userData;
+      const { email, password, name, address, isLocal } = userData;
       
       // Generate avatar URL using the user's name as seed
       const avatar = this.generateAvatarUrl(name);
@@ -48,7 +48,9 @@ class UserService {
           email,
           password,
           name,
-          avatar
+          avatar,
+          address: address || null,
+          isLocal: isLocal || false
         }
       });
     } catch (error) {
@@ -66,6 +68,8 @@ class UserService {
           email: true,
           name: true,
           avatar: true,
+          address: true,
+          isLocal: true,
           createdAt: true
         }
       });
@@ -142,6 +146,8 @@ class UserService {
         email: user.email,
         name: user.name,
         avatar: user.avatar,
+        address: user.address,
+        isLocal: user.isLocal,
         createdAt: user.createdAt,
         lists: user.lists,
         likes: user.likes
@@ -159,6 +165,8 @@ class UserService {
       email: user.email,
       name: user.name,
       avatar: user.avatar,
+      address: user.address,
+      isLocal: user.isLocal,
       createdAt: user.createdAt
     };
   }

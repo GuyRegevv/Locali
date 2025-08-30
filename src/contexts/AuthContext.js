@@ -125,14 +125,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Register function
-  const register = async (name, email, password) => {
+  const register = async (name, email, password, address = '', isLocal = false) => {
     try {
       const response = await fetch('http://localhost:3001/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, address, isLocal }),
       });
 
       const data = await response.json();

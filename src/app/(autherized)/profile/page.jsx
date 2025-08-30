@@ -10,7 +10,9 @@ import {
   SparklesIcon,
   GlobeAltIcon,
   MapPinIcon,
-  StarIcon
+  StarIcon,
+  HomeIcon,
+  GlobeAmericasIcon
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartSolid, StarIcon as StarSolid } from '@heroicons/react/24/solid';
 import { ProtectedRoute } from '@/components/auth';
@@ -154,6 +156,33 @@ export default function ProfilePage() {
                       <CalendarIcon className="h-5 w-5 text-green-600" />
                       <span>Member since {user?.createdAt ? formatDate(user.createdAt) : 'Unknown'}</span>
                     </div>
+
+                    {/* Local Status */}
+                    <div className="flex items-center justify-center md:justify-start gap-2">
+                      {user?.isLocal ? (
+                        <>
+                          <HomeIcon className="h-5 w-5 text-green-600" />
+                          <span className="flex items-center gap-1">
+                            🏠 <span className="font-semibold text-green-700">Local</span>
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <GlobeAmericasIcon className="h-5 w-5 text-blue-600" />
+                          <span className="flex items-center gap-1">
+                            ✈️ <span className="font-semibold text-blue-700">Visitor</span>
+                          </span>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Address */}
+                    {user?.address && (
+                      <div className="flex items-center justify-center md:justify-start gap-2">
+                        <MapPinIcon className="h-5 w-5 text-green-600" />
+                        <span>{user.address}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
