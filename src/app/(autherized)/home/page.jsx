@@ -38,11 +38,6 @@ export default function HomePage() {
         <div className="w-full max-w-5xl mx-auto">
           {/* Welcome Section */}
           <div className="text-center mb-8">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-16 h-16 bg-white rounded-2xl border-2 border-green-400 flex items-center justify-center shadow-lg">
-                <GlobeAltIcon className="h-10 w-10 text-green-600" />
-              </div>
-            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
               Welcome to <span className="text-green-600">Locali</span>
             </h1>
