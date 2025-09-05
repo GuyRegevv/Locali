@@ -1,14 +1,26 @@
 export default function UIListHeader({ title, location, description }) {
   return (
-    <div className="flex flex-col w-full">
-      <div className="flex mt-4 mb-4 ml-4 items-center justify-between">
-        <div className="flex flex-col items-center">
-          <p className="text-2xl">{title}</p>
-          <p className="text-lg">{location}</p>
+    <div className="w-full px-6 py-3 bg-white border-b border-gray-100">
+      <div className="flex items-center text-sm text-gray-700">
+        <h1 className="text-xl font-semibold text-gray-900 mr-3">
+          {title}
+        </h1>
+        <span className="text-gray-400 mx-2">•</span>
+        <div className="flex items-center text-gray-600">
+          <svg className="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          {location}
         </div>
-        <p className="mr-4 text-center break-words max-w-xs self-center">
-          {description}
-        </p>
+        {description && description !== 'No description available' && (
+          <>
+            <span className="text-gray-400 mx-2">•</span>
+            <span className="text-gray-600 max-w-md truncate">
+              {description}
+            </span>
+          </>
+        )}
       </div>
     </div>
   );

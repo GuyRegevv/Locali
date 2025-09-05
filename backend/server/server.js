@@ -1,3 +1,8 @@
+// Load environment variables from .env.local for Google API key
+require('dotenv').config({ path: '.env.local' });
+// Also load from .env for other variables
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
@@ -8,6 +13,7 @@ const healthRoutes = require('../routes/health');
 const authRoutes = require('../routes/auth');
 const listRoutes = require('../routes/lists')
 const geoRoutes = require('../routes/geo')
+const placeRoutes = require('../routes/places')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +28,7 @@ app.use('/api', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/lists', listRoutes)
 app.use('/api/geo', geoRoutes)
+app.use('/api/places', placeRoutes)
 
 // Error handling middleware
 app.use((err, req, res, next) => {

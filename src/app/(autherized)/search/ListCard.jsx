@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { QueueListIcon } from "@heroicons/react/24/outline";
+
+import { HeartIcon, QueueListIcon, MapIcon } from "@heroicons/react/24/outline";
 import LikeButton from "../../../components/ui/LikeButton";
 import { likeList, unlikeList } from "../../../utils/apiCall";
-
-export const ListCard = ({ list }) => {
+export const ListCard = ({ list, onSelectList }) => {
 
     return (
         <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">   
@@ -34,13 +34,26 @@ export const ListCard = ({ list }) => {
                         <QueueListIcon className='h-5 w-5'/>
                         <span className="text-sm">{list.placeCount}</span>
                     </div>
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-gray-200">
-                        <Image 
-                            src="/yellow-square.jpg" 
-                            alt="Creator avatar" 
-                            fill={true}
-                            className="object-cover"
-                        />
+                    <div className="flex items-center gap-2">
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation(); // Prevent card click
+                                onSelectList && onSelectList(list);
+                            }}
+                            className="flex items-center gap-1 px-2 py-1 text-xs bg-green-100 text-green-700 rounded-md hover:bg-green-200 transition-colors"
+                            title="Show on map"
+                        >
+                            <MapIcon className="h-4 w-4" />
+                            Map
+                        </button>
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-gray-200">
+                            <Image 
+                                src="/yellow-square.jpg" 
+                                alt="Creator avatar" 
+                                fill={true}
+                                className="object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

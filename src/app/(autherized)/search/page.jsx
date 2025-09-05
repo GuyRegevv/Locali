@@ -109,7 +109,6 @@ export default function Search () {
     return (
     <ProtectedRoute>
       <div className="flex w-full h-screen ">
-      
       <div className="flex flex-col w-4/6">
       <div className="flex p-2">
          <Filters 
