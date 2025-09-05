@@ -269,7 +269,7 @@ export default function ProfilePage() {
                   <h2 className="text-2xl font-bold text-gray-800">Liked Lists</h2>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 max-h-96 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                   {user?.likes?.map((like) => (
                     <div key={like.listId} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
                       <div className="flex-1 min-w-0">
