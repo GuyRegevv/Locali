@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { HeartIcon, QueueListIcon, MapIcon } from "@heroicons/react/24/outline";
 
+import { HeartIcon, QueueListIcon, MapIcon } from "@heroicons/react/24/outline";
+import LikeButton from "../../../components/ui/LikeButton";
+import { likeList, unlikeList } from "../../../utils/apiCall";
 export const ListCard = ({ list, onSelectList }) => {
 
     return (
@@ -19,10 +21,15 @@ export const ListCard = ({ list, onSelectList }) => {
                     {list.subgenre && <span className="text-gray-400">• {list.subgenre}</span>}
                 </div>
                 <div className="mt-1 flex justify-between items-center">
-                    <div className="flex items-center gap-1 text-gray-700">
-                        <HeartIcon className='h-5 w-5'/>
-                        <span className="text-sm">{list.likeCount}</span>
-                    </div>
+                    <LikeButton
+                        listId={list.id}
+                        initialIsLiked={list.isLikedByUser || false}
+                        initialLikeCount={list.likeCount}
+                        onLike={likeList}
+                        onUnlike={unlikeList}
+                        size="md"
+                        showCount={true}
+                    />
                     <div className="flex items-center gap-1 text-gray-700">
                         <QueueListIcon className='h-5 w-5'/>
                         <span className="text-sm">{list.placeCount}</span>

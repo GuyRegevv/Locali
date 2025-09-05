@@ -129,7 +129,7 @@ async function createList({ creatorId, payload }) {
   return list;
 }
 
-async function findLists(filters = {}) {
+async function findLists(filters = {}, userId = null) {
       const { country, city, category, subcategory, creator } = filters;    
 
       const where = {
@@ -151,6 +151,13 @@ async function findLists(filters = {}) {
         include: {
           city: { include: { country: true } },
           creator: { select: { id: true, name: true } },
+          // Include likes if userId is provided to check if user liked each list
+          ...(userId ? {
+            likes: {
+              where: { userId },
+              select: { userId: true }
+            }
+          } : {})
         },
         orderBy: { createdAt: 'desc' },
       });
@@ -172,16 +179,25 @@ async function findLists(filters = {}) {
           },
           likeCount: l.likeCount,
           placeCount: l.placeCount,
+          // Add isLikedByUser field if userId was provided
+          ...(userId ? { isLikedByUser: l.likes && l.likes.length > 0 } : {})
         }));
   }
 
-async function getListById(listId) {
+async function getListById(listId, userId = null) {
   const list = await prisma.list.findUnique({
     where: { id: listId },
     include: {
       city: { include: { country: true } },
       creator: { select: { id: true, name: true } },
       places: { orderBy: { order: 'asc' }, include: { place: true } },
+      // Include likes if userId is provided to check if user liked this list
+      ...(userId ? {
+        likes: {
+          where: { userId },
+          select: { userId: true }
+        }
+      } : {})
     },
   });
   if (!list) {
@@ -189,12 +205,146 @@ async function getListById(listId) {
     err.status = 404;
     throw err;
   }
+
+  // Add isLikedByUser field if userId was provided
+  if (userId) {
+    list.isLikedByUser = list.likes && list.likes.length > 0;
+    // Remove the likes array from the response to keep it clean
+    delete list.likes;
+  }
+
   return list;
+}
+
+async function likeList(userId, listId) {
+  // Check if list exists
+  const list = await prisma.list.findUnique({
+    where: { id: listId },
+    select: { id: true, likeCount: true }
+  });
+  
+  if (!list) {
+    const err = new Error('List not found');
+    err.status = 404;
+    throw err;
+  }
+
+  // Check if user already liked this list
+  const existingLike = await prisma.listLike.findUnique({
+    where: {
+      userId_listId: {
+        userId,
+        listId
+      }
+    }
+  });
+
+  if (existingLike) {
+    const err = new Error('List already liked by user');
+    err.status = 400;
+    throw err;
+  }
+
+  // Use transaction to ensure consistency
+  const result = await prisma.$transaction(async (tx) => {
+    // Create the like
+    const like = await tx.listLike.create({
+      data: {
+        userId,
+        listId
+      }
+    });
+
+    // Increment the like count
+    const updatedList = await tx.list.update({
+      where: { id: listId },
+      data: {
+        likeCount: { increment: 1 }
+      },
+      select: {
+        id: true,
+        likeCount: true
+      }
+    });
+
+    return {
+      liked: true,
+      likeCount: updatedList.likeCount,
+      listId: listId
+    };
+  });
+
+  return result;
+}
+
+async function unlikeList(userId, listId) {
+  // Check if list exists
+  const list = await prisma.list.findUnique({
+    where: { id: listId },
+    select: { id: true, likeCount: true }
+  });
+  
+  if (!list) {
+    const err = new Error('List not found');
+    err.status = 404;
+    throw err;
+  }
+
+  // Check if user actually liked this list
+  const existingLike = await prisma.listLike.findUnique({
+    where: {
+      userId_listId: {
+        userId,
+        listId
+      }
+    }
+  });
+
+  if (!existingLike) {
+    const err = new Error('List not liked by user');
+    err.status = 400;
+    throw err;
+  }
+
+  // Use transaction to ensure consistency
+  const result = await prisma.$transaction(async (tx) => {
+    // Delete the like
+    await tx.listLike.delete({
+      where: {
+        userId_listId: {
+          userId,
+          listId
+        }
+      }
+    });
+
+    // Decrement the like count (ensure it doesn't go below 0)
+    const updatedList = await tx.list.update({
+      where: { id: listId },
+      data: {
+        likeCount: Math.max(0, list.likeCount - 1)
+      },
+      select: {
+        id: true,
+        likeCount: true
+      }
+    });
+
+    return {
+      liked: false,
+      likeCount: updatedList.likeCount,
+      listId: listId
+    };
+  });
+
+  return result;
 }
 
 module.exports = {
   createList,
   findLists,
   getListById,
+  likeList,
+  unlikeList,
 };
 

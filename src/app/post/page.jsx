@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import PostForm from "@/components/post/PostForm";
 import MapSearch from "@/components/map/MapSearch";
 import UIPlaceButton from "@/components/ui/UIPlaceButton";
@@ -8,6 +9,7 @@ import { ProtectedRoute } from '@/components/auth';
 import { apiPost } from '@/utils/apiCall'; 
 
 export default function PostPage() {
+    const router = useRouter();
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [selectedLocations, setSelectedLocations] = useState([]);
     const [listLocation, setListLocation] = useState(null);
@@ -89,11 +91,8 @@ export default function PostPage() {
             
             console.log('List created successfully:', response);
             
-            // Show success message
-            alert('List created successfully!');
-            
-            // Optional: Redirect to the new list or clear the form
-            // You can add navigation here later
+            // Navigate to profile page using Next.js router
+            router.push('/profile');
             
         } catch (error) {
             console.error('Error creating list:', error);
