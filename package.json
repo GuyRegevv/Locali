@@ -2,7 +2,9 @@
   "name": "locali",
   "version": "0.1.0",
   "private": true,
-  "prisma": { "seed": "node prisma/seed.cjs" },
+  "prisma": {
+    "seed": "node prisma/seed.cjs"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,10 +21,12 @@
     "@heroicons/react": "^2.2.0",
     "@prisma/client": "^6.13.0",
     "@vis.gl/react-google-maps": "^1.5.2",
+    "axios": "^1.11.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.5",
     "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
     "express": "^4.18.2",
     "framer-motion": "^12.15.0",
     "jsonwebtoken": "^9.0.2",

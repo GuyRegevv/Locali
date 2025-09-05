@@ -1,9 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ListCard } from './ListCard';
 
 
 export const ListsLayout = ({ lists, onSelectList, sort = 'relevance', onSortChange, onReset }) => {
+    const router = useRouter();
+    
+    const handleCardClick = (list) => {
+        console.log('Card clicked, navigating to list:', list.id);
+        router.push(`/list/${list.id}`);
+    };
+    
     return (
         <div className="container mx-auto px-4 py-2">
             <div className="mb-3 flex items-center justify-between">
@@ -48,10 +56,14 @@ export const ListsLayout = ({ lists, onSelectList, sort = 'relevance', onSortCha
                       className="w-full cursor-pointer"
                       role="button"
                       tabIndex={0}
-                      onClick={() => onSelectList && onSelectList(list)}
-                      onKeyDown={(e) => { if (e.key === 'Enter') onSelectList && onSelectList(list); }}
+                      onClick={() => handleCardClick(list)}
+                      onKeyDown={(e) => { 
+                        if (e.key === 'Enter') {
+                          handleCardClick(list);
+                        }
+                      }}
                     >
-                        <ListCard list={list} />
+                        <ListCard list={list} onSelectList={onSelectList} />
                     </div>
                 ))}
             </div>
