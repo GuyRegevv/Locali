@@ -272,33 +272,26 @@ export default function ProfilePage() {
                 <div className="space-y-4">
                   {user?.likes?.map((like) => (
                     <div key={like.listId} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
-                      <div className="flex gap-4">
-                        {like.list.coverImage && (
-                          <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
-                            <img src={like.list.coverImage} alt={like.list.name} className="w-full h-full object-cover" />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-800 truncate">{like.list.name}</h3>
+                        <p className="text-sm text-gray-600 line-clamp-2 mb-2">{like.list.description}</p>
+                        
+                        <div className="flex items-center gap-4 text-xs text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <UserCircleIcon className="h-3 w-3" />
+                            by {like.list.creator.name}
                           </div>
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-gray-800 truncate">{like.list.name}</h3>
-                          <p className="text-sm text-gray-600 line-clamp-2 mb-2">{like.list.description}</p>
-                          
-                          <div className="flex items-center gap-4 text-xs text-gray-500">
-                            <div className="flex items-center gap-1">
-                              <UserCircleIcon className="h-3 w-3" />
-                              by {like.list.creator.name}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <MapPinIcon className="h-3 w-3" />
-                              {like.list.city.name}, {like.list.city.country.name}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <HeartSolid className="h-3 w-3 text-red-500" />
-                              {like.list.likeCount}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <StarSolid className="h-3 w-3 text-yellow-500" />
-                              {like.list.placeCount} places
-                            </div>
+                          <div className="flex items-center gap-1">
+                            <MapPinIcon className="h-3 w-3" />
+                            {like.list.city.name}, {like.list.city.country.name}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <HeartSolid className="h-3 w-3 text-red-500" />
+                            {like.list.likeCount}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <StarSolid className="h-3 w-3 text-yellow-500" />
+                            {like.list.placeCount} places
                           </div>
                         </div>
                       </div>
