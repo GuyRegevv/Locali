@@ -83,8 +83,23 @@ export const apiDelete = (endpoint, options = {}) => {
   return apiCall(endpoint, { ...options, method: 'DELETE' });
 };
 
+// Like/Unlike API functions
+export const likeList = async (listId) => {
+  return apiPost(`/lists/${listId}/like`);
+};
+
+export const unlikeList = async (listId) => {
+  return apiDelete(`/lists/${listId}/like`);
+};
+
+export const getUserLikedLists = async () => {
+  return apiGet('/auth/liked-lists');
+};
+
 // Example usage:
 // const users = await apiGet('/auth/users');
 // const newPost = await apiPost('/posts', { title: 'Hello', content: 'World' });
 // const updatedPost = await apiPut('/posts/123', { title: 'Updated' });
 // await apiDelete('/posts/123');
+// await likeList('list-id-123');
+// await unlikeList('list-id-123');

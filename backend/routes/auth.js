@@ -154,4 +154,20 @@ router.get('/users', authenticateToken, async (req, res) => {
   }
 });
 
+// GET /api/auth/liked-lists - Get user's liked list IDs for frontend state
+router.get('/liked-lists', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    
+    const likedListIds = await userService.getUserLikedListIds(userId);
+    
+    res.json({
+      likedListIds
+    });
+  } catch (error) {
+    console.error('Get liked lists error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;

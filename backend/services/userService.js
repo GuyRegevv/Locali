@@ -170,6 +170,21 @@ class UserService {
       createdAt: user.createdAt
     };
   }
+
+  // Get user's liked list IDs for frontend state initialization
+  async getUserLikedListIds(userId) {
+    try {
+      const likes = await prisma.listLike.findMany({
+        where: { userId },
+        select: { listId: true }
+      });
+
+      return likes.map(like => like.listId);
+    } catch (error) {
+      console.error('Error getting user liked list IDs:', error);
+      throw error;
+    }
+  }
 }
 
 // Export a singleton instance
