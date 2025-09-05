@@ -16,8 +16,8 @@ export default function UIPlaceButton({
 
   return (
     <div className="w-full p-2">
-      <button
-        className={`flex w-full rounded-2xl shadow-md p-4 transition-all duration-200 border relative
+      <div
+        className={`flex w-full rounded-2xl shadow-md p-4 transition-all duration-200 border relative cursor-pointer
           ${
             isSelected
               ? "bg-purple-50 border-purple-200"
@@ -58,7 +58,7 @@ export default function UIPlaceButton({
             ×
           </button>
         )}
-      </button>
+      </div>
     </div>
   );
 }
