@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import searchFilters from '@backend/data/SearchFilters.js'
 
-export default function PostForm({ selectedLocation, onSubmit, isSubmitting = false }) {
+export default function PostForm({ selectedLocation, onSubmit, isSubmitting = false, listLocation = null }) {
   const [textInput, setTextInput] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
@@ -62,49 +62,48 @@ export default function PostForm({ selectedLocation, onSubmit, isSubmitting = fa
   }
 
   return (
-    <div className="w-full h-full max-w-4xl mx-auto p-8 bg-gray-50 border border-gray-200 rounded-lg">
-      <h2 className="flex justify-center text-3xl font-medium mb-6 text-gray-800">Create Post</h2>
+    <div className="w-full h-full flex flex-col">
+      {/* Header */}
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Create New List</h2>
+        <p className="text-sm text-gray-600">Build your personalized list of local recommendations</p>
+        
+        {/* Location Indicator */}
+        {listLocation && (
+          <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <span className="text-sm font-medium text-green-800">
+                List location: <span className="font-semibold">{listLocation.city.name}, {listLocation.country.name}</span>
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
       
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="flex-1 flex flex-col space-y-5">
+        {/* List Name */}
         <div>
           <label 
             htmlFor="textInput" 
-            className="block text-lg font-medium text-gray-700 mb-3"
+            className="block text-sm font-semibold text-gray-700 mb-2"
           >
-            List Name
+            List Name *
           </label>
-          <textarea
+          <input
+            type="text"
             id="textInput"
             value={textInput}
             onChange={handleTextChange}
-            placeholder="Write your message here..."
-            className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 resize-none text-gray-800 rounded-lg"
+            placeholder="e.g., Best Coffee Shops in Paris"
+            className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-xl text-gray-900 placeholder-gray-500 transition-all duration-200"
           />
         </div>
 
+        {/* Category */}
         <div>
           <label 
-            className="block text-lg font-medium text-gray-700 mb-3"
-          >
-            Location
-          </label>
-          <select
-            id="countrySelect"
-            value={selectedCountry}
-            onChange={handleCountryChange}
-            className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 text-gray-800 rounded-lg"
-          >
-            <option value="">Select a country...</option>
-            {searchFilters.countries.map((country) => (
-              <option key={country.value} value={country.label}>
-                {country.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label 
-            className="block text-lg font-medium text-gray-700 mb-3"
+            className="block text-sm font-semibold text-gray-700 mb-2"
           >
             Category
           </label>
@@ -112,9 +111,9 @@ export default function PostForm({ selectedLocation, onSubmit, isSubmitting = fa
             id="categorySelect"
             value={selectedCategory}
             onChange={handleCategoryChange}
-            className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 text-gray-800 rounded-lg"
+            className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 rounded-xl transition-all duration-200"
           >
-            <option value="">Select a category...</option>
+            <option value="">Choose a category...</option>
             {searchFilters.categories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -122,34 +121,35 @@ export default function PostForm({ selectedLocation, onSubmit, isSubmitting = fa
             ))}
           </select>
         </div>
-        <div>
-          {/* Subcategory field - only show if category is selected and has subcategories */}
-          {selectedCategory && searchFilters.subcategories[selectedCategory] && (
-            <div>
-              <label 
-                className="block text-lg font-medium text-gray-700 mb-3"
-              >
-                Subcategory
-              </label>
-              <select
-                id="subcategorySelect"
-                value={selectedSubcategory}
-                onChange={handleSubcategoryChange}
-                className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 text-gray-800 rounded-lg"
-              >
-                <option value="">Select a subcategory...</option>
-                {searchFilters.subcategories[selectedCategory].map((subcategory) => (
-                  <option key={subcategory} value={subcategory}>
-                    {subcategory}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-        </div>
-        <div>
+
+        {/* Subcategory */}
+        {selectedCategory && searchFilters.subcategories[selectedCategory] && (
+          <div>
+            <label 
+              className="block text-sm font-semibold text-gray-700 mb-2"
+            >
+              Subcategory
+            </label>
+            <select
+              id="subcategorySelect"
+              value={selectedSubcategory}
+              onChange={handleSubcategoryChange}
+              className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 rounded-xl transition-all duration-200"
+            >
+              <option value="">Choose a subcategory...</option>
+              {searchFilters.subcategories[selectedCategory].map((subcategory) => (
+                <option key={subcategory} value={subcategory}>
+                  {subcategory}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {/* Description */}
+        <div className="flex-1">
           <label 
-            className="block text-lg font-medium text-gray-700 mb-3"
+            className="block text-sm font-semibold text-gray-700 mb-2"
           >
             Description
           </label>
@@ -157,23 +157,31 @@ export default function PostForm({ selectedLocation, onSubmit, isSubmitting = fa
             id="description"
             value={description}
             onChange={handleDescriptionChange}
-            placeholder="Write your description here..."
-            className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-gray-500 resize-none text-gray-800 rounded-lg"
-            rows={4}
+            placeholder="Tell others what makes this list special..."
+            className="w-full h-32 px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none text-gray-900 placeholder-gray-500 rounded-xl transition-all duration-200"
           />
         </div>
-        <div className="flex justify-center">
-            <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`px-8 py-3 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-200 rounded-full ${
-                    isSubmitting 
-                        ? 'bg-gray-400 text-white cursor-not-allowed' 
-                        : 'bg-gray-800 text-white hover:bg-gray-700 focus:ring-gray-500'
-                }`}
-            >
-                {isSubmitting ? 'Creating List...' : 'Submit Post'}
-            </button>
+
+        {/* Submit Button */}
+        <div className="pt-4">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={`w-full py-3 px-6 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+              isSubmitting 
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                : 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
+            }`}
+          >
+            {isSubmitting ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+                Creating List...
+              </div>
+            ) : (
+              'Create List'
+            )}
+          </button>
         </div>
       </form>
     </div>

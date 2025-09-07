@@ -1,7 +1,6 @@
 'use client'
 import "../styles/globals.css";
 import { Header } from "@/components/layouts/Header";
-import { Footer } from "@/components/layouts/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { usePathname } from 'next/navigation';
@@ -28,11 +27,10 @@ export default function RootLayout({ children }) {
             <div className="flex flex-col min-h-screen">
               <Header className="w-full shrink-0" />
               
-              <main className="flex-1">
+              <main className="flex-1 min-h-0">
                 {children}
               </main>
               
-              <Footer className="w-full shrink-0" />
             </div>
           )}
         </AuthProvider>
