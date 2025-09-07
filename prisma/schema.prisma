@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/lib/prisma/generated"
@@ -15,30 +9,24 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
+  id        String     @id @default(cuid())
+  email     String     @unique
   password  String
   name      String
+  createdAt DateTime   @default(now())
   avatar    String?
   address   String?
-  isLocal   Boolean  @default(false)
-  createdAt DateTime @default(now())
-
-  // NEW back-relations:
-  lists List[] // a user's own lists
-  likes ListLike[] // lists this user liked/saved
+  isLocal   Boolean    @default(false)
+  lists     List[]
+  likes     ListLike[]
 }
 
-// --- Geography ---
 model Country {
-  id   String  @id @default(cuid())
-  name String
-  code String? @unique // ISO-3166 alpha-2 (e.g., "IT", "US")
-  slug String? @unique
-
+  id     String  @id @default(cuid())
+  name   String  @unique
+  code   String? @unique
+  slug   String? @unique
   cities City[]
-
-  @@unique([name])
 }
 
 model City {
@@ -48,106 +36,81 @@ model City {
   slug      String?
   lat       Float?
   lng       Float?
-
-  country Country @relation(fields: [countryId], references: [id], onDelete: Restrict)
-  places  Place[]
-  lists   List[]
-
-  // denorm for fast "browse cities" (keep updated in app code)
-  listCount Int @default(0)
+  listCount Int     @default(0)
+  country   Country @relation(fields: [countryId], references: [id])
+  lists     List[]
+  places    Place[]
 
   @@unique([countryId, name])
   @@index([countryId])
 }
 
-// --- Core content ---
 model Place {
-  id              String   @id @default(cuid())
+  id              String      @id @default(cuid())
   name            String
   address         String
   lat             Float
   lng             Float
-  googlePlaceId   String   @unique
+  googlePlaceId   String      @unique
   description     String?
   primaryImageUrl String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  cityId String
-  city   City   @relation(fields: [cityId], references: [id], onDelete: Restrict)
-
-  listItems ListPlace[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  cityId          String
+  listItems       ListPlace[]
+  city            City        @relation(fields: [cityId], references: [id])
 
   @@index([cityId])
   @@index([lat, lng])
 }
 
 model List {
-  id          String  @id @default(cuid())
-  name        String
-  description String?
-  // simple categorization for now
-  genre       String?
-  subgenre    String?
-
-  // location (normalized)
-  cityId String
-  city   City   @relation(fields: [cityId], references: [id], onDelete: Restrict)
-
-  // optional center point for maps
-  lat Float?
-  lng Float?
-
-  // ownership
-  creatorId String
-  creator   User   @relation(fields: [creatorId], references: [id])
-
-  // list-level ratings (aggregated)
-  averageRating Float @default(0)
-  ratingCount   Int   @default(0)
-
-  // fast UI counters (maintain in app code)
-  likeCount  Int     @default(0)
-  placeCount Int     @default(0)
-  coverImage String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  places ListPlace[]
-  likes  ListLike[]
+  id            String      @id @default(cuid())
+  name          String
+  description   String?
+  genre         String?
+  subgenre      String?
+  cityId        String
+  lat           Float?
+  lng           Float?
+  creatorId     String
+  averageRating Float       @default(0)
+  ratingCount   Int         @default(0)
+  likeCount     Int         @default(0)
+  placeCount    Int         @default(0)
+  coverImage    String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  city          City        @relation(fields: [cityId], references: [id])
+  creator       User        @relation(fields: [creatorId], references: [id])
+  likes         ListLike[]
+  places        ListPlace[]
 
   @@index([cityId])
   @@index([creatorId])
 }
 
-// order + per-entry note (a place inside a list)
 model ListPlace {
-  id         String  @id @default(cuid())
+  id         String   @id @default(cuid())
   listId     String
   placeId    String
   order      Int
   note       String?
-  // foundation if you later want per-entry price hints
   priceRange String?
+  createdAt  DateTime @default(now())
+  list       List     @relation(fields: [listId], references: [id], onDelete: Cascade)
+  place      Place    @relation(fields: [placeId], references: [id])
 
-  createdAt DateTime @default(now())
-
-  list  List  @relation(fields: [listId], references: [id], onDelete: Cascade)
-  place Place @relation(fields: [placeId], references: [id], onDelete: Restrict)
-
-  @@unique([listId, placeId]) // one appearance per list
-  @@index([listId, order]) // fast ordered fetch
+  @@unique([listId, placeId])
+  @@index([listId, order])
 }
 
-// like/save = one per user per list
 model ListLike {
   userId    String
   listId    String
   createdAt DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  list List @relation(fields: [listId], references: [id], onDelete: Cascade)
+  list      List     @relation(fields: [listId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, listId])
   @@index([listId])

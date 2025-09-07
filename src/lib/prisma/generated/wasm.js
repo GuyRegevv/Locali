@@ -125,10 +125,10 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   name: 'name',
+  createdAt: 'createdAt',
   avatar: 'avatar',
   address: 'address',
-  isLocal: 'isLocal',
-  createdAt: 'createdAt'
+  isLocal: 'isLocal'
 };
 
 exports.Prisma.CountryScalarFieldEnum = {

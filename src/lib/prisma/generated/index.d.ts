@@ -1499,13 +1499,13 @@ export namespace Prisma {
    */
 
   export type CityCountOutputType = {
-    places: number
     lists: number
+    places: number
   }
 
   export type CityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    places?: boolean | CityCountOutputTypeCountPlacesArgs
     lists?: boolean | CityCountOutputTypeCountListsArgs
+    places?: boolean | CityCountOutputTypeCountPlacesArgs
   }
 
   // Custom InputTypes
@@ -1522,15 +1522,15 @@ export namespace Prisma {
   /**
    * CityCountOutputType without action
    */
-  export type CityCountOutputTypeCountPlacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlaceWhereInput
+  export type CityCountOutputTypeCountListsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ListWhereInput
   }
 
   /**
    * CityCountOutputType without action
    */
-  export type CityCountOutputTypeCountListsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListWhereInput
+  export type CityCountOutputTypeCountPlacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlaceWhereInput
   }
 
 
@@ -1570,13 +1570,13 @@ export namespace Prisma {
    */
 
   export type ListCountOutputType = {
-    places: number
     likes: number
+    places: number
   }
 
   export type ListCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    places?: boolean | ListCountOutputTypeCountPlacesArgs
     likes?: boolean | ListCountOutputTypeCountLikesArgs
+    places?: boolean | ListCountOutputTypeCountPlacesArgs
   }
 
   // Custom InputTypes
@@ -1593,15 +1593,15 @@ export namespace Prisma {
   /**
    * ListCountOutputType without action
    */
-  export type ListCountOutputTypeCountPlacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListPlaceWhereInput
+  export type ListCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ListLikeWhereInput
   }
 
   /**
    * ListCountOutputType without action
    */
-  export type ListCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ListLikeWhereInput
+  export type ListCountOutputTypeCountPlacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ListPlaceWhereInput
   }
 
 
@@ -1624,10 +1624,10 @@ export namespace Prisma {
     email: string | null
     password: string | null
     name: string | null
+    createdAt: Date | null
     avatar: string | null
     address: string | null
     isLocal: boolean | null
-    createdAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1635,10 +1635,10 @@ export namespace Prisma {
     email: string | null
     password: string | null
     name: string | null
+    createdAt: Date | null
     avatar: string | null
     address: string | null
     isLocal: boolean | null
-    createdAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1646,10 +1646,10 @@ export namespace Prisma {
     email: number
     password: number
     name: number
+    createdAt: number
     avatar: number
     address: number
     isLocal: number
-    createdAt: number
     _all: number
   }
 
@@ -1659,10 +1659,10 @@ export namespace Prisma {
     email?: true
     password?: true
     name?: true
+    createdAt?: true
     avatar?: true
     address?: true
     isLocal?: true
-    createdAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1670,10 +1670,10 @@ export namespace Prisma {
     email?: true
     password?: true
     name?: true
+    createdAt?: true
     avatar?: true
     address?: true
     isLocal?: true
-    createdAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1681,10 +1681,10 @@ export namespace Prisma {
     email?: true
     password?: true
     name?: true
+    createdAt?: true
     avatar?: true
     address?: true
     isLocal?: true
-    createdAt?: true
     _all?: true
   }
 
@@ -1765,10 +1765,10 @@ export namespace Prisma {
     email: string
     password: string
     name: string
+    createdAt: Date
     avatar: string | null
     address: string | null
     isLocal: boolean
-    createdAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1793,10 +1793,10 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    createdAt?: boolean
     avatar?: boolean
     address?: boolean
     isLocal?: boolean
-    createdAt?: boolean
     lists?: boolean | User$listsArgs<ExtArgs>
     likes?: boolean | User$likesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1807,10 +1807,10 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    createdAt?: boolean
     avatar?: boolean
     address?: boolean
     isLocal?: boolean
-    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1818,10 +1818,10 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    createdAt?: boolean
     avatar?: boolean
     address?: boolean
     isLocal?: boolean
-    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1829,13 +1829,13 @@ export namespace Prisma {
     email?: boolean
     password?: boolean
     name?: boolean
+    createdAt?: boolean
     avatar?: boolean
     address?: boolean
     isLocal?: boolean
-    createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "avatar" | "address" | "isLocal" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "createdAt" | "avatar" | "address" | "isLocal", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     lists?: boolean | User$listsArgs<ExtArgs>
     likes?: boolean | User$likesArgs<ExtArgs>
@@ -1855,10 +1855,10 @@ export namespace Prisma {
       email: string
       password: string
       name: string
+      createdAt: Date
       avatar: string | null
       address: string | null
       isLocal: boolean
-      createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2288,10 +2288,10 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly avatar: FieldRef<"User", 'String'>
     readonly address: FieldRef<"User", 'String'>
     readonly isLocal: FieldRef<"User", 'Boolean'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -4026,8 +4026,8 @@ export namespace Prisma {
     lng?: boolean
     listCount?: boolean
     country?: boolean | CountryDefaultArgs<ExtArgs>
-    places?: boolean | City$placesArgs<ExtArgs>
     lists?: boolean | City$listsArgs<ExtArgs>
+    places?: boolean | City$placesArgs<ExtArgs>
     _count?: boolean | CityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["city"]>
 
@@ -4066,8 +4066,8 @@ export namespace Prisma {
   export type CityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "countryId" | "name" | "slug" | "lat" | "lng" | "listCount", ExtArgs["result"]["city"]>
   export type CityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     country?: boolean | CountryDefaultArgs<ExtArgs>
-    places?: boolean | City$placesArgs<ExtArgs>
     lists?: boolean | City$listsArgs<ExtArgs>
+    places?: boolean | City$placesArgs<ExtArgs>
     _count?: boolean | CityCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4081,8 +4081,8 @@ export namespace Prisma {
     name: "City"
     objects: {
       country: Prisma.$CountryPayload<ExtArgs>
-      places: Prisma.$PlacePayload<ExtArgs>[]
       lists: Prisma.$ListPayload<ExtArgs>[]
+      places: Prisma.$PlacePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4487,8 +4487,8 @@ export namespace Prisma {
   export interface Prisma__CityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     country<T extends CountryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CountryDefaultArgs<ExtArgs>>): Prisma__CountryClient<$Result.GetResult<Prisma.$CountryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    places<T extends City$placesArgs<ExtArgs> = {}>(args?: Subset<T, City$placesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     lists<T extends City$listsArgs<ExtArgs> = {}>(args?: Subset<T, City$listsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    places<T extends City$placesArgs<ExtArgs> = {}>(args?: Subset<T, City$placesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4921,30 +4921,6 @@ export namespace Prisma {
   }
 
   /**
-   * City.places
-   */
-  export type City$placesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Place
-     */
-    select?: PlaceSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Place
-     */
-    omit?: PlaceOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlaceInclude<ExtArgs> | null
-    where?: PlaceWhereInput
-    orderBy?: PlaceOrderByWithRelationInput | PlaceOrderByWithRelationInput[]
-    cursor?: PlaceWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PlaceScalarFieldEnum | PlaceScalarFieldEnum[]
-  }
-
-  /**
    * City.lists
    */
   export type City$listsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4966,6 +4942,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ListScalarFieldEnum | ListScalarFieldEnum[]
+  }
+
+  /**
+   * City.places
+   */
+  export type City$placesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Place
+     */
+    select?: PlaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Place
+     */
+    omit?: PlaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PlaceInclude<ExtArgs> | null
+    where?: PlaceWhereInput
+    orderBy?: PlaceOrderByWithRelationInput | PlaceOrderByWithRelationInput[]
+    cursor?: PlaceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlaceScalarFieldEnum | PlaceScalarFieldEnum[]
   }
 
   /**
@@ -5237,8 +5237,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     cityId?: boolean
-    city?: boolean | CityDefaultArgs<ExtArgs>
     listItems?: boolean | Place$listItemsArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
     _count?: boolean | PlaceCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["place"]>
 
@@ -5288,8 +5288,8 @@ export namespace Prisma {
 
   export type PlaceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "address" | "lat" | "lng" | "googlePlaceId" | "description" | "primaryImageUrl" | "createdAt" | "updatedAt" | "cityId", ExtArgs["result"]["place"]>
   export type PlaceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    city?: boolean | CityDefaultArgs<ExtArgs>
     listItems?: boolean | Place$listItemsArgs<ExtArgs>
+    city?: boolean | CityDefaultArgs<ExtArgs>
     _count?: boolean | PlaceCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PlaceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5302,8 +5302,8 @@ export namespace Prisma {
   export type $PlacePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Place"
     objects: {
-      city: Prisma.$CityPayload<ExtArgs>
       listItems: Prisma.$ListPlacePayload<ExtArgs>[]
+      city: Prisma.$CityPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5711,8 +5711,8 @@ export namespace Prisma {
    */
   export interface Prisma__PlaceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    city<T extends CityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CityDefaultArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     listItems<T extends Place$listItemsArgs<ExtArgs> = {}>(args?: Subset<T, Place$listItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListPlacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    city<T extends CityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CityDefaultArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6499,8 +6499,8 @@ export namespace Prisma {
     updatedAt?: boolean
     city?: boolean | CityDefaultArgs<ExtArgs>
     creator?: boolean | UserDefaultArgs<ExtArgs>
-    places?: boolean | List$placesArgs<ExtArgs>
     likes?: boolean | List$likesArgs<ExtArgs>
+    places?: boolean | List$placesArgs<ExtArgs>
     _count?: boolean | ListCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["list"]>
 
@@ -6569,8 +6569,8 @@ export namespace Prisma {
   export type ListInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     city?: boolean | CityDefaultArgs<ExtArgs>
     creator?: boolean | UserDefaultArgs<ExtArgs>
-    places?: boolean | List$placesArgs<ExtArgs>
     likes?: boolean | List$likesArgs<ExtArgs>
+    places?: boolean | List$placesArgs<ExtArgs>
     _count?: boolean | ListCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ListIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6587,8 +6587,8 @@ export namespace Prisma {
     objects: {
       city: Prisma.$CityPayload<ExtArgs>
       creator: Prisma.$UserPayload<ExtArgs>
-      places: Prisma.$ListPlacePayload<ExtArgs>[]
       likes: Prisma.$ListLikePayload<ExtArgs>[]
+      places: Prisma.$ListPlacePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7003,8 +7003,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     city<T extends CityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CityDefaultArgs<ExtArgs>>): Prisma__CityClient<$Result.GetResult<Prisma.$CityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     creator<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    places<T extends List$placesArgs<ExtArgs> = {}>(args?: Subset<T, List$placesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListPlacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     likes<T extends List$likesArgs<ExtArgs> = {}>(args?: Subset<T, List$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListLikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    places<T extends List$placesArgs<ExtArgs> = {}>(args?: Subset<T, List$placesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ListPlacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7446,30 +7446,6 @@ export namespace Prisma {
   }
 
   /**
-   * List.places
-   */
-  export type List$placesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ListPlace
-     */
-    select?: ListPlaceSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ListPlace
-     */
-    omit?: ListPlaceOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ListPlaceInclude<ExtArgs> | null
-    where?: ListPlaceWhereInput
-    orderBy?: ListPlaceOrderByWithRelationInput | ListPlaceOrderByWithRelationInput[]
-    cursor?: ListPlaceWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ListPlaceScalarFieldEnum | ListPlaceScalarFieldEnum[]
-  }
-
-  /**
    * List.likes
    */
   export type List$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7491,6 +7467,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ListLikeScalarFieldEnum | ListLikeScalarFieldEnum[]
+  }
+
+  /**
+   * List.places
+   */
+  export type List$placesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ListPlace
+     */
+    select?: ListPlaceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ListPlace
+     */
+    omit?: ListPlaceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ListPlaceInclude<ExtArgs> | null
+    where?: ListPlaceWhereInput
+    orderBy?: ListPlaceOrderByWithRelationInput | ListPlaceOrderByWithRelationInput[]
+    cursor?: ListPlaceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ListPlaceScalarFieldEnum | ListPlaceScalarFieldEnum[]
   }
 
   /**
@@ -8786,24 +8786,24 @@ export namespace Prisma {
     userId?: boolean
     listId?: boolean
     createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     list?: boolean | ListDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["listLike"]>
 
   export type ListLikeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     userId?: boolean
     listId?: boolean
     createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     list?: boolean | ListDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["listLike"]>
 
   export type ListLikeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     userId?: boolean
     listId?: boolean
     createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     list?: boolean | ListDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["listLike"]>
 
   export type ListLikeSelectScalar = {
@@ -8814,23 +8814,23 @@ export namespace Prisma {
 
   export type ListLikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "listId" | "createdAt", ExtArgs["result"]["listLike"]>
   export type ListLikeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     list?: boolean | ListDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ListLikeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     list?: boolean | ListDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type ListLikeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     list?: boolean | ListDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $ListLikePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ListLike"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       list: Prisma.$ListPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       userId: string
@@ -9230,8 +9230,8 @@ export namespace Prisma {
    */
   export interface Prisma__ListLikeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     list<T extends ListDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ListDefaultArgs<ExtArgs>>): Prisma__ListClient<$Result.GetResult<Prisma.$ListPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9697,10 +9697,10 @@ export namespace Prisma {
     email: 'email',
     password: 'password',
     name: 'name',
+    createdAt: 'createdAt',
     avatar: 'avatar',
     address: 'address',
-    isLocal: 'isLocal',
-    createdAt: 'createdAt'
+    isLocal: 'isLocal'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -9834,13 +9834,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -9851,6 +9844,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -9893,10 +9893,10 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
     avatar?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
     isLocal?: BoolFilter<"User"> | boolean
-    createdAt?: DateTimeFilter<"User"> | Date | string
     lists?: ListListRelationFilter
     likes?: ListLikeListRelationFilter
   }
@@ -9906,10 +9906,10 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     avatar?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     isLocal?: SortOrder
-    createdAt?: SortOrder
     lists?: ListOrderByRelationAggregateInput
     likes?: ListLikeOrderByRelationAggregateInput
   }
@@ -9922,10 +9922,10 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
     avatar?: StringNullableFilter<"User"> | string | null
     address?: StringNullableFilter<"User"> | string | null
     isLocal?: BoolFilter<"User"> | boolean
-    createdAt?: DateTimeFilter<"User"> | Date | string
     lists?: ListListRelationFilter
     likes?: ListLikeListRelationFilter
   }, "id" | "email">
@@ -9935,10 +9935,10 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     avatar?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     isLocal?: SortOrder
-    createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -9952,10 +9952,10 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     address?: StringNullableWithAggregatesFilter<"User"> | string | null
     isLocal?: BoolWithAggregatesFilter<"User"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type CountryWhereInput = {
@@ -9986,7 +9986,7 @@ export namespace Prisma {
     OR?: CountryWhereInput[]
     NOT?: CountryWhereInput | CountryWhereInput[]
     cities?: CityListRelationFilter
-  }, "id" | "code" | "slug" | "name">
+  }, "id" | "name" | "code" | "slug">
 
   export type CountryOrderByWithAggregationInput = {
     id?: SortOrder
@@ -10020,8 +10020,8 @@ export namespace Prisma {
     lng?: FloatNullableFilter<"City"> | number | null
     listCount?: IntFilter<"City"> | number
     country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
-    places?: PlaceListRelationFilter
     lists?: ListListRelationFilter
+    places?: PlaceListRelationFilter
   }
 
   export type CityOrderByWithRelationInput = {
@@ -10033,8 +10033,8 @@ export namespace Prisma {
     lng?: SortOrderInput | SortOrder
     listCount?: SortOrder
     country?: CountryOrderByWithRelationInput
-    places?: PlaceOrderByRelationAggregateInput
     lists?: ListOrderByRelationAggregateInput
+    places?: PlaceOrderByRelationAggregateInput
   }
 
   export type CityWhereUniqueInput = Prisma.AtLeast<{
@@ -10050,8 +10050,8 @@ export namespace Prisma {
     lng?: FloatNullableFilter<"City"> | number | null
     listCount?: IntFilter<"City"> | number
     country?: XOR<CountryScalarRelationFilter, CountryWhereInput>
-    places?: PlaceListRelationFilter
     lists?: ListListRelationFilter
+    places?: PlaceListRelationFilter
   }, "id" | "countryId_name">
 
   export type CityOrderByWithAggregationInput = {
@@ -10097,8 +10097,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Place"> | Date | string
     updatedAt?: DateTimeFilter<"Place"> | Date | string
     cityId?: StringFilter<"Place"> | string
-    city?: XOR<CityScalarRelationFilter, CityWhereInput>
     listItems?: ListPlaceListRelationFilter
+    city?: XOR<CityScalarRelationFilter, CityWhereInput>
   }
 
   export type PlaceOrderByWithRelationInput = {
@@ -10113,8 +10113,8 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     cityId?: SortOrder
-    city?: CityOrderByWithRelationInput
     listItems?: ListPlaceOrderByRelationAggregateInput
+    city?: CityOrderByWithRelationInput
   }
 
   export type PlaceWhereUniqueInput = Prisma.AtLeast<{
@@ -10132,8 +10132,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Place"> | Date | string
     updatedAt?: DateTimeFilter<"Place"> | Date | string
     cityId?: StringFilter<"Place"> | string
-    city?: XOR<CityScalarRelationFilter, CityWhereInput>
     listItems?: ListPlaceListRelationFilter
+    city?: XOR<CityScalarRelationFilter, CityWhereInput>
   }, "id" | "googlePlaceId">
 
   export type PlaceOrderByWithAggregationInput = {
@@ -10194,8 +10194,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"List"> | Date | string
     city?: XOR<CityScalarRelationFilter, CityWhereInput>
     creator?: XOR<UserScalarRelationFilter, UserWhereInput>
-    places?: ListPlaceListRelationFilter
     likes?: ListLikeListRelationFilter
+    places?: ListPlaceListRelationFilter
   }
 
   export type ListOrderByWithRelationInput = {
@@ -10217,8 +10217,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     city?: CityOrderByWithRelationInput
     creator?: UserOrderByWithRelationInput
-    places?: ListPlaceOrderByRelationAggregateInput
     likes?: ListLikeOrderByRelationAggregateInput
+    places?: ListPlaceOrderByRelationAggregateInput
   }
 
   export type ListWhereUniqueInput = Prisma.AtLeast<{
@@ -10243,8 +10243,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"List"> | Date | string
     city?: XOR<CityScalarRelationFilter, CityWhereInput>
     creator?: XOR<UserScalarRelationFilter, UserWhereInput>
-    places?: ListPlaceListRelationFilter
     likes?: ListLikeListRelationFilter
+    places?: ListPlaceListRelationFilter
   }, "id">
 
   export type ListOrderByWithAggregationInput = {
@@ -10371,16 +10371,16 @@ export namespace Prisma {
     userId?: StringFilter<"ListLike"> | string
     listId?: StringFilter<"ListLike"> | string
     createdAt?: DateTimeFilter<"ListLike"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     list?: XOR<ListScalarRelationFilter, ListWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type ListLikeOrderByWithRelationInput = {
     userId?: SortOrder
     listId?: SortOrder
     createdAt?: SortOrder
-    user?: UserOrderByWithRelationInput
     list?: ListOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type ListLikeWhereUniqueInput = Prisma.AtLeast<{
@@ -10391,8 +10391,8 @@ export namespace Prisma {
     userId?: StringFilter<"ListLike"> | string
     listId?: StringFilter<"ListLike"> | string
     createdAt?: DateTimeFilter<"ListLike"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     list?: XOR<ListScalarRelationFilter, ListWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "userId_listId">
 
   export type ListLikeOrderByWithAggregationInput = {
@@ -10418,10 +10418,10 @@ export namespace Prisma {
     email: string
     password: string
     name: string
+    createdAt?: Date | string
     avatar?: string | null
     address?: string | null
     isLocal?: boolean
-    createdAt?: Date | string
     lists?: ListCreateNestedManyWithoutCreatorInput
     likes?: ListLikeCreateNestedManyWithoutUserInput
   }
@@ -10431,10 +10431,10 @@ export namespace Prisma {
     email: string
     password: string
     name: string
+    createdAt?: Date | string
     avatar?: string | null
     address?: string | null
     isLocal?: boolean
-    createdAt?: Date | string
     lists?: ListUncheckedCreateNestedManyWithoutCreatorInput
     likes?: ListLikeUncheckedCreateNestedManyWithoutUserInput
   }
@@ -10444,10 +10444,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lists?: ListUpdateManyWithoutCreatorNestedInput
     likes?: ListLikeUpdateManyWithoutUserNestedInput
   }
@@ -10457,10 +10457,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lists?: ListUncheckedUpdateManyWithoutCreatorNestedInput
     likes?: ListLikeUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -10470,10 +10470,10 @@ export namespace Prisma {
     email: string
     password: string
     name: string
+    createdAt?: Date | string
     avatar?: string | null
     address?: string | null
     isLocal?: boolean
-    createdAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -10481,10 +10481,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -10492,10 +10492,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CountryCreateInput = {
@@ -10559,8 +10559,8 @@ export namespace Prisma {
     lng?: number | null
     listCount?: number
     country: CountryCreateNestedOneWithoutCitiesInput
-    places?: PlaceCreateNestedManyWithoutCityInput
     lists?: ListCreateNestedManyWithoutCityInput
+    places?: PlaceCreateNestedManyWithoutCityInput
   }
 
   export type CityUncheckedCreateInput = {
@@ -10571,8 +10571,8 @@ export namespace Prisma {
     lat?: number | null
     lng?: number | null
     listCount?: number
-    places?: PlaceUncheckedCreateNestedManyWithoutCityInput
     lists?: ListUncheckedCreateNestedManyWithoutCityInput
+    places?: PlaceUncheckedCreateNestedManyWithoutCityInput
   }
 
   export type CityUpdateInput = {
@@ -10583,8 +10583,8 @@ export namespace Prisma {
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     listCount?: IntFieldUpdateOperationsInput | number
     country?: CountryUpdateOneRequiredWithoutCitiesNestedInput
-    places?: PlaceUpdateManyWithoutCityNestedInput
     lists?: ListUpdateManyWithoutCityNestedInput
+    places?: PlaceUpdateManyWithoutCityNestedInput
   }
 
   export type CityUncheckedUpdateInput = {
@@ -10595,8 +10595,8 @@ export namespace Prisma {
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     listCount?: IntFieldUpdateOperationsInput | number
-    places?: PlaceUncheckedUpdateManyWithoutCityNestedInput
     lists?: ListUncheckedUpdateManyWithoutCityNestedInput
+    places?: PlaceUncheckedUpdateManyWithoutCityNestedInput
   }
 
   export type CityCreateManyInput = {
@@ -10639,8 +10639,8 @@ export namespace Prisma {
     primaryImageUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    city: CityCreateNestedOneWithoutPlacesInput
     listItems?: ListPlaceCreateNestedManyWithoutPlaceInput
+    city: CityCreateNestedOneWithoutPlacesInput
   }
 
   export type PlaceUncheckedCreateInput = {
@@ -10669,8 +10669,8 @@ export namespace Prisma {
     primaryImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    city?: CityUpdateOneRequiredWithoutPlacesNestedInput
     listItems?: ListPlaceUpdateManyWithoutPlaceNestedInput
+    city?: CityUpdateOneRequiredWithoutPlacesNestedInput
   }
 
   export type PlaceUncheckedUpdateInput = {
@@ -10746,8 +10746,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     city: CityCreateNestedOneWithoutListsInput
     creator: UserCreateNestedOneWithoutListsInput
-    places?: ListPlaceCreateNestedManyWithoutListInput
     likes?: ListLikeCreateNestedManyWithoutListInput
+    places?: ListPlaceCreateNestedManyWithoutListInput
   }
 
   export type ListUncheckedCreateInput = {
@@ -10767,8 +10767,8 @@ export namespace Prisma {
     coverImage?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    places?: ListPlaceUncheckedCreateNestedManyWithoutListInput
     likes?: ListLikeUncheckedCreateNestedManyWithoutListInput
+    places?: ListPlaceUncheckedCreateNestedManyWithoutListInput
   }
 
   export type ListUpdateInput = {
@@ -10788,8 +10788,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     city?: CityUpdateOneRequiredWithoutListsNestedInput
     creator?: UserUpdateOneRequiredWithoutListsNestedInput
-    places?: ListPlaceUpdateManyWithoutListNestedInput
     likes?: ListLikeUpdateManyWithoutListNestedInput
+    places?: ListPlaceUpdateManyWithoutListNestedInput
   }
 
   export type ListUncheckedUpdateInput = {
@@ -10809,8 +10809,8 @@ export namespace Prisma {
     coverImage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
     likes?: ListLikeUncheckedUpdateManyWithoutListNestedInput
+    places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
   }
 
   export type ListCreateManyInput = {
@@ -10938,8 +10938,8 @@ export namespace Prisma {
 
   export type ListLikeCreateInput = {
     createdAt?: Date | string
-    user: UserCreateNestedOneWithoutLikesInput
     list: ListCreateNestedOneWithoutLikesInput
+    user: UserCreateNestedOneWithoutLikesInput
   }
 
   export type ListLikeUncheckedCreateInput = {
@@ -10950,8 +10950,8 @@ export namespace Prisma {
 
   export type ListLikeUpdateInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutLikesNestedInput
     list?: ListUpdateOneRequiredWithoutLikesNestedInput
+    user?: UserUpdateOneRequiredWithoutLikesNestedInput
   }
 
   export type ListLikeUncheckedUpdateInput = {
@@ -10991,6 +10991,17 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -11009,17 +11020,6 @@ export namespace Prisma {
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type ListListRelationFilter = {
@@ -11052,10 +11052,10 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     avatar?: SortOrder
     address?: SortOrder
     isLocal?: SortOrder
-    createdAt?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -11063,10 +11063,10 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     avatar?: SortOrder
     address?: SortOrder
     isLocal?: SortOrder
-    createdAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -11074,10 +11074,10 @@ export namespace Prisma {
     email?: SortOrder
     password?: SortOrder
     name?: SortOrder
+    createdAt?: SortOrder
     avatar?: SortOrder
     address?: SortOrder
     isLocal?: SortOrder
-    createdAt?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -11096,6 +11096,20 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -11122,20 +11136,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type CityListRelationFilter = {
@@ -11296,15 +11296,15 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type CityScalarRelationFilter = {
-    is?: CityWhereInput
-    isNot?: CityWhereInput
-  }
-
   export type ListPlaceListRelationFilter = {
     every?: ListPlaceWhereInput
     some?: ListPlaceWhereInput
     none?: ListPlaceWhereInput
+  }
+
+  export type CityScalarRelationFilter = {
+    is?: CityWhereInput
+    isNot?: CityWhereInput
   }
 
   export type ListPlaceOrderByRelationAggregateInput = {
@@ -11567,16 +11567,16 @@ export namespace Prisma {
     set?: string
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type ListUpdateManyWithoutCreatorNestedInput = {
@@ -11683,13 +11683,6 @@ export namespace Prisma {
     connect?: CountryWhereUniqueInput
   }
 
-  export type PlaceCreateNestedManyWithoutCityInput = {
-    create?: XOR<PlaceCreateWithoutCityInput, PlaceUncheckedCreateWithoutCityInput> | PlaceCreateWithoutCityInput[] | PlaceUncheckedCreateWithoutCityInput[]
-    connectOrCreate?: PlaceCreateOrConnectWithoutCityInput | PlaceCreateOrConnectWithoutCityInput[]
-    createMany?: PlaceCreateManyCityInputEnvelope
-    connect?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
-  }
-
   export type ListCreateNestedManyWithoutCityInput = {
     create?: XOR<ListCreateWithoutCityInput, ListUncheckedCreateWithoutCityInput> | ListCreateWithoutCityInput[] | ListUncheckedCreateWithoutCityInput[]
     connectOrCreate?: ListCreateOrConnectWithoutCityInput | ListCreateOrConnectWithoutCityInput[]
@@ -11697,7 +11690,7 @@ export namespace Prisma {
     connect?: ListWhereUniqueInput | ListWhereUniqueInput[]
   }
 
-  export type PlaceUncheckedCreateNestedManyWithoutCityInput = {
+  export type PlaceCreateNestedManyWithoutCityInput = {
     create?: XOR<PlaceCreateWithoutCityInput, PlaceUncheckedCreateWithoutCityInput> | PlaceCreateWithoutCityInput[] | PlaceUncheckedCreateWithoutCityInput[]
     connectOrCreate?: PlaceCreateOrConnectWithoutCityInput | PlaceCreateOrConnectWithoutCityInput[]
     createMany?: PlaceCreateManyCityInputEnvelope
@@ -11709,6 +11702,13 @@ export namespace Prisma {
     connectOrCreate?: ListCreateOrConnectWithoutCityInput | ListCreateOrConnectWithoutCityInput[]
     createMany?: ListCreateManyCityInputEnvelope
     connect?: ListWhereUniqueInput | ListWhereUniqueInput[]
+  }
+
+  export type PlaceUncheckedCreateNestedManyWithoutCityInput = {
+    create?: XOR<PlaceCreateWithoutCityInput, PlaceUncheckedCreateWithoutCityInput> | PlaceCreateWithoutCityInput[] | PlaceUncheckedCreateWithoutCityInput[]
+    connectOrCreate?: PlaceCreateOrConnectWithoutCityInput | PlaceCreateOrConnectWithoutCityInput[]
+    createMany?: PlaceCreateManyCityInputEnvelope
+    connect?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
   }
 
   export type NullableFloatFieldUpdateOperationsInput = {
@@ -11735,20 +11735,6 @@ export namespace Prisma {
     update?: XOR<XOR<CountryUpdateToOneWithWhereWithoutCitiesInput, CountryUpdateWithoutCitiesInput>, CountryUncheckedUpdateWithoutCitiesInput>
   }
 
-  export type PlaceUpdateManyWithoutCityNestedInput = {
-    create?: XOR<PlaceCreateWithoutCityInput, PlaceUncheckedCreateWithoutCityInput> | PlaceCreateWithoutCityInput[] | PlaceUncheckedCreateWithoutCityInput[]
-    connectOrCreate?: PlaceCreateOrConnectWithoutCityInput | PlaceCreateOrConnectWithoutCityInput[]
-    upsert?: PlaceUpsertWithWhereUniqueWithoutCityInput | PlaceUpsertWithWhereUniqueWithoutCityInput[]
-    createMany?: PlaceCreateManyCityInputEnvelope
-    set?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
-    disconnect?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
-    delete?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
-    connect?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
-    update?: PlaceUpdateWithWhereUniqueWithoutCityInput | PlaceUpdateWithWhereUniqueWithoutCityInput[]
-    updateMany?: PlaceUpdateManyWithWhereWithoutCityInput | PlaceUpdateManyWithWhereWithoutCityInput[]
-    deleteMany?: PlaceScalarWhereInput | PlaceScalarWhereInput[]
-  }
-
   export type ListUpdateManyWithoutCityNestedInput = {
     create?: XOR<ListCreateWithoutCityInput, ListUncheckedCreateWithoutCityInput> | ListCreateWithoutCityInput[] | ListUncheckedCreateWithoutCityInput[]
     connectOrCreate?: ListCreateOrConnectWithoutCityInput | ListCreateOrConnectWithoutCityInput[]
@@ -11763,7 +11749,7 @@ export namespace Prisma {
     deleteMany?: ListScalarWhereInput | ListScalarWhereInput[]
   }
 
-  export type PlaceUncheckedUpdateManyWithoutCityNestedInput = {
+  export type PlaceUpdateManyWithoutCityNestedInput = {
     create?: XOR<PlaceCreateWithoutCityInput, PlaceUncheckedCreateWithoutCityInput> | PlaceCreateWithoutCityInput[] | PlaceUncheckedCreateWithoutCityInput[]
     connectOrCreate?: PlaceCreateOrConnectWithoutCityInput | PlaceCreateOrConnectWithoutCityInput[]
     upsert?: PlaceUpsertWithWhereUniqueWithoutCityInput | PlaceUpsertWithWhereUniqueWithoutCityInput[]
@@ -11791,10 +11777,18 @@ export namespace Prisma {
     deleteMany?: ListScalarWhereInput | ListScalarWhereInput[]
   }
 
-  export type CityCreateNestedOneWithoutPlacesInput = {
-    create?: XOR<CityCreateWithoutPlacesInput, CityUncheckedCreateWithoutPlacesInput>
-    connectOrCreate?: CityCreateOrConnectWithoutPlacesInput
-    connect?: CityWhereUniqueInput
+  export type PlaceUncheckedUpdateManyWithoutCityNestedInput = {
+    create?: XOR<PlaceCreateWithoutCityInput, PlaceUncheckedCreateWithoutCityInput> | PlaceCreateWithoutCityInput[] | PlaceUncheckedCreateWithoutCityInput[]
+    connectOrCreate?: PlaceCreateOrConnectWithoutCityInput | PlaceCreateOrConnectWithoutCityInput[]
+    upsert?: PlaceUpsertWithWhereUniqueWithoutCityInput | PlaceUpsertWithWhereUniqueWithoutCityInput[]
+    createMany?: PlaceCreateManyCityInputEnvelope
+    set?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
+    disconnect?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
+    delete?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
+    connect?: PlaceWhereUniqueInput | PlaceWhereUniqueInput[]
+    update?: PlaceUpdateWithWhereUniqueWithoutCityInput | PlaceUpdateWithWhereUniqueWithoutCityInput[]
+    updateMany?: PlaceUpdateManyWithWhereWithoutCityInput | PlaceUpdateManyWithWhereWithoutCityInput[]
+    deleteMany?: PlaceScalarWhereInput | PlaceScalarWhereInput[]
   }
 
   export type ListPlaceCreateNestedManyWithoutPlaceInput = {
@@ -11802,6 +11796,12 @@ export namespace Prisma {
     connectOrCreate?: ListPlaceCreateOrConnectWithoutPlaceInput | ListPlaceCreateOrConnectWithoutPlaceInput[]
     createMany?: ListPlaceCreateManyPlaceInputEnvelope
     connect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
+  }
+
+  export type CityCreateNestedOneWithoutPlacesInput = {
+    create?: XOR<CityCreateWithoutPlacesInput, CityUncheckedCreateWithoutPlacesInput>
+    connectOrCreate?: CityCreateOrConnectWithoutPlacesInput
+    connect?: CityWhereUniqueInput
   }
 
   export type ListPlaceUncheckedCreateNestedManyWithoutPlaceInput = {
@@ -11819,14 +11819,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type CityUpdateOneRequiredWithoutPlacesNestedInput = {
-    create?: XOR<CityCreateWithoutPlacesInput, CityUncheckedCreateWithoutPlacesInput>
-    connectOrCreate?: CityCreateOrConnectWithoutPlacesInput
-    upsert?: CityUpsertWithoutPlacesInput
-    connect?: CityWhereUniqueInput
-    update?: XOR<XOR<CityUpdateToOneWithWhereWithoutPlacesInput, CityUpdateWithoutPlacesInput>, CityUncheckedUpdateWithoutPlacesInput>
-  }
-
   export type ListPlaceUpdateManyWithoutPlaceNestedInput = {
     create?: XOR<ListPlaceCreateWithoutPlaceInput, ListPlaceUncheckedCreateWithoutPlaceInput> | ListPlaceCreateWithoutPlaceInput[] | ListPlaceUncheckedCreateWithoutPlaceInput[]
     connectOrCreate?: ListPlaceCreateOrConnectWithoutPlaceInput | ListPlaceCreateOrConnectWithoutPlaceInput[]
@@ -11839,6 +11831,14 @@ export namespace Prisma {
     update?: ListPlaceUpdateWithWhereUniqueWithoutPlaceInput | ListPlaceUpdateWithWhereUniqueWithoutPlaceInput[]
     updateMany?: ListPlaceUpdateManyWithWhereWithoutPlaceInput | ListPlaceUpdateManyWithWhereWithoutPlaceInput[]
     deleteMany?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
+  }
+
+  export type CityUpdateOneRequiredWithoutPlacesNestedInput = {
+    create?: XOR<CityCreateWithoutPlacesInput, CityUncheckedCreateWithoutPlacesInput>
+    connectOrCreate?: CityCreateOrConnectWithoutPlacesInput
+    upsert?: CityUpsertWithoutPlacesInput
+    connect?: CityWhereUniqueInput
+    update?: XOR<XOR<CityUpdateToOneWithWhereWithoutPlacesInput, CityUpdateWithoutPlacesInput>, CityUncheckedUpdateWithoutPlacesInput>
   }
 
   export type ListPlaceUncheckedUpdateManyWithoutPlaceNestedInput = {
@@ -11867,13 +11867,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type ListPlaceCreateNestedManyWithoutListInput = {
-    create?: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput> | ListPlaceCreateWithoutListInput[] | ListPlaceUncheckedCreateWithoutListInput[]
-    connectOrCreate?: ListPlaceCreateOrConnectWithoutListInput | ListPlaceCreateOrConnectWithoutListInput[]
-    createMany?: ListPlaceCreateManyListInputEnvelope
-    connect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
-  }
-
   export type ListLikeCreateNestedManyWithoutListInput = {
     create?: XOR<ListLikeCreateWithoutListInput, ListLikeUncheckedCreateWithoutListInput> | ListLikeCreateWithoutListInput[] | ListLikeUncheckedCreateWithoutListInput[]
     connectOrCreate?: ListLikeCreateOrConnectWithoutListInput | ListLikeCreateOrConnectWithoutListInput[]
@@ -11881,7 +11874,7 @@ export namespace Prisma {
     connect?: ListLikeWhereUniqueInput | ListLikeWhereUniqueInput[]
   }
 
-  export type ListPlaceUncheckedCreateNestedManyWithoutListInput = {
+  export type ListPlaceCreateNestedManyWithoutListInput = {
     create?: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput> | ListPlaceCreateWithoutListInput[] | ListPlaceUncheckedCreateWithoutListInput[]
     connectOrCreate?: ListPlaceCreateOrConnectWithoutListInput | ListPlaceCreateOrConnectWithoutListInput[]
     createMany?: ListPlaceCreateManyListInputEnvelope
@@ -11893,6 +11886,13 @@ export namespace Prisma {
     connectOrCreate?: ListLikeCreateOrConnectWithoutListInput | ListLikeCreateOrConnectWithoutListInput[]
     createMany?: ListLikeCreateManyListInputEnvelope
     connect?: ListLikeWhereUniqueInput | ListLikeWhereUniqueInput[]
+  }
+
+  export type ListPlaceUncheckedCreateNestedManyWithoutListInput = {
+    create?: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput> | ListPlaceCreateWithoutListInput[] | ListPlaceUncheckedCreateWithoutListInput[]
+    connectOrCreate?: ListPlaceCreateOrConnectWithoutListInput | ListPlaceCreateOrConnectWithoutListInput[]
+    createMany?: ListPlaceCreateManyListInputEnvelope
+    connect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
   }
 
   export type CityUpdateOneRequiredWithoutListsNestedInput = {
@@ -11911,20 +11911,6 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutListsInput, UserUpdateWithoutListsInput>, UserUncheckedUpdateWithoutListsInput>
   }
 
-  export type ListPlaceUpdateManyWithoutListNestedInput = {
-    create?: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput> | ListPlaceCreateWithoutListInput[] | ListPlaceUncheckedCreateWithoutListInput[]
-    connectOrCreate?: ListPlaceCreateOrConnectWithoutListInput | ListPlaceCreateOrConnectWithoutListInput[]
-    upsert?: ListPlaceUpsertWithWhereUniqueWithoutListInput | ListPlaceUpsertWithWhereUniqueWithoutListInput[]
-    createMany?: ListPlaceCreateManyListInputEnvelope
-    set?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
-    disconnect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
-    delete?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
-    connect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
-    update?: ListPlaceUpdateWithWhereUniqueWithoutListInput | ListPlaceUpdateWithWhereUniqueWithoutListInput[]
-    updateMany?: ListPlaceUpdateManyWithWhereWithoutListInput | ListPlaceUpdateManyWithWhereWithoutListInput[]
-    deleteMany?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
-  }
-
   export type ListLikeUpdateManyWithoutListNestedInput = {
     create?: XOR<ListLikeCreateWithoutListInput, ListLikeUncheckedCreateWithoutListInput> | ListLikeCreateWithoutListInput[] | ListLikeUncheckedCreateWithoutListInput[]
     connectOrCreate?: ListLikeCreateOrConnectWithoutListInput | ListLikeCreateOrConnectWithoutListInput[]
@@ -11939,7 +11925,7 @@ export namespace Prisma {
     deleteMany?: ListLikeScalarWhereInput | ListLikeScalarWhereInput[]
   }
 
-  export type ListPlaceUncheckedUpdateManyWithoutListNestedInput = {
+  export type ListPlaceUpdateManyWithoutListNestedInput = {
     create?: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput> | ListPlaceCreateWithoutListInput[] | ListPlaceUncheckedCreateWithoutListInput[]
     connectOrCreate?: ListPlaceCreateOrConnectWithoutListInput | ListPlaceCreateOrConnectWithoutListInput[]
     upsert?: ListPlaceUpsertWithWhereUniqueWithoutListInput | ListPlaceUpsertWithWhereUniqueWithoutListInput[]
@@ -11965,6 +11951,20 @@ export namespace Prisma {
     update?: ListLikeUpdateWithWhereUniqueWithoutListInput | ListLikeUpdateWithWhereUniqueWithoutListInput[]
     updateMany?: ListLikeUpdateManyWithWhereWithoutListInput | ListLikeUpdateManyWithWhereWithoutListInput[]
     deleteMany?: ListLikeScalarWhereInput | ListLikeScalarWhereInput[]
+  }
+
+  export type ListPlaceUncheckedUpdateManyWithoutListNestedInput = {
+    create?: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput> | ListPlaceCreateWithoutListInput[] | ListPlaceUncheckedCreateWithoutListInput[]
+    connectOrCreate?: ListPlaceCreateOrConnectWithoutListInput | ListPlaceCreateOrConnectWithoutListInput[]
+    upsert?: ListPlaceUpsertWithWhereUniqueWithoutListInput | ListPlaceUpsertWithWhereUniqueWithoutListInput[]
+    createMany?: ListPlaceCreateManyListInputEnvelope
+    set?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
+    disconnect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
+    delete?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
+    connect?: ListPlaceWhereUniqueInput | ListPlaceWhereUniqueInput[]
+    update?: ListPlaceUpdateWithWhereUniqueWithoutListInput | ListPlaceUpdateWithWhereUniqueWithoutListInput[]
+    updateMany?: ListPlaceUpdateManyWithWhereWithoutListInput | ListPlaceUpdateManyWithWhereWithoutListInput[]
+    deleteMany?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
   }
 
   export type ListCreateNestedOneWithoutPlacesInput = {
@@ -11995,24 +11995,16 @@ export namespace Prisma {
     update?: XOR<XOR<PlaceUpdateToOneWithWhereWithoutListItemsInput, PlaceUpdateWithoutListItemsInput>, PlaceUncheckedUpdateWithoutListItemsInput>
   }
 
-  export type UserCreateNestedOneWithoutLikesInput = {
-    create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikesInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type ListCreateNestedOneWithoutLikesInput = {
     create?: XOR<ListCreateWithoutLikesInput, ListUncheckedCreateWithoutLikesInput>
     connectOrCreate?: ListCreateOrConnectWithoutLikesInput
     connect?: ListWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutLikesNestedInput = {
+  export type UserCreateNestedOneWithoutLikesInput = {
     create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
     connectOrCreate?: UserCreateOrConnectWithoutLikesInput
-    upsert?: UserUpsertWithoutLikesInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikesInput, UserUpdateWithoutLikesInput>, UserUncheckedUpdateWithoutLikesInput>
   }
 
   export type ListUpdateOneRequiredWithoutLikesNestedInput = {
@@ -12021,6 +12013,14 @@ export namespace Prisma {
     upsert?: ListUpsertWithoutLikesInput
     connect?: ListWhereUniqueInput
     update?: XOR<XOR<ListUpdateToOneWithWhereWithoutLikesInput, ListUpdateWithoutLikesInput>, ListUncheckedUpdateWithoutLikesInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutLikesNestedInput = {
+    create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLikesInput
+    upsert?: UserUpsertWithoutLikesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikesInput, UserUpdateWithoutLikesInput>, UserUncheckedUpdateWithoutLikesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -12035,6 +12035,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -12054,17 +12065,6 @@ export namespace Prisma {
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -12093,6 +12093,20 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -12129,20 +12143,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
@@ -12231,8 +12231,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     city: CityCreateNestedOneWithoutListsInput
-    places?: ListPlaceCreateNestedManyWithoutListInput
     likes?: ListLikeCreateNestedManyWithoutListInput
+    places?: ListPlaceCreateNestedManyWithoutListInput
   }
 
   export type ListUncheckedCreateWithoutCreatorInput = {
@@ -12251,8 +12251,8 @@ export namespace Prisma {
     coverImage?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    places?: ListPlaceUncheckedCreateNestedManyWithoutListInput
     likes?: ListLikeUncheckedCreateNestedManyWithoutListInput
+    places?: ListPlaceUncheckedCreateNestedManyWithoutListInput
   }
 
   export type ListCreateOrConnectWithoutCreatorInput = {
@@ -12355,8 +12355,8 @@ export namespace Prisma {
     lat?: number | null
     lng?: number | null
     listCount?: number
-    places?: PlaceCreateNestedManyWithoutCityInput
     lists?: ListCreateNestedManyWithoutCityInput
+    places?: PlaceCreateNestedManyWithoutCityInput
   }
 
   export type CityUncheckedCreateWithoutCountryInput = {
@@ -12366,8 +12366,8 @@ export namespace Prisma {
     lat?: number | null
     lng?: number | null
     listCount?: number
-    places?: PlaceUncheckedCreateNestedManyWithoutCityInput
     lists?: ListUncheckedCreateNestedManyWithoutCityInput
+    places?: PlaceUncheckedCreateNestedManyWithoutCityInput
   }
 
   export type CityCreateOrConnectWithoutCountryInput = {
@@ -12428,6 +12428,56 @@ export namespace Prisma {
     create: XOR<CountryCreateWithoutCitiesInput, CountryUncheckedCreateWithoutCitiesInput>
   }
 
+  export type ListCreateWithoutCityInput = {
+    id?: string
+    name: string
+    description?: string | null
+    genre?: string | null
+    subgenre?: string | null
+    lat?: number | null
+    lng?: number | null
+    averageRating?: number
+    ratingCount?: number
+    likeCount?: number
+    placeCount?: number
+    coverImage?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    creator: UserCreateNestedOneWithoutListsInput
+    likes?: ListLikeCreateNestedManyWithoutListInput
+    places?: ListPlaceCreateNestedManyWithoutListInput
+  }
+
+  export type ListUncheckedCreateWithoutCityInput = {
+    id?: string
+    name: string
+    description?: string | null
+    genre?: string | null
+    subgenre?: string | null
+    lat?: number | null
+    lng?: number | null
+    creatorId: string
+    averageRating?: number
+    ratingCount?: number
+    likeCount?: number
+    placeCount?: number
+    coverImage?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    likes?: ListLikeUncheckedCreateNestedManyWithoutListInput
+    places?: ListPlaceUncheckedCreateNestedManyWithoutListInput
+  }
+
+  export type ListCreateOrConnectWithoutCityInput = {
+    where: ListWhereUniqueInput
+    create: XOR<ListCreateWithoutCityInput, ListUncheckedCreateWithoutCityInput>
+  }
+
+  export type ListCreateManyCityInputEnvelope = {
+    data: ListCreateManyCityInput | ListCreateManyCityInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PlaceCreateWithoutCityInput = {
     id?: string
     name: string
@@ -12466,56 +12516,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ListCreateWithoutCityInput = {
-    id?: string
-    name: string
-    description?: string | null
-    genre?: string | null
-    subgenre?: string | null
-    lat?: number | null
-    lng?: number | null
-    averageRating?: number
-    ratingCount?: number
-    likeCount?: number
-    placeCount?: number
-    coverImage?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    creator: UserCreateNestedOneWithoutListsInput
-    places?: ListPlaceCreateNestedManyWithoutListInput
-    likes?: ListLikeCreateNestedManyWithoutListInput
-  }
-
-  export type ListUncheckedCreateWithoutCityInput = {
-    id?: string
-    name: string
-    description?: string | null
-    genre?: string | null
-    subgenre?: string | null
-    lat?: number | null
-    lng?: number | null
-    creatorId: string
-    averageRating?: number
-    ratingCount?: number
-    likeCount?: number
-    placeCount?: number
-    coverImage?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    places?: ListPlaceUncheckedCreateNestedManyWithoutListInput
-    likes?: ListLikeUncheckedCreateNestedManyWithoutListInput
-  }
-
-  export type ListCreateOrConnectWithoutCityInput = {
-    where: ListWhereUniqueInput
-    create: XOR<ListCreateWithoutCityInput, ListUncheckedCreateWithoutCityInput>
-  }
-
-  export type ListCreateManyCityInputEnvelope = {
-    data: ListCreateManyCityInput | ListCreateManyCityInput[]
-    skipDuplicates?: boolean
-  }
-
   export type CountryUpsertWithoutCitiesInput = {
     update: XOR<CountryUpdateWithoutCitiesInput, CountryUncheckedUpdateWithoutCitiesInput>
     create: XOR<CountryCreateWithoutCitiesInput, CountryUncheckedCreateWithoutCitiesInput>
@@ -12539,6 +12539,22 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     code?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ListUpsertWithWhereUniqueWithoutCityInput = {
+    where: ListWhereUniqueInput
+    update: XOR<ListUpdateWithoutCityInput, ListUncheckedUpdateWithoutCityInput>
+    create: XOR<ListCreateWithoutCityInput, ListUncheckedCreateWithoutCityInput>
+  }
+
+  export type ListUpdateWithWhereUniqueWithoutCityInput = {
+    where: ListWhereUniqueInput
+    data: XOR<ListUpdateWithoutCityInput, ListUncheckedUpdateWithoutCityInput>
+  }
+
+  export type ListUpdateManyWithWhereWithoutCityInput = {
+    where: ListScalarWhereInput
+    data: XOR<ListUpdateManyMutationInput, ListUncheckedUpdateManyWithoutCityInput>
   }
 
   export type PlaceUpsertWithWhereUniqueWithoutCityInput = {
@@ -12574,20 +12590,32 @@ export namespace Prisma {
     cityId?: StringFilter<"Place"> | string
   }
 
-  export type ListUpsertWithWhereUniqueWithoutCityInput = {
-    where: ListWhereUniqueInput
-    update: XOR<ListUpdateWithoutCityInput, ListUncheckedUpdateWithoutCityInput>
-    create: XOR<ListCreateWithoutCityInput, ListUncheckedCreateWithoutCityInput>
+  export type ListPlaceCreateWithoutPlaceInput = {
+    id?: string
+    order: number
+    note?: string | null
+    priceRange?: string | null
+    createdAt?: Date | string
+    list: ListCreateNestedOneWithoutPlacesInput
   }
 
-  export type ListUpdateWithWhereUniqueWithoutCityInput = {
-    where: ListWhereUniqueInput
-    data: XOR<ListUpdateWithoutCityInput, ListUncheckedUpdateWithoutCityInput>
+  export type ListPlaceUncheckedCreateWithoutPlaceInput = {
+    id?: string
+    listId: string
+    order: number
+    note?: string | null
+    priceRange?: string | null
+    createdAt?: Date | string
   }
 
-  export type ListUpdateManyWithWhereWithoutCityInput = {
-    where: ListScalarWhereInput
-    data: XOR<ListUpdateManyMutationInput, ListUncheckedUpdateManyWithoutCityInput>
+  export type ListPlaceCreateOrConnectWithoutPlaceInput = {
+    where: ListPlaceWhereUniqueInput
+    create: XOR<ListPlaceCreateWithoutPlaceInput, ListPlaceUncheckedCreateWithoutPlaceInput>
+  }
+
+  export type ListPlaceCreateManyPlaceInputEnvelope = {
+    data: ListPlaceCreateManyPlaceInput | ListPlaceCreateManyPlaceInput[]
+    skipDuplicates?: boolean
   }
 
   export type CityCreateWithoutPlacesInput = {
@@ -12617,32 +12645,33 @@ export namespace Prisma {
     create: XOR<CityCreateWithoutPlacesInput, CityUncheckedCreateWithoutPlacesInput>
   }
 
-  export type ListPlaceCreateWithoutPlaceInput = {
-    id?: string
-    order: number
-    note?: string | null
-    priceRange?: string | null
-    createdAt?: Date | string
-    list: ListCreateNestedOneWithoutPlacesInput
-  }
-
-  export type ListPlaceUncheckedCreateWithoutPlaceInput = {
-    id?: string
-    listId: string
-    order: number
-    note?: string | null
-    priceRange?: string | null
-    createdAt?: Date | string
-  }
-
-  export type ListPlaceCreateOrConnectWithoutPlaceInput = {
+  export type ListPlaceUpsertWithWhereUniqueWithoutPlaceInput = {
     where: ListPlaceWhereUniqueInput
+    update: XOR<ListPlaceUpdateWithoutPlaceInput, ListPlaceUncheckedUpdateWithoutPlaceInput>
     create: XOR<ListPlaceCreateWithoutPlaceInput, ListPlaceUncheckedCreateWithoutPlaceInput>
   }
 
-  export type ListPlaceCreateManyPlaceInputEnvelope = {
-    data: ListPlaceCreateManyPlaceInput | ListPlaceCreateManyPlaceInput[]
-    skipDuplicates?: boolean
+  export type ListPlaceUpdateWithWhereUniqueWithoutPlaceInput = {
+    where: ListPlaceWhereUniqueInput
+    data: XOR<ListPlaceUpdateWithoutPlaceInput, ListPlaceUncheckedUpdateWithoutPlaceInput>
+  }
+
+  export type ListPlaceUpdateManyWithWhereWithoutPlaceInput = {
+    where: ListPlaceScalarWhereInput
+    data: XOR<ListPlaceUpdateManyMutationInput, ListPlaceUncheckedUpdateManyWithoutPlaceInput>
+  }
+
+  export type ListPlaceScalarWhereInput = {
+    AND?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
+    OR?: ListPlaceScalarWhereInput[]
+    NOT?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
+    id?: StringFilter<"ListPlace"> | string
+    listId?: StringFilter<"ListPlace"> | string
+    placeId?: StringFilter<"ListPlace"> | string
+    order?: IntFilter<"ListPlace"> | number
+    note?: StringNullableFilter<"ListPlace"> | string | null
+    priceRange?: StringNullableFilter<"ListPlace"> | string | null
+    createdAt?: DateTimeFilter<"ListPlace"> | Date | string
   }
 
   export type CityUpsertWithoutPlacesInput = {
@@ -12678,35 +12707,6 @@ export namespace Prisma {
     lists?: ListUncheckedUpdateManyWithoutCityNestedInput
   }
 
-  export type ListPlaceUpsertWithWhereUniqueWithoutPlaceInput = {
-    where: ListPlaceWhereUniqueInput
-    update: XOR<ListPlaceUpdateWithoutPlaceInput, ListPlaceUncheckedUpdateWithoutPlaceInput>
-    create: XOR<ListPlaceCreateWithoutPlaceInput, ListPlaceUncheckedCreateWithoutPlaceInput>
-  }
-
-  export type ListPlaceUpdateWithWhereUniqueWithoutPlaceInput = {
-    where: ListPlaceWhereUniqueInput
-    data: XOR<ListPlaceUpdateWithoutPlaceInput, ListPlaceUncheckedUpdateWithoutPlaceInput>
-  }
-
-  export type ListPlaceUpdateManyWithWhereWithoutPlaceInput = {
-    where: ListPlaceScalarWhereInput
-    data: XOR<ListPlaceUpdateManyMutationInput, ListPlaceUncheckedUpdateManyWithoutPlaceInput>
-  }
-
-  export type ListPlaceScalarWhereInput = {
-    AND?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
-    OR?: ListPlaceScalarWhereInput[]
-    NOT?: ListPlaceScalarWhereInput | ListPlaceScalarWhereInput[]
-    id?: StringFilter<"ListPlace"> | string
-    listId?: StringFilter<"ListPlace"> | string
-    placeId?: StringFilter<"ListPlace"> | string
-    order?: IntFilter<"ListPlace"> | number
-    note?: StringNullableFilter<"ListPlace"> | string | null
-    priceRange?: StringNullableFilter<"ListPlace"> | string | null
-    createdAt?: DateTimeFilter<"ListPlace"> | Date | string
-  }
-
   export type CityCreateWithoutListsInput = {
     id?: string
     name: string
@@ -12739,10 +12739,10 @@ export namespace Prisma {
     email: string
     password: string
     name: string
+    createdAt?: Date | string
     avatar?: string | null
     address?: string | null
     isLocal?: boolean
-    createdAt?: Date | string
     likes?: ListLikeCreateNestedManyWithoutUserInput
   }
 
@@ -12751,16 +12751,36 @@ export namespace Prisma {
     email: string
     password: string
     name: string
+    createdAt?: Date | string
     avatar?: string | null
     address?: string | null
     isLocal?: boolean
-    createdAt?: Date | string
     likes?: ListLikeUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutListsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutListsInput, UserUncheckedCreateWithoutListsInput>
+  }
+
+  export type ListLikeCreateWithoutListInput = {
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutLikesInput
+  }
+
+  export type ListLikeUncheckedCreateWithoutListInput = {
+    userId: string
+    createdAt?: Date | string
+  }
+
+  export type ListLikeCreateOrConnectWithoutListInput = {
+    where: ListLikeWhereUniqueInput
+    create: XOR<ListLikeCreateWithoutListInput, ListLikeUncheckedCreateWithoutListInput>
+  }
+
+  export type ListLikeCreateManyListInputEnvelope = {
+    data: ListLikeCreateManyListInput | ListLikeCreateManyListInput[]
+    skipDuplicates?: boolean
   }
 
   export type ListPlaceCreateWithoutListInput = {
@@ -12788,26 +12808,6 @@ export namespace Prisma {
 
   export type ListPlaceCreateManyListInputEnvelope = {
     data: ListPlaceCreateManyListInput | ListPlaceCreateManyListInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ListLikeCreateWithoutListInput = {
-    createdAt?: Date | string
-    user: UserCreateNestedOneWithoutLikesInput
-  }
-
-  export type ListLikeUncheckedCreateWithoutListInput = {
-    userId: string
-    createdAt?: Date | string
-  }
-
-  export type ListLikeCreateOrConnectWithoutListInput = {
-    where: ListLikeWhereUniqueInput
-    create: XOR<ListLikeCreateWithoutListInput, ListLikeUncheckedCreateWithoutListInput>
-  }
-
-  export type ListLikeCreateManyListInputEnvelope = {
-    data: ListLikeCreateManyListInput | ListLikeCreateManyListInput[]
     skipDuplicates?: boolean
   }
 
@@ -12860,10 +12860,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: ListLikeUpdateManyWithoutUserNestedInput
   }
 
@@ -12872,27 +12872,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: ListLikeUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type ListPlaceUpsertWithWhereUniqueWithoutListInput = {
-    where: ListPlaceWhereUniqueInput
-    update: XOR<ListPlaceUpdateWithoutListInput, ListPlaceUncheckedUpdateWithoutListInput>
-    create: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput>
-  }
-
-  export type ListPlaceUpdateWithWhereUniqueWithoutListInput = {
-    where: ListPlaceWhereUniqueInput
-    data: XOR<ListPlaceUpdateWithoutListInput, ListPlaceUncheckedUpdateWithoutListInput>
-  }
-
-  export type ListPlaceUpdateManyWithWhereWithoutListInput = {
-    where: ListPlaceScalarWhereInput
-    data: XOR<ListPlaceUpdateManyMutationInput, ListPlaceUncheckedUpdateManyWithoutListInput>
   }
 
   export type ListLikeUpsertWithWhereUniqueWithoutListInput = {
@@ -12909,6 +12893,22 @@ export namespace Prisma {
   export type ListLikeUpdateManyWithWhereWithoutListInput = {
     where: ListLikeScalarWhereInput
     data: XOR<ListLikeUpdateManyMutationInput, ListLikeUncheckedUpdateManyWithoutListInput>
+  }
+
+  export type ListPlaceUpsertWithWhereUniqueWithoutListInput = {
+    where: ListPlaceWhereUniqueInput
+    update: XOR<ListPlaceUpdateWithoutListInput, ListPlaceUncheckedUpdateWithoutListInput>
+    create: XOR<ListPlaceCreateWithoutListInput, ListPlaceUncheckedCreateWithoutListInput>
+  }
+
+  export type ListPlaceUpdateWithWhereUniqueWithoutListInput = {
+    where: ListPlaceWhereUniqueInput
+    data: XOR<ListPlaceUpdateWithoutListInput, ListPlaceUncheckedUpdateWithoutListInput>
+  }
+
+  export type ListPlaceUpdateManyWithWhereWithoutListInput = {
+    where: ListPlaceScalarWhereInput
+    data: XOR<ListPlaceUpdateManyMutationInput, ListPlaceUncheckedUpdateManyWithoutListInput>
   }
 
   export type ListCreateWithoutPlacesInput = {
@@ -13079,35 +13079,6 @@ export namespace Prisma {
     cityId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UserCreateWithoutLikesInput = {
-    id?: string
-    email: string
-    password: string
-    name: string
-    avatar?: string | null
-    address?: string | null
-    isLocal?: boolean
-    createdAt?: Date | string
-    lists?: ListCreateNestedManyWithoutCreatorInput
-  }
-
-  export type UserUncheckedCreateWithoutLikesInput = {
-    id?: string
-    email: string
-    password: string
-    name: string
-    avatar?: string | null
-    address?: string | null
-    isLocal?: boolean
-    createdAt?: Date | string
-    lists?: ListUncheckedCreateNestedManyWithoutCreatorInput
-  }
-
-  export type UserCreateOrConnectWithoutLikesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
-  }
-
   export type ListCreateWithoutLikesInput = {
     id?: string
     name: string
@@ -13153,39 +13124,33 @@ export namespace Prisma {
     create: XOR<ListCreateWithoutLikesInput, ListUncheckedCreateWithoutLikesInput>
   }
 
-  export type UserUpsertWithoutLikesInput = {
-    update: XOR<UserUpdateWithoutLikesInput, UserUncheckedUpdateWithoutLikesInput>
+  export type UserCreateWithoutLikesInput = {
+    id?: string
+    email: string
+    password: string
+    name: string
+    createdAt?: Date | string
+    avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
+    lists?: ListCreateNestedManyWithoutCreatorInput
+  }
+
+  export type UserUncheckedCreateWithoutLikesInput = {
+    id?: string
+    email: string
+    password: string
+    name: string
+    createdAt?: Date | string
+    avatar?: string | null
+    address?: string | null
+    isLocal?: boolean
+    lists?: ListUncheckedCreateNestedManyWithoutCreatorInput
+  }
+
+  export type UserCreateOrConnectWithoutLikesInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutLikesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutLikesInput, UserUncheckedUpdateWithoutLikesInput>
-  }
-
-  export type UserUpdateWithoutLikesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    lists?: ListUpdateManyWithoutCreatorNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutLikesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    avatar?: NullableStringFieldUpdateOperationsInput | string | null
-    address?: NullableStringFieldUpdateOperationsInput | string | null
-    isLocal?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    lists?: ListUncheckedUpdateManyWithoutCreatorNestedInput
   }
 
   export type ListUpsertWithoutLikesInput = {
@@ -13239,6 +13204,41 @@ export namespace Prisma {
     places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
   }
 
+  export type UserUpsertWithoutLikesInput = {
+    update: XOR<UserUpdateWithoutLikesInput, UserUncheckedUpdateWithoutLikesInput>
+    create: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLikesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLikesInput, UserUncheckedUpdateWithoutLikesInput>
+  }
+
+  export type UserUpdateWithoutLikesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
+    lists?: ListUpdateManyWithoutCreatorNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLikesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    avatar?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    isLocal?: BoolFieldUpdateOperationsInput | boolean
+    lists?: ListUncheckedUpdateManyWithoutCreatorNestedInput
+  }
+
   export type ListCreateManyCreatorInput = {
     id?: string
     name: string
@@ -13278,8 +13278,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     city?: CityUpdateOneRequiredWithoutListsNestedInput
-    places?: ListPlaceUpdateManyWithoutListNestedInput
     likes?: ListLikeUpdateManyWithoutListNestedInput
+    places?: ListPlaceUpdateManyWithoutListNestedInput
   }
 
   export type ListUncheckedUpdateWithoutCreatorInput = {
@@ -13298,8 +13298,8 @@ export namespace Prisma {
     coverImage?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
     likes?: ListLikeUncheckedUpdateManyWithoutListNestedInput
+    places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
   }
 
   export type ListUncheckedUpdateManyWithoutCreatorInput = {
@@ -13351,8 +13351,8 @@ export namespace Prisma {
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     listCount?: IntFieldUpdateOperationsInput | number
-    places?: PlaceUpdateManyWithoutCityNestedInput
     lists?: ListUpdateManyWithoutCityNestedInput
+    places?: PlaceUpdateManyWithoutCityNestedInput
   }
 
   export type CityUncheckedUpdateWithoutCountryInput = {
@@ -13362,8 +13362,8 @@ export namespace Prisma {
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     listCount?: IntFieldUpdateOperationsInput | number
-    places?: PlaceUncheckedUpdateManyWithoutCityNestedInput
     lists?: ListUncheckedUpdateManyWithoutCityNestedInput
+    places?: PlaceUncheckedUpdateManyWithoutCityNestedInput
   }
 
   export type CityUncheckedUpdateManyWithoutCountryInput = {
@@ -13373,19 +13373,6 @@ export namespace Prisma {
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     listCount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type PlaceCreateManyCityInput = {
-    id?: string
-    name: string
-    address: string
-    lat: number
-    lng: number
-    googlePlaceId: string
-    description?: string | null
-    primaryImageUrl?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
   }
 
   export type ListCreateManyCityInput = {
@@ -13404,6 +13391,77 @@ export namespace Prisma {
     coverImage?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type PlaceCreateManyCityInput = {
+    id?: string
+    name: string
+    address: string
+    lat: number
+    lng: number
+    googlePlaceId: string
+    description?: string | null
+    primaryImageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ListUpdateWithoutCityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    subgenre?: NullableStringFieldUpdateOperationsInput | string | null
+    lat?: NullableFloatFieldUpdateOperationsInput | number | null
+    lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    averageRating?: FloatFieldUpdateOperationsInput | number
+    ratingCount?: IntFieldUpdateOperationsInput | number
+    likeCount?: IntFieldUpdateOperationsInput | number
+    placeCount?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    creator?: UserUpdateOneRequiredWithoutListsNestedInput
+    likes?: ListLikeUpdateManyWithoutListNestedInput
+    places?: ListPlaceUpdateManyWithoutListNestedInput
+  }
+
+  export type ListUncheckedUpdateWithoutCityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    subgenre?: NullableStringFieldUpdateOperationsInput | string | null
+    lat?: NullableFloatFieldUpdateOperationsInput | number | null
+    lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    creatorId?: StringFieldUpdateOperationsInput | string
+    averageRating?: FloatFieldUpdateOperationsInput | number
+    ratingCount?: IntFieldUpdateOperationsInput | number
+    likeCount?: IntFieldUpdateOperationsInput | number
+    placeCount?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    likes?: ListLikeUncheckedUpdateManyWithoutListNestedInput
+    places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
+  }
+
+  export type ListUncheckedUpdateManyWithoutCityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    subgenre?: NullableStringFieldUpdateOperationsInput | string | null
+    lat?: NullableFloatFieldUpdateOperationsInput | number | null
+    lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    creatorId?: StringFieldUpdateOperationsInput | string
+    averageRating?: FloatFieldUpdateOperationsInput | number
+    ratingCount?: IntFieldUpdateOperationsInput | number
+    likeCount?: IntFieldUpdateOperationsInput | number
+    placeCount?: IntFieldUpdateOperationsInput | number
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PlaceUpdateWithoutCityInput = {
@@ -13447,64 +13505,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ListUpdateWithoutCityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    subgenre?: NullableStringFieldUpdateOperationsInput | string | null
-    lat?: NullableFloatFieldUpdateOperationsInput | number | null
-    lng?: NullableFloatFieldUpdateOperationsInput | number | null
-    averageRating?: FloatFieldUpdateOperationsInput | number
-    ratingCount?: IntFieldUpdateOperationsInput | number
-    likeCount?: IntFieldUpdateOperationsInput | number
-    placeCount?: IntFieldUpdateOperationsInput | number
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    creator?: UserUpdateOneRequiredWithoutListsNestedInput
-    places?: ListPlaceUpdateManyWithoutListNestedInput
-    likes?: ListLikeUpdateManyWithoutListNestedInput
-  }
-
-  export type ListUncheckedUpdateWithoutCityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    subgenre?: NullableStringFieldUpdateOperationsInput | string | null
-    lat?: NullableFloatFieldUpdateOperationsInput | number | null
-    lng?: NullableFloatFieldUpdateOperationsInput | number | null
-    creatorId?: StringFieldUpdateOperationsInput | string
-    averageRating?: FloatFieldUpdateOperationsInput | number
-    ratingCount?: IntFieldUpdateOperationsInput | number
-    likeCount?: IntFieldUpdateOperationsInput | number
-    placeCount?: IntFieldUpdateOperationsInput | number
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    places?: ListPlaceUncheckedUpdateManyWithoutListNestedInput
-    likes?: ListLikeUncheckedUpdateManyWithoutListNestedInput
-  }
-
-  export type ListUncheckedUpdateManyWithoutCityInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    subgenre?: NullableStringFieldUpdateOperationsInput | string | null
-    lat?: NullableFloatFieldUpdateOperationsInput | number | null
-    lng?: NullableFloatFieldUpdateOperationsInput | number | null
-    creatorId?: StringFieldUpdateOperationsInput | string
-    averageRating?: FloatFieldUpdateOperationsInput | number
-    ratingCount?: IntFieldUpdateOperationsInput | number
-    likeCount?: IntFieldUpdateOperationsInput | number
-    placeCount?: IntFieldUpdateOperationsInput | number
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type ListPlaceCreateManyPlaceInput = {
     id?: string
     listId: string
@@ -13541,6 +13541,11 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ListLikeCreateManyListInput = {
+    userId: string
+    createdAt?: Date | string
+  }
+
   export type ListPlaceCreateManyListInput = {
     id?: string
     placeId: string
@@ -13550,9 +13555,19 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type ListLikeCreateManyListInput = {
-    userId: string
-    createdAt?: Date | string
+  export type ListLikeUpdateWithoutListInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutLikesNestedInput
+  }
+
+  export type ListLikeUncheckedUpdateWithoutListInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ListLikeUncheckedUpdateManyWithoutListInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ListPlaceUpdateWithoutListInput = {
@@ -13579,21 +13594,6 @@ export namespace Prisma {
     order?: IntFieldUpdateOperationsInput | number
     note?: NullableStringFieldUpdateOperationsInput | string | null
     priceRange?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ListLikeUpdateWithoutListInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutLikesNestedInput
-  }
-
-  export type ListLikeUncheckedUpdateWithoutListInput = {
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ListLikeUncheckedUpdateManyWithoutListInput = {
-    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
