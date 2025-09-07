@@ -9,6 +9,16 @@ export const ListCard = ({ list, onSelectList }) => {
     return (
         <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-green-200 transition-all duration-200 overflow-hidden group">   
             <div className="flex flex-col p-4 h-full">
+                {/* Location badge above title */}
+                {list.location && (list.location.country || list.location.city) && (
+                    <div className="text-gray-500 text-xs mb-1">
+                        {list.location.city && list.location.country 
+                            ? `${list.location.city}, ${list.location.country}`
+                            : list.location.city || list.location.country
+                        }
+                    </div>
+                )}
+                
                 {/* Header with title and genre */}
                 <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 mb-2 group-hover:text-green-700 transition-colors">
