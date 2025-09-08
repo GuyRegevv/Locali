@@ -71,12 +71,20 @@ function PlacesAutocomplete({ onPlaceSelect, clearTrigger, placeholder = "Search
 }
 
 // Main map search component
-export default function MapSearch({ onLocationSelect }) {
+export default function MapSearch({ onLocationSelect, listLocation = null, errorMessage = '' }) {
   const [selectedPlace, setSelectedPlace] = useState(null)
   const [mapCenter, setMapCenter] = useState({ lat: 32.0853, lng: 34.7818 }) // Default to Tel Aviv
   const [mapZoom, setMapZoom] = useState(13)
   const [mapError, setMapError] = useState(null)
   const [clearTrigger, setClearTrigger] = useState(0)
+
+  // Update map center when list location changes
+  useEffect(() => {
+    if (listLocation && listLocation.cityLat && listLocation.cityLng) {
+      setMapCenter({ lat: listLocation.cityLat, lng: listLocation.cityLng })
+      setMapZoom(13)
+    }
+  }, [listLocation])
 
   const handlePlaceSelect = (place) => {
     setSelectedPlace(place)
@@ -113,7 +121,13 @@ export default function MapSearch({ onLocationSelect }) {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-900">Find Places</h3>
-              <p className="text-sm text-gray-600">Search and click to add places to your list</p>
+              {listLocation ? (
+                <p className="text-sm text-gray-600">
+                  Search for places in <span className="font-medium text-green-600">{listLocation.city.name}, {listLocation.country.name}</span>
+                </p>
+              ) : (
+                <p className="text-sm text-orange-600">Please select a list location first</p>
+              )}
             </div>
             {selectedPlace && (
               <button
@@ -125,11 +139,29 @@ export default function MapSearch({ onLocationSelect }) {
             )}
           </div>
           
-          <PlacesAutocomplete 
-            onPlaceSelect={handlePlaceSelect}
-            clearTrigger={clearTrigger}
-            placeholder="Search for restaurants, cafes, attractions..."
-          />
+          {listLocation ? (
+            <PlacesAutocomplete 
+              onPlaceSelect={handlePlaceSelect}
+              clearTrigger={clearTrigger}
+              placeholder={`Search for restaurants, cafes, attractions in ${listLocation.city.name}...`}
+            />
+          ) : (
+            <div className="w-full px-4 py-3 border border-orange-200 bg-orange-50 rounded-xl">
+              <p className="text-orange-800 text-sm">
+                Please select a list location in the form to start searching for places.
+              </p>
+            </div>
+          )}
+          
+          {/* Error Message */}
+          {errorMessage && (
+            <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+              <div className="flex items-start gap-2">
+                <div className="w-4 h-4 text-red-500 mt-0.5">⚠️</div>
+                <p className="text-red-800 text-sm">{errorMessage}</p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Map */}

@@ -9,16 +9,17 @@ datasource db {
 }
 
 model User {
-  id        String     @id @default(cuid())
-  email     String     @unique
+  id        String         @id @default(cuid())
+  email     String         @unique
   password  String
   name      String
-  createdAt DateTime   @default(now())
+  createdAt DateTime       @default(now())
   avatar    String?
   address   String?
-  isLocal   Boolean    @default(false)
+  isLocal   Boolean        @default(false)
   lists     List[]
   likes     ListLike[]
+  locations UserLocation[]
 }
 
 model Country {
@@ -30,16 +31,18 @@ model Country {
 }
 
 model City {
-  id        String  @id @default(cuid())
-  countryId String
-  name      String
-  slug      String?
-  lat       Float?
-  lng       Float?
-  listCount Int     @default(0)
-  country   Country @relation(fields: [countryId], references: [id])
-  lists     List[]
-  places    Place[]
+  id            String         @id @default(cuid())
+  countryId     String
+  name          String
+  slug          String?
+  lat           Float?
+  lng           Float?
+  listCount     Int            @default(0)
+  googlePlaceId String?        @unique
+  country       Country        @relation(fields: [countryId], references: [id])
+  lists         List[]
+  places        Place[]
+  userLocations UserLocation[]
 
   @@unique([countryId, name])
   @@index([countryId])
@@ -114,4 +117,25 @@ model ListLike {
 
   @@id([userId, listId])
   @@index([listId])
+}
+
+model UserLocation {
+  id        String      @id @default(cuid())
+  userId    String
+  cityId    String
+  status    LocalStatus
+  createdAt DateTime    @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city City @relation(fields: [cityId], references: [id])
+
+  @@unique([userId, cityId])
+  @@index([userId])
+  @@index([cityId])
+}
+
+enum LocalStatus {
+  BORN_THERE
+  LIVED_PAST
+  CURRENTLY_LIVING
 }

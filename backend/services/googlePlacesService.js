@@ -125,6 +125,111 @@ class GooglePlacesService {
   }
 
   /**
+   * Search for cities using Google Places Autocomplete
+   * @param {string} query - Search query (city name)
+   * @returns {Array} Array of city suggestions
+   */
+  async searchCities(query) {
+    if (!this.apiKey || !query || query.length < 2) {
+      return [];
+    }
+
+    try {
+      const response = await axios.get(`${this.baseUrl}/autocomplete/json`, {
+        params: {
+          input: query,
+          types: '(cities)',
+          key: this.apiKey
+        }
+      });
+
+      if (response.data.status !== 'OK') {
+        console.warn('Google Places Autocomplete error:', response.data.status);
+        return [];
+      }
+
+      const predictions = response.data.predictions || [];
+      
+      // Filter and format city results
+      const cities = predictions
+        .filter(prediction => {
+          // Only include results that are cities
+          return prediction.types.includes('locality') || 
+                 prediction.types.includes('administrative_area_level_1') ||
+                 prediction.types.includes('country');
+        })
+        .map(prediction => ({
+          placeId: prediction.place_id,
+          name: prediction.structured_formatting.main_text,
+          country: prediction.structured_formatting.secondary_text,
+          fullName: prediction.description
+        }));
+
+      return cities;
+
+    } catch (error) {
+      console.error('Error searching cities:', error.message);
+      return [];
+    }
+  }
+
+  /**
+   * Get city details from Google Places API
+   * @param {string} placeId - Google Place ID
+   * @returns {Object} City details with coordinates
+   */
+  async getCityDetails(placeId) {
+    if (!this.apiKey) {
+      return null;
+    }
+
+    try {
+      const response = await axios.get(`${this.baseUrl}/details/json`, {
+        params: {
+          place_id: placeId,
+          fields: 'name,formatted_address,geometry,address_components',
+          key: this.apiKey
+        }
+      });
+
+      if (response.data.status !== 'OK') {
+        console.warn('Google Places Details error:', response.data.status);
+        return null;
+      }
+
+      const place = response.data.result;
+      
+      // Extract city and country from address components
+      let cityName = '';
+      let countryName = '';
+      let countryCode = '';
+
+      place.address_components.forEach(component => {
+        if (component.types.includes('locality')) {
+          cityName = component.long_name;
+        } else if (component.types.includes('country')) {
+          countryName = component.long_name;
+          countryCode = component.short_name;
+        }
+      });
+
+      return {
+        name: cityName || place.name,
+        country: countryName,
+        countryCode: countryCode,
+        formattedAddress: place.formatted_address,
+        lat: place.geometry.location.lat,
+        lng: place.geometry.location.lng,
+        placeId: placeId
+      };
+
+    } catch (error) {
+      console.error('Error fetching city details:', error.message);
+      return null;
+    }
+  }
+
+  /**
    * Get business category from Google types
    * @param {Array} types - Google place types
    * @returns {string} Human-readable category

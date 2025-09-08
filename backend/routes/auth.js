@@ -15,7 +15,7 @@ const generateToken = (userId) => {
 // POST /api/auth/register - User registration
 router.post('/register', async (req, res) => {
   try {
-    const { email, password, name, address, isLocal } = req.body;
+    const { email, password, name, address } = req.body;
 
     console.log('Registration attempt for email:', email);
 
@@ -33,13 +33,14 @@ router.post('/register', async (req, res) => {
     // Hash password (8 rounds as specified)
     const hashedPassword = await bcrypt.hash(password, 8);
 
-    // Create user
+    // Create user (locations can be added later in profile)
     const user = await userService.create({
       email,
       password: hashedPassword,
       name,
       address,
-      isLocal
+      isLocal: false, // Default to false, users can add locations in profile
+      locations: [] // Start with empty locations, users can add in profile
     });
 
     // Generate JWT token
@@ -56,6 +57,16 @@ router.post('/register', async (req, res) => {
 
   } catch (error) {
     console.error('Registration error:', error);
+    
+    // Handle validation errors from userService
+    if (error.message.includes('User can only be born in one city') ||
+        error.message.includes('User can only currently live in one city') ||
+        error.message.includes('Cannot have duplicate cities') ||
+        error.message.includes('do not exist') ||
+        error.message.includes('Invalid status')) {
+      return res.status(400).json({ error: error.message });
+    }
+    
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -166,6 +177,81 @@ router.get('/liked-lists', authenticateToken, async (req, res) => {
     });
   } catch (error) {
     console.error('Get liked lists error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// GET /api/auth/locations - Get user's local cities
+router.get('/locations', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    
+    const locations = await userService.getUserLocalCities(userId);
+    
+    res.json({
+      locations
+    });
+  } catch (error) {
+    console.error('Get user locations error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// POST /api/auth/locations - Add location to user
+router.post('/locations', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { cityId, status, googleCityData } = req.body;
+    
+    if (!status) {
+      return res.status(400).json({ error: 'Status is required' });
+    }
+
+    let finalCityId = cityId;
+
+    // If Google Places data is provided, create or find the city
+    if (googleCityData && !cityId) {
+      const city = await userService.createOrFindCity(googleCityData);
+      finalCityId = city.id;
+    } else if (!cityId) {
+      return res.status(400).json({ error: 'City ID or Google city data is required' });
+    }
+    
+    const location = await userService.addUserLocation(userId, { cityId: finalCityId, status });
+    
+    res.status(201).json({
+      message: 'Location added successfully',
+      location
+    });
+  } catch (error) {
+    console.error('Add user location error:', error);
+    
+    // Handle validation errors
+    if (error.message.includes('User already has this city') ||
+        error.message.includes('User can only be born in one city') ||
+        error.message.includes('User can only currently live in one city') ||
+        error.message.includes('do not exist') ||
+        error.message.includes('Invalid status')) {
+      return res.status(400).json({ error: error.message });
+    }
+    
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// DELETE /api/auth/locations/:locationId - Remove location from user
+router.delete('/locations/:locationId', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { locationId } = req.params;
+    
+    await userService.removeUserLocation(userId, locationId);
+    
+    res.json({
+      message: 'Location removed successfully'
+    });
+  } catch (error) {
+    console.error('Remove user location error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

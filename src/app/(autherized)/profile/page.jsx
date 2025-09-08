@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { 
   UserCircleIcon, 
   EnvelopeIcon, 
@@ -17,8 +18,12 @@ import {
 import { HeartIcon as HeartSolid, StarIcon as StarSolid } from '@heroicons/react/24/solid';
 import { ProtectedRoute } from '@/components/auth';
 import { apiGet } from '@/utils/apiCall';
+import { LocalExpertise } from '@/components/profile';
 
 export default function ProfilePage() {
+  // Router for navigation
+  const router = useRouter();
+  
   // State for user profile data
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -55,6 +60,11 @@ export default function ProfilePage() {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  // Handle navigation to list page
+  const handleListClick = (listId) => {
+    router.push(`/list/${listId}`);
   };
 
 
@@ -206,6 +216,9 @@ export default function ProfilePage() {
               </div>
             </div>
 
+            {/* Local Expertise Section */}
+            <LocalExpertise user={user} setUser={setUser} />
+
             {/* Content Tabs */}
             <div className="grid md:grid-cols-2 gap-8">
               
@@ -220,7 +233,11 @@ export default function ProfilePage() {
 
                 <div className="space-y-4">
                   {user?.lists?.map((list) => (
-                    <div key={list.id} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                    <div 
+                      key={list.id} 
+                      className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow cursor-pointer hover:border-green-300"
+                      onClick={() => handleListClick(list.id)}
+                    >
                       <div className="flex gap-4">
                         {list.coverImage && (
                           <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
@@ -271,7 +288,11 @@ export default function ProfilePage() {
 
                 <div className="space-y-4 max-h-96 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                   {user?.likes?.map((like) => (
-                    <div key={like.listId} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                    <div 
+                      key={like.listId} 
+                      className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow cursor-pointer hover:border-green-300"
+                      onClick={() => handleListClick(like.listId)}
+                    >
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-gray-800 truncate">{like.list.name}</h3>
                         <p className="text-sm text-gray-600 line-clamp-2 mb-2">{like.list.description}</p>

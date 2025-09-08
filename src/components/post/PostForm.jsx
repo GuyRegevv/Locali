@@ -1,23 +1,65 @@
 'use client'
 import { useState, useEffect } from 'react'
 import searchFilters from '@backend/data/SearchFilters.js'
+import { useAuth } from '@/contexts/AuthContext'
 
-export default function PostForm({ selectedLocation, onSubmit, isSubmitting = false, listLocation = null }) {
+export default function PostForm({ selectedLocation, onSubmit, isSubmitting = false, listLocation = null, onLocationChange }) {
   const [textInput, setTextInput] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedSubcategory, setSelectedSubcategory] = useState('')
   const [description, setDescription] = useState('')
+  const [selectedCity, setSelectedCity] = useState('')
+  
+  const { user, getUserLocations } = useAuth()
+  const [userLocations, setUserLocations] = useState([])
+  const [isLoadingLocations, setIsLoadingLocations] = useState(true)
 
-  // Update location when selectedLocation changes
+  // Fetch latest user locations
   useEffect(() => {
-    if (selectedLocation) {
-      // Extract country from address if possible, otherwise keep current selection
-      const address = selectedLocation.address || '';
-      // You could implement more sophisticated country detection here
-      // For now, we'll just keep the manual country selection
+    const fetchUserLocations = async () => {
+      if (user) {
+        setIsLoadingLocations(true)
+        try {
+          const result = await getUserLocations()
+          if (result.success) {
+            setUserLocations(result.locations || [])
+          } else {
+            console.error('Failed to fetch user locations:', result.error)
+            // Fallback to user.locations if available
+            setUserLocations(user.locations || [])
+          }
+        } catch (error) {
+          console.error('Error fetching user locations:', error)
+          // Fallback to user.locations if available
+          setUserLocations(user.locations || [])
+        } finally {
+          setIsLoadingLocations(false)
+        }
+      }
     }
-  }, [selectedLocation])
+
+    fetchUserLocations()
+  }, [user, getUserLocations])
+
+  // Handle city selection change
+  const handleCityChange = (e) => {
+    const cityId = e.target.value;
+    setSelectedCity(cityId);
+    
+    // Find the selected city from user's locations
+    const selectedLocationData = userLocations.find(loc => loc.city.id === cityId);
+    
+    if (selectedLocationData && onLocationChange) {
+      // Call parent component to update the list location
+      onLocationChange({
+        city: selectedLocationData.city,
+        country: selectedLocationData.city.country,
+        cityLat: selectedLocationData.city.lat,
+        cityLng: selectedLocationData.city.lng
+      });
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -98,6 +140,51 @@ export default function PostForm({ selectedLocation, onSubmit, isSubmitting = fa
             placeholder="e.g., Best Coffee Shops in Paris"
             className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-xl text-gray-900 placeholder-gray-500 transition-all duration-200"
           />
+        </div>
+
+        {/* City Selection */}
+        <div>
+          <label 
+            htmlFor="citySelect" 
+            className="block text-sm font-semibold text-gray-700 mb-2"
+          >
+            List Location *
+          </label>
+          {isLoadingLocations ? (
+            <div className="w-full px-4 py-3 border border-gray-200 bg-gray-50 rounded-xl">
+              <div className="flex items-center gap-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600"></div>
+                <span className="text-gray-600 text-sm">Loading your local expertise...</span>
+              </div>
+            </div>
+          ) : userLocations && userLocations.length > 0 ? (
+            <select
+              id="citySelect"
+              value={selectedCity}
+              onChange={handleCityChange}
+              className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 rounded-xl transition-all duration-200"
+            >
+              <option value="">Choose a city...</option>
+              {userLocations.map((location) => (
+                <option key={location.city.id} value={location.city.id}>
+                  {location.city.name}, {location.city.country.name} ({location.status.replace('_', ' ').toLowerCase()})
+                </option>
+              ))}
+            </select>
+          ) : (
+            <div className="w-full px-4 py-3 border border-orange-200 bg-orange-50 rounded-xl">
+              <div className="text-orange-800 text-sm">
+                <p className="font-medium">No local expertise added yet</p>
+                <p className="text-xs mt-1">Please add cities to your local expertise in your profile first.</p>
+                <a 
+                  href="/profile" 
+                  className="text-orange-600 hover:text-orange-800 underline text-xs mt-1 inline-block"
+                >
+                  Go to Profile →
+                </a>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Category */}
