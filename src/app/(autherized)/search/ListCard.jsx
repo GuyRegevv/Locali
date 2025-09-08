@@ -7,7 +7,20 @@ import { likeList, unlikeList } from "../../../utils/apiCall";
 
 export const ListCard = ({ list, onSelectList }) => {
     return (
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-green-200 transition-all duration-200 overflow-hidden group">   
+        <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-green-200 transition-all duration-200 overflow-hidden group relative">   
+            {/* Map button in top right corner */}
+            <button
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onSelectList && onSelectList(list);
+                }}
+                className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 text-xs bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors font-medium z-10"
+                title="Show on map"
+            >
+                <MapIcon className="h-3.5 w-3.5" />
+                Map
+            </button>
+            
             <div className="flex flex-col p-4 h-full">
                 {/* Location badge above title */}
                 {list.location && (list.location.country || list.location.city) && (
@@ -36,7 +49,7 @@ export const ListCard = ({ list, onSelectList }) => {
                     </div>
                 </div>
 
-                {/* Bottom section with stats and actions */}
+                {/* Bottom section with stats and creator */}
                 <div className="flex items-center justify-between pt-3 border-t border-gray-50">
                     {/* Left side - Likes and Places count */}
                     <div className="flex items-center gap-3">
@@ -55,19 +68,8 @@ export const ListCard = ({ list, onSelectList }) => {
                         </div>
                     </div>
 
-                    {/* Right side - Map button and creator */}
+                    {/* Right side - Creator */}
                     <div className="flex items-center gap-2">
-                        <button
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                onSelectList && onSelectList(list);
-                            }}
-                            className="flex items-center gap-1 px-3 py-1.5 text-xs bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors font-medium"
-                            title="Show on map"
-                        >
-                            <MapIcon className="h-3.5 w-3.5" />
-                            Map
-                        </button>
                         <div className="relative w-7 h-7 rounded-full overflow-hidden ring-1 ring-gray-200">
                             {list.creator?.avatar ? (
                                 <Image 
@@ -80,6 +82,11 @@ export const ListCard = ({ list, onSelectList }) => {
                                 <UserCircleIcon className="w-full h-full text-gray-400" />
                             )}
                         </div>
+                        {list.creator?.name && (
+                            <span className="text-sm text-gray-600 font-medium">
+                                {list.creator.name}
+                            </span>
+                        )}
                     </div>
                 </div>
             </div>

@@ -125,14 +125,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Register function
-  const register = async (name, email, password, address = '', isLocal = false) => {
+  const register = async (name, email, password, address = '') => {
     try {
       const response = await fetch('http://localhost:3001/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, password, address, isLocal }),
+        body: JSON.stringify({ name, email, password, address }),
       });
 
       const data = await response.json();
@@ -154,6 +154,90 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error('Registration error:', error);
+      return { success: false, error: 'Network error' };
+    }
+  };
+
+  // Add location to user
+  const addLocation = async (cityId, status, googleCityData = null) => {
+    try {
+      const response = await fetch('http://localhost:3001/api/auth/locations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...getAuthHeader(),
+        },
+        body: JSON.stringify({ cityId, status, googleCityData }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Update user state with new location
+        if (user) {
+          setUser({
+            ...user,
+            locations: [...(user.locations || []), data.location]
+          });
+        }
+        return { success: true, location: data.location };
+      } else {
+        return { success: false, error: data.error };
+      }
+    } catch (error) {
+      console.error('Add location error:', error);
+      return { success: false, error: 'Network error' };
+    }
+  };
+
+  // Remove location from user
+  const removeLocation = async (locationId) => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/auth/locations/${locationId}`, {
+        method: 'DELETE',
+        headers: {
+          ...getAuthHeader(),
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Update user state by removing the location
+        if (user) {
+          setUser({
+            ...user,
+            locations: user.locations?.filter(loc => loc.id !== locationId) || []
+          });
+        }
+        return { success: true };
+      } else {
+        return { success: false, error: data.error };
+      }
+    } catch (error) {
+      console.error('Remove location error:', error);
+      return { success: false, error: 'Network error' };
+    }
+  };
+
+  // Get user's local cities
+  const getUserLocations = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/auth/locations', {
+        headers: {
+          ...getAuthHeader(),
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        return { success: true, locations: data.locations };
+      } else {
+        return { success: false, error: data.error };
+      }
+    } catch (error) {
+      console.error('Get user locations error:', error);
       return { success: false, error: 'Network error' };
     }
   };
@@ -186,6 +270,9 @@ export const AuthProvider = ({ children }) => {
     logout,
     isAuthenticated,
     getAuthHeader,
+    addLocation,
+    removeLocation,
+    getUserLocations,
   };
 
   // Show loading during hydration to prevent mismatch

@@ -145,7 +145,8 @@ exports.Prisma.CityScalarFieldEnum = {
   slug: 'slug',
   lat: 'lat',
   lng: 'lng',
-  listCount: 'listCount'
+  listCount: 'listCount',
+  googlePlaceId: 'googlePlaceId'
 };
 
 exports.Prisma.PlaceScalarFieldEnum = {
@@ -197,6 +198,14 @@ exports.Prisma.ListLikeScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.UserLocationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  cityId: 'cityId',
+  status: 'status',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -211,7 +220,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.LocalStatus = exports.$Enums.LocalStatus = {
+  BORN_THERE: 'BORN_THERE',
+  LIVED_PAST: 'LIVED_PAST',
+  CURRENTLY_LIVING: 'CURRENTLY_LIVING'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
@@ -220,7 +233,8 @@ exports.Prisma.ModelName = {
   Place: 'Place',
   List: 'List',
   ListPlace: 'ListPlace',
-  ListLike: 'ListLike'
+  ListLike: 'ListLike',
+  UserLocation: 'UserLocation'
 };
 
 /**
