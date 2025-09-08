@@ -92,36 +92,186 @@ async function main() {
     return;
   }
 
-  // 1. Create demo users if none exist
+  // 1. Create demo users with local expertise if none exist
   let users = await prisma.user.findMany();
-  if (users.length === 0) {
-    console.log('👥 Creating demo users...');
+  const existingUserLocations = await prisma.userLocation.findMany();
+  
+  if (users.length === 0 || existingUserLocations.length === 0) {
+    console.log('👥 Creating demo users with local expertise...');
     
-    const demoUsers = [
-      { name: 'Shlomi Saranga', email: 'shlomi@example.com' },
-      { name: 'David Chen', email: 'david@example.com' },
-      { name: 'Alex Johnson', email: 'alex@example.com' },
-      { name: 'Maria Rodriguez', email: 'maria@example.com' },
-      { name: 'James Cooper', email: 'james@example.com' },
-      { name: 'Sophie Dubois', email: 'sophie@example.com' },
-      { name: 'test ing', email: 'test@example.com' }
+    // Define city data for user creation
+    const cityData = {
+      'New York': { lat: 40.7128, lng: -74.0060 },
+      'Paris': { lat: 48.8566, lng: 2.3522 },
+      'London': { lat: 51.5074, lng: -0.1278 },
+      'Berlin': { lat: 52.5200, lng: 13.4050 },
+      'Tokyo': { lat: 35.6762, lng: 139.6503 }
+    };
+    
+    // Define culturally appropriate name pools
+    const namePools = {
+      'New York': {
+        firstNames: ['Michael', 'Sarah', 'David', 'Jessica', 'Christopher', 'Ashley', 'Matthew', 'Amanda', 'Joshua', 'Stephanie'],
+        lastNames: ['Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez']
+      },
+      'Paris': {
+        firstNames: ['Pierre', 'Marie', 'Jean', 'Sophie', 'Philippe', 'Camille', 'Antoine', 'Julie', 'Nicolas', 'Claire'],
+        lastNames: ['Dubois', 'Martin', 'Bernard', 'Thomas', 'Petit', 'Robert', 'Richard', 'Durand', 'Moreau', 'Simon']
+      },
+      'London': {
+        firstNames: ['James', 'Emma', 'William', 'Olivia', 'Oliver', 'Charlotte', 'Harry', 'Amelia', 'George', 'Isabella'],
+        lastNames: ['Smith', 'Jones', 'Taylor', 'Williams', 'Brown', 'Davies', 'Evans', 'Wilson', 'Thomas', 'Roberts']
+      },
+      'Berlin': {
+        firstNames: ['Klaus', 'Anna', 'Hans', 'Maria', 'Wolfgang', 'Elisabeth', 'Dieter', 'Ursula', 'Günther', 'Monika'],
+        lastNames: ['Müller', 'Schmidt', 'Schneider', 'Fischer', 'Weber', 'Meyer', 'Wagner', 'Becker', 'Schulz', 'Hoffmann']
+      },
+      'Tokyo': {
+        firstNames: ['Hiroshi', 'Yuki', 'Takeshi', 'Akiko', 'Kenji', 'Naoko', 'Satoshi', 'Mika', 'Yuji', 'Rie'],
+        lastNames: ['Tanaka', 'Sato', 'Suzuki', 'Takahashi', 'Watanabe', 'Ito', 'Yamamoto', 'Nakamura', 'Kobayashi', 'Kato']
+      }
+    };
+
+    // Define local expertise scenarios for each city
+    const expertiseScenarios = [
+      // New York experts
+      { cities: ['New York'], scenario: 'born_and_live' },
+      { cities: ['New York'], scenario: 'born_there' },
+      { cities: ['New York'], scenario: 'live_there' },
+      
+      // Paris experts
+      { cities: ['Paris'], scenario: 'born_and_live' },
+      { cities: ['Paris'], scenario: 'born_there' },
+      { cities: ['Paris'], scenario: 'live_there' },
+      
+      // London experts
+      { cities: ['London'], scenario: 'born_and_live' },
+      { cities: ['London'], scenario: 'born_there' },
+      { cities: ['London'], scenario: 'live_there' },
+      
+      // Berlin experts
+      { cities: ['Berlin'], scenario: 'born_and_live' },
+      { cities: ['Berlin'], scenario: 'born_there' },
+      { cities: ['Berlin'], scenario: 'live_there' },
+      
+      // Tokyo experts
+      { cities: ['Tokyo'], scenario: 'born_and_live' },
+      { cities: ['Tokyo'], scenario: 'born_there' },
+      { cities: ['Tokyo'], scenario: 'live_there' },
+      
+      // Multi-city experts (born in one, live in another)
+      { cities: ['New York', 'Paris'], scenario: 'born_and_live' },
+      { cities: ['London', 'Berlin'], scenario: 'born_and_live' },
+      { cities: ['Paris', 'Tokyo'], scenario: 'born_and_live' }
     ];
 
-    for (const userData of demoUsers) {
-      await prisma.user.create({
+    const createdUsers = [];
+
+    for (let i = 0; i < expertiseScenarios.length; i++) {
+      const scenario = expertiseScenarios[i];
+      const primaryCity = scenario.cities[0];
+      const namePool = namePools[primaryCity];
+      
+      // Generate random name from the primary city's name pool
+      const firstName = namePool.firstNames[Math.floor(Math.random() * namePool.firstNames.length)];
+      const lastName = namePool.lastNames[Math.floor(Math.random() * namePool.lastNames.length)];
+      const fullName = `${firstName} ${lastName}`;
+      
+      // Generate email based on name
+      const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`;
+      
+      // Determine if user is local (always true for our experts)
+      const isLocal = true;
+      
+      // Create user locations for expertise
+      const userLocations = [];
+      for (const cityName of scenario.cities) {
+        const locationData = cityData[cityName];
+        if (locationData) {
+          userLocations.push({
+            city: cityName,
+            lat: locationData.lat,
+            lng: locationData.lng,
+            isBirthplace: scenario.scenario === 'born_there' || scenario.scenario === 'born_and_live',
+            isCurrentResidence: scenario.scenario === 'live_there' || scenario.scenario === 'born_and_live'
+          });
+        }
+      }
+
+      const user = await prisma.user.create({
         data: {
-          name: userData.name,
-          email: userData.email,
+          name: fullName,
+          email: email,
           password: 'demo123', // Demo password
           avatar: null,
-          isLocal: Math.random() > 0.5,
+          isLocal: isLocal,
           address: null
         }
       });
+
+      // Create user locations for expertise tracking
+      for (const location of userLocations) {
+        // Get or create country and city first
+        const country = await prisma.country.upsert({
+          where: { name: getCountryName(location.city) },
+          update: {},
+          create: {
+            name: getCountryName(location.city),
+            code: getCountryCode(location.city),
+            slug: getCountryName(location.city).toLowerCase().replace(/\s+/g, '-')
+          }
+        });
+
+        const city = await prisma.city.upsert({
+          where: { countryId_name: { countryId: country.id, name: location.city } },
+          update: {},
+          create: {
+            countryId: country.id,
+            name: location.city,
+            slug: location.city.toLowerCase().replace(/\s+/g, '-'),
+            lat: location.lat,
+            lng: location.lng,
+            listCount: 0
+          }
+        });
+
+        // Create user location record
+        let status;
+        if (location.isBirthplace && location.isCurrentResidence) {
+          status = 'CURRENTLY_LIVING'; // Born there and still living there
+        } else if (location.isBirthplace) {
+          status = 'BORN_THERE'; // Born there but not currently living there
+        } else {
+          status = 'CURRENTLY_LIVING'; // Currently living there but not born there
+        }
+
+        await prisma.userLocation.create({
+          data: {
+            userId: user.id,
+            cityId: city.id,
+            status: status
+          }
+        });
+      }
+
+      createdUsers.push({
+        ...user,
+        expertiseCities: scenario.cities,
+        scenario: scenario.scenario
+      });
     }
     
-    users = await prisma.user.findMany();
-    console.log(`✅ Created ${users.length} demo users`);
+    users = createdUsers;
+    console.log(`✅ Created ${users.length} demo users with local expertise`);
+    
+    // Log expertise summary
+    console.log('📋 Local Expertise Summary:');
+    users.forEach(user => {
+      const expertiseDesc = user.expertiseCities.length > 1 
+        ? `expert in ${user.expertiseCities.join(' & ')} (${user.scenario})`
+        : `expert in ${user.expertiseCities[0]} (${user.scenario})`;
+      console.log(`   👤 ${user.name}: ${expertiseDesc}`);
+    });
   }
 
   // 2. Define EXPANDED search queries for different types of places
@@ -413,8 +563,34 @@ async function main() {
       await new Promise(resolve => setTimeout(resolve, 200));
     }
 
-    // 6. Create the list
-    const creator = users[Math.floor(Math.random() * users.length)];
+    // 6. Create the list - only assign users who have expertise in this city
+    // Get users who have UserLocation records for this city
+    const targetCity = await prisma.city.findFirst({
+      where: { name: listTemplate.city }
+    });
+    
+    if (!targetCity) {
+      console.log(`   ⚠️  Skipping ${listTemplate.name} - city not found: ${listTemplate.city}`);
+      continue;
+    }
+    
+    const eligibleUsers = await prisma.user.findMany({
+      where: {
+        locations: {
+          some: {
+            cityId: targetCity.id
+          }
+        }
+      }
+    });
+    
+    if (eligibleUsers.length === 0) {
+      console.log(`   ⚠️  Skipping ${listTemplate.name} - no users with expertise in ${listTemplate.city}`);
+      continue;
+    }
+    
+    const creator = eligibleUsers[Math.floor(Math.random() * eligibleUsers.length)];
+    console.log(`   👤 Assigned to: ${creator.name} (expert in ${listTemplate.city})`);
 
     const list = await prisma.list.create({
       data: {
@@ -422,7 +598,7 @@ async function main() {
         description: listTemplate.description,
         genre: listTemplate.genre,
         subgenre: listTemplate.subgenre,
-        cityId: city.id,
+        cityId: targetCity.id,
         creatorId: creator.id,
         places: { create: listPlaceCreates },
         placeCount: listPlaceCreates.length,
@@ -433,7 +609,7 @@ async function main() {
 
     // Update city list count
     await prisma.city.update({
-      where: { id: city.id },
+      where: { id: targetCity.id },
       data: { listCount: { increment: 1 } }
     });
 

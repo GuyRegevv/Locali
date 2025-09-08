@@ -240,6 +240,7 @@ export default function ListPage() {
         title={listData.name || 'Untitled List'}
         location={`${listData.city?.name || 'Unknown'}, ${listData.city?.country?.name || 'Unknown'}`}
         description={listData.description || 'No description available'}
+        creator={listData.creator}
       />
       <div className="flex flex-row w-full h-screen">
         <div className="flex flex-row w-2/3 h-full">
