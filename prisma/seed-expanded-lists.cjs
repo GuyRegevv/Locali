@@ -278,7 +278,7 @@ async function main() {
   const searchQueries = [
     // NEW YORK LISTS
     {
-      name: 'Best Pizza in New York',
+      name: 'My Favorite Pizza Spots',
       description: 'The ultimate pizza tour through the Big Apple',
       genre: 'Food & Drink',
       subgenre: 'Pizza',
@@ -287,8 +287,8 @@ async function main() {
       queries: ['best pizza New York', 'NYC pizza', 'artisan pizza Manhattan']
     },
     {
-      name: 'Rooftop Bars in New York',
-      description: 'Sky-high cocktails with stunning city views',
+      name: 'Sky-High Cocktails & Views',
+      description: 'Where to drink with the best city views',
       genre: 'Nightlife',
       subgenre: 'Rooftop Bars',
       city: 'New York',
@@ -296,8 +296,8 @@ async function main() {
       queries: ['rooftop bar New York', 'sky bar Manhattan', 'rooftop cocktail NYC']
     },
     {
-      name: 'Museums & Galleries in New York',
-      description: 'Cultural treasures in the city that never sleeps',
+      name: 'Must-Visit Museums & Galleries',
+      description: 'Cultural treasures you can\'t miss',
       genre: 'Arts & Culture',
       subgenre: 'Museums',
       city: 'New York',
@@ -305,8 +305,8 @@ async function main() {
       queries: ['museum New York', 'art gallery Manhattan', 'cultural center NYC']
     },
     {
-      name: 'Green Spaces in New York',
-      description: 'Peaceful parks and gardens in the urban jungle',
+      name: 'Hidden Green Oases',
+      description: 'Peaceful escapes from the urban chaos',
       genre: 'Nature & Outdoors',
       subgenre: 'Parks',
       city: 'New York',
@@ -316,8 +316,8 @@ async function main() {
 
     // PARIS LISTS
     {
-      name: 'Best Bakeries in Paris',
-      description: 'Authentic French patisseries and boulangeries',
+      name: 'My Go-To Boulangeries',
+      description: 'Where I get my daily bread and pastries',
       genre: 'Food & Drink',
       subgenre: 'Bakeries',
       city: 'Paris',
@@ -325,8 +325,8 @@ async function main() {
       queries: ['boulangerie Paris', 'patisserie Paris', 'bakery Paris']
     },
     {
-      name: 'Bookstores & Libraries in Paris',
-      description: 'Literary havens in the City of Light',
+      name: 'Cozy Book Nooks',
+      description: 'Perfect spots to get lost in a good book',
       genre: 'Arts & Culture',
       subgenre: 'Bookstores',
       city: 'Paris',
@@ -334,8 +334,8 @@ async function main() {
       queries: ['bookstore Paris', 'librairie Paris', 'bookshop Paris']
     },
     {
-      name: 'Markets & Food Halls in Paris',
-      description: 'Fresh produce and local delicacies',
+      name: 'Fresh Market Finds',
+      description: 'Where locals shop for the best ingredients',
       genre: 'Food & Drink',
       subgenre: 'Markets',
       city: 'Paris',
@@ -343,8 +343,8 @@ async function main() {
       queries: ['market Paris', 'food market Paris', 'marché Paris']
     },
     {
-      name: 'Romantic Spots in Paris',
-      description: 'Perfect places for love in the most romantic city',
+      name: 'Most Romantic Evenings',
+      description: 'Perfect spots for unforgettable dates',
       genre: 'Romance',
       subgenre: 'Romantic Spots',
       city: 'Paris',
@@ -354,8 +354,8 @@ async function main() {
 
     // LONDON LISTS
     {
-      name: 'Traditional Pubs in London',
-      description: 'Historic pubs with character and charm',
+      name: 'Proper British Pubs',
+      description: 'Where locals go for a proper pint and atmosphere',
       genre: 'Food & Drink',
       subgenre: 'Pubs',
       city: 'London',
@@ -363,8 +363,8 @@ async function main() {
       queries: ['traditional pub London', 'historic pub London', 'British pub London']
     },
     {
-      name: 'Street Food in London',
-      description: 'Global flavors from London\'s street food scene',
+      name: 'Best Street Food Spots',
+      description: 'Global flavors from the best food markets',
       genre: 'Food & Drink',
       subgenre: 'Street Food',
       city: 'London',
@@ -372,8 +372,8 @@ async function main() {
       queries: ['street food London', 'food market London', 'food truck London']
     },
     {
-      name: 'Live Music Venues in London',
-      description: 'Where music comes alive in the capital',
+      name: 'Where Music Lives',
+      description: 'My favorite venues for live performances',
       genre: 'Entertainment',
       subgenre: 'Live Music',
       city: 'London',
@@ -381,8 +381,8 @@ async function main() {
       queries: ['live music London', 'concert venue London', 'music venue London']
     },
     {
-      name: 'Historic Sites in London',
-      description: 'Journey through London\'s rich history',
+      name: 'Hidden Historical Gems',
+      description: 'London\'s most fascinating historical spots',
       genre: 'Arts & Culture',
       subgenre: 'Historic Sites',
       city: 'London',
@@ -392,8 +392,8 @@ async function main() {
 
     // BERLIN LISTS
     {
-      name: 'Beer Gardens in Berlin',
-      description: 'Traditional German beer culture in the capital',
+      name: 'Best Biergartens',
+      description: 'Where to enjoy beer in the sunshine',
       genre: 'Food & Drink',
       subgenre: 'Beer Gardens',
       city: 'Berlin',
@@ -401,8 +401,8 @@ async function main() {
       queries: ['beer garden Berlin', 'biergarten Berlin', 'outdoor beer Berlin']
     },
     {
-      name: 'Flea Markets in Berlin',
-      description: 'Treasure hunting in Berlin\'s vibrant markets',
+      name: 'Treasure Hunt Markets',
+      description: 'My favorite spots for unique finds',
       genre: 'Shopping',
       subgenre: 'Flea Markets',
       city: 'Berlin',
@@ -410,8 +410,8 @@ async function main() {
       queries: ['flea market Berlin', 'flohmarkt Berlin', 'antique market Berlin']
     },
     {
-      name: 'Nightclubs in Berlin',
-      description: 'Berlin\'s legendary electronic music scene',
+      name: 'Electronic Music Scene',
+      description: 'Where the night comes alive',
       genre: 'Nightlife',
       subgenre: 'Nightclubs',
       city: 'Berlin',
@@ -419,8 +419,8 @@ async function main() {
       queries: ['nightclub Berlin', 'electronic music Berlin', 'club Berlin']
     },
     {
-      name: 'Modern Architecture in Berlin',
-      description: 'Contemporary design and innovative buildings',
+      name: 'Cool Modern Buildings',
+      description: 'Architecture that will blow your mind',
       genre: 'Arts & Culture',
       subgenre: 'Architecture',
       city: 'Berlin',
@@ -430,8 +430,8 @@ async function main() {
 
     // TOKYO LISTS
     {
-      name: 'Sushi & Sashimi in Tokyo',
-      description: 'The finest raw fish experiences in the world',
+      name: 'Best Sushi Spots',
+      description: 'Where to find the freshest fish in the city',
       genre: 'Food & Drink',
       subgenre: 'Sushi',
       city: 'Tokyo',
@@ -439,8 +439,8 @@ async function main() {
       queries: ['sushi Tokyo', 'sashimi Tokyo', 'sushi restaurant Tokyo']
     },
     {
-      name: 'Temples & Shrines in Tokyo',
-      description: 'Spiritual sanctuaries in the modern metropolis',
+      name: 'Peaceful Temples & Shrines',
+      description: 'Sacred spaces for quiet reflection',
       genre: 'Arts & Culture',
       subgenre: 'Temples',
       city: 'Tokyo',
@@ -448,8 +448,8 @@ async function main() {
       queries: ['temple Tokyo', 'shrine Tokyo', 'Buddhist temple Tokyo']
     },
     {
-      name: 'Karaoke Bars in Tokyo',
-      description: 'Sing your heart out in Tokyo\'s karaoke culture',
+      name: 'Karaoke Fun Spots',
+      description: 'Where to belt out your favorite tunes',
       genre: 'Entertainment',
       subgenre: 'Karaoke',
       city: 'Tokyo',
@@ -457,8 +457,8 @@ async function main() {
       queries: ['karaoke Tokyo', 'karaoke bar Tokyo', 'singing room Tokyo']
     },
     {
-      name: 'Tech & Electronics in Tokyo',
-      description: 'Cutting-edge technology and gadgets',
+      name: 'Cool Tech & Gadgets',
+      description: 'The latest and greatest electronics',
       genre: 'Shopping',
       subgenre: 'Electronics',
       city: 'Tokyo',
