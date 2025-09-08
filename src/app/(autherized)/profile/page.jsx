@@ -19,6 +19,7 @@ import { HeartIcon as HeartSolid, StarIcon as StarSolid } from '@heroicons/react
 import { ProtectedRoute } from '@/components/auth';
 import { apiGet } from '@/utils/apiCall';
 import { LocalExpertise } from '@/components/profile';
+import LocalExpertiseBadge from '@/components/ui/LocalExpertiseBadge';
 
 export default function ProfilePage() {
   // Router for navigation
@@ -167,25 +168,6 @@ export default function ProfilePage() {
                       <span>Member since {user?.createdAt ? formatDate(user.createdAt) : 'Unknown'}</span>
                     </div>
 
-                    {/* Local Status */}
-                    <div className="flex items-center justify-center md:justify-start gap-2">
-                      {user?.isLocal ? (
-                        <>
-                          <HomeIcon className="h-5 w-5 text-green-600" />
-                          <span className="flex items-center gap-1">
-                            🏠 <span className="font-semibold text-green-700">Local</span>
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          <GlobeAmericasIcon className="h-5 w-5 text-blue-600" />
-                          <span className="flex items-center gap-1">
-                            ✈️ <span className="font-semibold text-blue-700">Visitor</span>
-                          </span>
-                        </>
-                      )}
-                    </div>
-
                     {/* Address */}
                     {user?.address && (
                       <div className="flex items-center justify-center md:justify-start gap-2">
@@ -197,7 +179,7 @@ export default function ProfilePage() {
                 </div>
 
                 {/* Stats */}
-                <div className="flex gap-8 md:gap-4 md:flex-col">
+                <div className="flex gap-8 md:gap-4 md:flex-row">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-green-600">{user?.lists?.length || 0}</div>
                     <div className="text-sm text-gray-600">Lists Created</div>
@@ -315,6 +297,15 @@ export default function ProfilePage() {
                             {like.list.placeCount} places
                           </div>
                         </div>
+                        {like.list.creator?.localExpertise && (
+                          <div className="mt-2">
+                            <LocalExpertiseBadge 
+                              expertise={like.list.creator.localExpertise}
+                              size="sm"
+                              showText={true}
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}

@@ -150,7 +150,21 @@ async function findLists(filters = {}, userId = null) {
         where,
         include: {
           city: { include: { country: true } },
-          creator: { select: { id: true, name: true } },
+          creator: { 
+            select: { 
+              id: true, 
+              name: true,
+              locations: {
+                include: {
+                  city: {
+                    include: {
+                      country: true
+                    }
+                  }
+                }
+              }
+            } 
+          },
           // Include likes if userId is provided to check if user liked each list
           ...(userId ? {
             likes: {
@@ -163,25 +177,36 @@ async function findLists(filters = {}, userId = null) {
       });
 
         // Map to the UI shape expected by the search page
-        return rows.map(l => ({
-          id: l.id,
-          name: l.name,
-          description: l.description,
-          genre: l.genre,
-          subgenre: l.subgenre,
-          location: {
-            country: l.city?.country?.name || '',
-            city: l.city?.name || '',
-          },
-          creator: {
-            id: l.creator?.id,
-            name: l.creator?.name,
-          },
-          likeCount: l.likeCount,
-          placeCount: l.placeCount,
-          // Add isLikedByUser field if userId was provided
-          ...(userId ? { isLikedByUser: l.likes && l.likes.length > 0 } : {})
-        }));
+        return rows.map(l => {
+          // Check if creator has local expertise in this list's city
+          const listCityId = l.city?.id;
+          const creatorExpertise = l.creator?.locations?.find(loc => loc.city.id === listCityId);
+          
+          return {
+            id: l.id,
+            name: l.name,
+            description: l.description,
+            genre: l.genre,
+            subgenre: l.subgenre,
+            location: {
+              country: l.city?.country?.name || '',
+              city: l.city?.name || '',
+            },
+            creator: {
+              id: l.creator?.id,
+              name: l.creator?.name,
+              localExpertise: creatorExpertise ? {
+                status: creatorExpertise.status,
+                cityName: creatorExpertise.city.name,
+                countryName: creatorExpertise.city.country.name
+              } : null
+            },
+            likeCount: l.likeCount,
+            placeCount: l.placeCount,
+            // Add isLikedByUser field if userId was provided
+            ...(userId ? { isLikedByUser: l.likes && l.likes.length > 0 } : {})
+          };
+        });
   }
 
 async function getListById(listId, userId = null) {
@@ -189,7 +214,21 @@ async function getListById(listId, userId = null) {
     where: { id: listId },
     include: {
       city: { include: { country: true } },
-      creator: { select: { id: true, name: true } },
+      creator: { 
+        select: { 
+          id: true, 
+          name: true,
+          locations: {
+            include: {
+              city: {
+                include: {
+                  country: true
+                }
+              }
+            }
+          }
+        } 
+      },
       places: { orderBy: { order: 'asc' }, include: { place: true } },
       // Include likes if userId is provided to check if user liked this list
       ...(userId ? {
@@ -204,6 +243,19 @@ async function getListById(listId, userId = null) {
     const err = new Error('List not found');
     err.status = 404;
     throw err;
+  }
+
+  // Check if creator has local expertise in this list's city
+  const listCityId = list.city?.id;
+  const creatorExpertise = list.creator?.locations?.find(loc => loc.city.id === listCityId);
+  
+  // Add local expertise information to creator
+  if (list.creator) {
+    list.creator.localExpertise = creatorExpertise ? {
+      status: creatorExpertise.status,
+      cityName: creatorExpertise.city.name,
+      countryName: creatorExpertise.city.country.name
+    } : null;
   }
 
   // Add isLikedByUser field if userId was provided

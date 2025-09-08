@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-import { HeartIcon, QueueListIcon, MapIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, QueueListIcon, MapIcon } from "@heroicons/react/24/outline";
 import LikeButton from "../../../components/ui/LikeButton";
+import LocalExpertiseBadge from "../../../components/ui/LocalExpertiseBadge";
 import { likeList, unlikeList } from "../../../utils/apiCall";
 
 export const ListCard = ({ list, onSelectList }) => {
@@ -70,18 +71,12 @@ export const ListCard = ({ list, onSelectList }) => {
 
                     {/* Right side - Creator */}
                     <div className="flex items-center gap-2">
-                        <div className="relative w-7 h-7 rounded-full overflow-hidden ring-1 ring-gray-200">
-                            {list.creator?.avatar ? (
-                                <Image 
-                                    src={list.creator.avatar} 
-                                    alt="Creator avatar" 
-                                    fill={true}
-                                    className="object-cover"
-                                />
-                            ) : (
-                                <UserCircleIcon className="w-full h-full text-gray-400" />
-                            )}
-                        </div>
+                        {list.creator?.localExpertise && (
+                            <LocalExpertiseBadge 
+                                expertise={list.creator.localExpertise}
+                                size="sm"
+                            />
+                        )}
                         {list.creator?.name && (
                             <span className="text-sm text-gray-600 font-medium">
                                 {list.creator.name}
