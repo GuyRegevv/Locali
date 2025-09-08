@@ -19,8 +19,8 @@ A community-driven platform where locals share curated lists of their favorite p
 
 ## 🛠️ Tech Stack
 
-**Frontend:** Next.js 15, React 19, Tailwind CSS, Framer Motion  
-**Backend:** Express.js, Prisma, PostgreSQL, JWT  
+**Frontend:** Next.js 15, React 19, Tailwind CSS
+**Backend:** Express.js, Prisma, PostgreSQ
 **APIs:** Google Places API, Google Maps API
 
 ## 🚀 Quick Start
